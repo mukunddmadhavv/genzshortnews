@@ -15,7 +15,7 @@ try {
  await page.getByRole('button',{name:'Enter studio'}).click();
  await page.getByRole('heading',{name:'Channels on your radar.'}).waitFor();
  await page.getByRole('button',{name:'Pause Neon Man Shorts',exact:true}).waitFor();
- await page.getByText('Webhook subscribed',{exact:true}).first().waitFor();
+ await page.getByText(/Verified · awaiting first notification|Receiving notifications/).first().waitFor();
  const dashboard=await(await page.request.get(config.origin+'/api/channels')).json();
  assert.equal(await page.locator('.stats > div').first().locator('strong').textContent(),String(dashboard.totals.fetched));
  await page.reload();await page.getByRole('heading',{name:'Channels on your radar.'}).waitFor();

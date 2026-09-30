@@ -3,7 +3,7 @@ import { Plus, Radio, Youtube, Download, ArrowUpRight, RefreshCw, Pause, Play, C
 import './channels.css';
 
 const date = value => value ? new Date(value).toLocaleString() : 'Not yet';
-const webhook = channel => !channel.enabled ? 'Paused' : channel.lease_expires_at && new Date(channel.lease_expires_at) > new Date() ? 'Webhook subscribed' : 'Subscription pending';
+const webhook = channel => !channel.enabled ? 'Paused' : channel.lease_expires_at && new Date(channel.lease_expires_at) > new Date() ? (channel.last_webhook_at ? 'Receiving notifications' : 'Verified · awaiting first notification') : 'Subscription pending';
 
 export function Channels({ api, open }) {
  const [data,setData]=useState(null),[error,setError]=useState(''),[url,setUrl]=useState(''),[busy,setBusy]=useState(''),[notice,setNotice]=useState('');
@@ -50,6 +50,9 @@ export function Channels({ api, open }) {
    <div className="source-channel-heading"><div className="source-channel-icon"><Youtube size={24}/></div><div><h3>{channel.title}</h3><a href={channel.channel_url} target="_blank" rel="noreferrer">View source channel <ArrowUpRight size={13}/></a></div><span className={`badge ${channel.enabled?'verified':'paused'}`}><i/>{channel.enabled?'watching':'paused'}</span></div>
    <div className="source-channel-counts"><div><strong>{channel.fetched}</strong><span>Shorts fetched</span></div><div><strong>{channel.in_progress}</strong><span>In production</span></div><div><strong>{channel.published}</strong><span>Published</span></div></div>
    <dl><div><dt>Delivery</dt><dd>{webhook(channel)}</dd></div><div><dt>Last feed check</dt><dd>{date(channel.last_poll_at)}</dd></div><div><dt>Last webhook</dt><dd>{date(channel.last_webhook_at)}</dd></div><div><dt>Watching since</dt><dd>{date(channel.started_at)}</dd></div></dl>
+   <p className="muted">{channel.webhook_count ?? 0} signed notifications · {channel.rejected_webhook_count ?? 0} rejected requests<br/>Callback test: {date(channel.last_probe_at)}</p>
+   {channel.subscription_error && <p className="error" role="alert">{channel.subscription_error}</p>}
+   {channel.last_webhook_error && <p className="error" role="alert">{channel.last_webhook_error}</p>}
    {channel.last_error && <p className="error" role="alert">{channel.last_error}</p>}
    {channel.needs_attention>0 && <p>{channel.needs_attention} session(s) need attention. Open the session to resume or retry.</p>}
    <button className="secondary" disabled={!!busy} onClick={()=>toggle(channel)} aria-label={`${channel.enabled?'Pause':'Resume'} ${channel.title}`}>{channel.enabled?<Pause size={15}/>:<Play size={15}/>} {channel.enabled?'Pause watcher':'Resume watcher'}</button>

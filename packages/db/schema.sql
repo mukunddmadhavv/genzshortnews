@@ -77,3 +77,9 @@ ALTER TABLE source_watches ADD COLUMN IF NOT EXISTS created_at timestamptz NOT N
 UPDATE source_watches SET title='Neon Man Shorts',channel_url='https://www.youtube.com/@NeonManShorts/shorts'
 WHERE channel_id='UCg48OIfYWyNrUAIM2CLeWLg' AND channel_url IS NULL;
 CREATE UNIQUE INDEX IF NOT EXISTS source_watch_callback ON source_watches(callback_token);
+ALTER TABLE source_watches ADD COLUMN IF NOT EXISTS last_verified_at timestamptz;
+ALTER TABLE source_watches ADD COLUMN IF NOT EXISTS last_probe_at timestamptz;
+ALTER TABLE source_watches ADD COLUMN IF NOT EXISTS webhook_count integer NOT NULL DEFAULT 0;
+ALTER TABLE source_watches ADD COLUMN IF NOT EXISTS rejected_webhook_count integer NOT NULL DEFAULT 0;
+ALTER TABLE source_watches ADD COLUMN IF NOT EXISTS last_webhook_error text;
+ALTER TABLE source_watches ADD COLUMN IF NOT EXISTS subscription_error text;

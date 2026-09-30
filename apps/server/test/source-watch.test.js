@@ -23,7 +23,7 @@ test('rejects malformed XML, entities, oversized payloads and other channel feed
 });
 test('webhooks require a valid HMAC over the exact raw bytes',()=>{
  const body=Buffer.from('<feed/>'),secret='test-only-secret';
- for(const algorithm of ['sha1','sha256']){
+ for(const algorithm of ['sha1','sha256','sha384','sha512']){
   const signature=`${algorithm}=${createHmac(algorithm,secret).update(body).digest('hex')}`;
   assert.equal(validSignature(body,signature,secret),true);
   assert.equal(validSignature(Buffer.from('<feed>changed</feed>'),signature,secret),false);

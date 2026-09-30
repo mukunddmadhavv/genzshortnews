@@ -7,7 +7,9 @@ import { config } from './config.js';
 export const SOURCE_CHANNEL = 'UCg48OIfYWyNrUAIM2CLeWLg';
 export const SOURCE_TOPIC = `https://www.youtube.com/feeds/videos.xml?channel_id=${SOURCE_CHANNEL}`;
 export const channelTopic = id => `https://www.youtube.com/feeds/videos.xml?channel_id=${id}`;
-const HUB = 'https://pubsubhubbub.appspot.com/subscribe';
+// Google's advertised protocol endpoint. /subscribe is also its manual UI.
+export const HUB = 'https://pubsubhubbub.appspot.com/';
+export const WEBHOOK_PROBE = '<genz-webhook-probe/>';
 const POLL_MS = 120000;
 const parser = new XMLParser({ignoreAttributes:false,parseTagValue:false,processEntities:false});
 let timer, current, stopping = false;
@@ -28,10 +30,10 @@ export function feedEntries(xml, channelId=SOURCE_CHANNEL) {
 }
 
 export function validSignature(body, signature, secret) {
- const match=/^(sha1|sha256)=([a-f0-9]+)$/.exec(signature || '');
+ const match=/^(sha1|sha256|sha384|sha512)=([a-f0-9]+)$/i.exec(signature || '');
  if(!match || !Buffer.isBuffer(body))return false;
  const expected=createHmac(match[1],secret).update(body).digest('hex');
- return expected.length===match[2].length && timingSafeEqual(Buffer.from(expected),Buffer.from(match[2]));
+ return expected.length===match[2].length && timingSafeEqual(Buffer.from(expected),Buffer.from(match[2].toLowerCase()));
 }
 
 export async function initializeSourceWatch() {
@@ -39,7 +41,7 @@ export async function initializeSourceWatch() {
 }
 
 export async function sourceWatchStatus(channelId=SOURCE_CHANNEL) {
- const {rows:[watch]}=await query(`SELECT channel_id,title,channel_url,enabled,started_at,last_poll_at,last_webhook_at,lease_expires_at,last_error FROM source_watches WHERE channel_id=$1`,[channelId]);
+ const {rows:[watch]}=await query(`SELECT channel_id,title,channel_url,enabled,started_at,last_poll_at,last_webhook_at,lease_expires_at,last_error,last_verified_at,last_probe_at,webhook_count,rejected_webhook_count,last_webhook_error,subscription_error FROM source_watches WHERE channel_id=$1`,[channelId]);
  if(!watch)throw Object.assign(new Error('Channel not found.'),{status:404});
  const {rows:recent}=await query(`SELECT v.video_id,v.session_id,v.published_at,s.status,s.opencode_session_id,
  (SELECT youtube_id FROM publications p WHERE p.session_id=s.id AND p.status='published' ORDER BY created_at DESC LIMIT 1) AS youtube_id,
@@ -49,7 +51,7 @@ export async function sourceWatchStatus(channelId=SOURCE_CHANNEL) {
 }
 
 export async function channelDashboard() {
- const {rows:channels}=await query(`SELECT w.channel_id,w.title,w.channel_url,w.enabled,w.started_at,w.last_poll_at,w.last_webhook_at,w.lease_expires_at,w.last_error,
+ const {rows:channels}=await query(`SELECT w.channel_id,w.title,w.channel_url,w.enabled,w.started_at,w.last_poll_at,w.last_webhook_at,w.lease_expires_at,w.last_error,w.last_verified_at,w.last_probe_at,w.webhook_count,w.rejected_webhook_count,w.last_webhook_error,w.subscription_error,
  count(v.video_id)::int AS fetched,
  count(v.video_id) FILTER (WHERE v.created_at>=now()-interval '24 hours')::int AS fetched_today,
  count(v.video_id) FILTER (WHERE s.status IN ('queued','generating','publishing'))::int AS in_progress,
@@ -134,20 +136,23 @@ export async function ingestEntries(entries,channelId=SOURCE_CHANNEL) {
 }
 
 async function syncFeed(channelId) {
- const response=await fetch(channelTopic(channelId),{signal:AbortSignal.timeout(20000)});
+ const started=new Date();
+ // Keep the subscription topic exact; only polling requests bypass shared URL caches.
+ const url=new URL(channelTopic(channelId));url.searchParams.set('_',String(started.getTime()));
+ const response=await fetch(url,{signal:AbortSignal.timeout(20000),headers:{'Cache-Control':'no-cache','Pragma':'no-cache'}});
  if(!response.ok)throw new Error(`YouTube feed HTTP ${response.status}`);
  // Only the channel's freshly fetched feed can enqueue work, never webhook-supplied URLs/titles.
  await ingestEntries(feedEntries(await response.text(),channelId),channelId);
- await query('UPDATE source_watches SET last_poll_at=now(),last_error=NULL WHERE channel_id=$1',[channelId]);
+ await query('UPDATE source_watches SET last_poll_at=$2,last_error=NULL WHERE channel_id=$1',[channelId,started]);
 }
 
-async function subscribe(watch) {
+export async function subscribe(watch) {
  const origin=new URL(config.origin);
  if(origin.protocol!=='https:')throw new Error('Webhook requires an HTTPS DASHBOARD_ORIGIN; feed polling remains active.');
  await query("UPDATE source_watches SET next_subscribe_at=now()+interval '10 minutes' WHERE channel_id=$1",[watch.channel_id]);
  const response=await fetch(HUB,{method:'POST',signal:AbortSignal.timeout(20000),body:new URLSearchParams({
   'hub.mode':'subscribe','hub.topic':channelTopic(watch.channel_id),'hub.callback':`${origin.origin}/webhooks/youtube/${watch.callback_token}`,
-  'hub.verify':'async','hub.secret':watch.hub_secret,'hub.lease_seconds':'864000'
+  'hub.secret':watch.hub_secret,'hub.lease_seconds':'864000'
  })});
  if(!response.ok)throw new Error(`YouTube hub HTTP ${response.status}`);
 }
@@ -158,12 +163,17 @@ async function tick() {
   if(stopping)break;
   try{
    const force=pending.delete(watch.channel_id);
-   if(force || !watch.last_poll_at || Date.now()-watch.last_poll_at.getTime()>=POLL_MS)await syncFeed(watch.channel_id);
-   if((!watch.lease_expires_at || watch.lease_expires_at.getTime()-Date.now()<86400000) && (!watch.next_subscribe_at || watch.next_subscribe_at<=new Date()))await subscribe(watch);
+   // Receipt persists before HTTP acknowledgement. Compare with fetch START time so
+   // notifications arriving during a slow fetch remain pending, including on restart.
+   if(force || !watch.last_poll_at || watch.last_webhook_at>watch.last_poll_at || Date.now()-watch.last_poll_at.getTime()>=POLL_MS)await syncFeed(watch.channel_id);
   }catch(error){
    const message=String(error.message).replace(/https?:\/\/\S+/g,'[url]').slice(0,500);
    console.error('Source watcher:',watch.channel_id,message);
    await query('UPDATE source_watches SET last_error=$2 WHERE channel_id=$1',[watch.channel_id,message]);
+  }
+  // A feed failure must not prevent subscription renewal (and vice versa).
+  if((!watch.lease_expires_at || watch.lease_expires_at.getTime()-Date.now()<86400000) && (!watch.next_subscribe_at || watch.next_subscribe_at<=new Date())){
+   try{await subscribe(watch);}catch(error){await query('UPDATE source_watches SET subscription_error=$2 WHERE channel_id=$1',[watch.channel_id,String(error.message).replace(/https?:\/\/\S+/g,'[url]').slice(0,500)]);}
   }
  }
 }
@@ -184,20 +194,33 @@ export async function stopSourceWatch(){stopping=true;clearInterval(timer);await
 
 export function sourceWebhookRouter() {
  const router=express.Router();
+ router.use((req,res,next)=>{res.set('X-Content-Type-Options','nosniff');res.set('Cache-Control','no-store');next();});
  router.use('/:token',async(req,res,next)=>{
    const {rows:[watch]}=await query('SELECT * FROM source_watches WHERE callback_token=$1',[req.params.token]);
    if(!watch?.enabled)return res.sendStatus(404);
   req.sourceWatch=watch;next();
  });
- router.get('/:token',async(req,res)=>{
-  const q=req.query,lease=Number(q['hub.lease_seconds']);
+  router.get('/:token',async(req,res)=>{
+   const q=req.query,lease=Number(q['hub.lease_seconds']);
+   if(q['hub.mode']==='denied' && q['hub.topic']===channelTopic(req.sourceWatch.channel_id)){
+    await query("UPDATE source_watches SET subscription_error='Google hub denied this subscription',lease_expires_at=NULL WHERE channel_id=$1",[req.sourceWatch.channel_id]);
+    return res.sendStatus(204);
+   }
    if(q['hub.mode']!=='subscribe' || q['hub.topic']!==channelTopic(req.sourceWatch.channel_id) || typeof q['hub.challenge']!=='string' || q['hub.challenge'].length>1024 || !Number.isInteger(lease) || lease<=0 || lease>31536000)return res.sendStatus(400);
-   await query("UPDATE source_watches SET lease_expires_at=now()+($2 * interval '1 second'),last_error=NULL WHERE channel_id=$1",[req.sourceWatch.channel_id,lease]);
+    await query("UPDATE source_watches SET lease_expires_at=now()+($2 * interval '1 second'),last_verified_at=now(),subscription_error=NULL WHERE channel_id=$1",[req.sourceWatch.channel_id,lease]);
   res.type('text/plain').send(q['hub.challenge']);
  });
  router.post('/:token',express.raw({type:()=>true,limit:'1mb'}),async(req,res)=>{
-  if(!validSignature(req.body,req.get('x-hub-signature'),req.sourceWatch.hub_secret))return res.sendStatus(401);
-   await query('UPDATE source_watches SET last_webhook_at=now() WHERE channel_id=$1',[req.sourceWatch.channel_id]);
+   if(!validSignature(req.body,req.get('x-hub-signature'),req.sourceWatch.hub_secret)){
+    await query("UPDATE source_watches SET rejected_webhook_count=rejected_webhook_count+1,last_webhook_error='Missing or invalid X-Hub-Signature' WHERE channel_id=$1",[req.sourceWatch.channel_id]);
+    // PubSubHubbub 0.4 §8: acknowledge invalid signatures but locally ignore them.
+    return res.sendStatus(204);
+   }
+   if(req.body.toString('utf8')===WEBHOOK_PROBE){
+    await query('UPDATE source_watches SET last_probe_at=now() WHERE channel_id=$1',[req.sourceWatch.channel_id]);
+    return res.sendStatus(204);
+   }
+    await query('UPDATE source_watches SET last_webhook_at=now(),webhook_count=webhook_count+1,last_webhook_error=NULL WHERE channel_id=$1',[req.sourceWatch.channel_id]);
   res.sendStatus(202);
    void wakeSourceWatch(true,req.sourceWatch.channel_id);
  });

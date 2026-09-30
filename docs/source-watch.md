@@ -72,3 +72,27 @@ feed retains requires manual recovery of the missed URLs.
 Back up `source_watches` and `source_videos` together with the existing database.
 Restart `genz-studio` after deploying server code; no OpenCode configuration change
 is needed. New sessions already load `.skills/` through the existing config.
+
+## Webhook diagnostics
+
+Official YouTube documentation: https://developers.google.com/youtube/v3/guides/push_notifications
+Google's hub and protocol: https://pubsubhubbub.appspot.com/ and
+https://pubsubhubbub.github.io/PubSubHubbub/pubsubhubbub-core-0.4.html
+
+Subscription POSTs use `https://pubsubhubbub.appspot.com/`, form encoding, an exact
+`https://www.youtube.com/feeds/videos.xml?channel_id=UC…` topic, and the HTTPS
+`/webhooks/youtube/<private token>` callback. The channel's /shorts page is not the topic.
+Verification (GET challenge) proves reachability, not upload-event delivery.
+The dashboard reports verification and received notifications separately.
+
+Run `node scripts/webhook_doctor.mjs status` to inspect Google's per-subscription
+delivery diagnostics without exposing secrets. `probe` sends a signed test over
+public HTTPS; it records a separate test timestamp and never queues a video or
+increments notification counts. `renew` requests fresh Google verification.
+
+Notification receipts are saved before acknowledgement. Pending feed checks survive
+restarts. Invalid signatures are ignored and counted, with a 204 acknowledgement as
+specified by PubSubHubbub 0.4 §8. Feed fetch and subscription errors are separate.
+Polling uses a cache-busting query and revalidation headers; the subscribed topic
+never includes that query. This reduces shared-cache staleness but cannot guarantee
+YouTube publishes its feed or sends its hub notification immediately.

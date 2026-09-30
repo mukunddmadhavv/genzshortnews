@@ -4,7 +4,7 @@ import express from 'express';
 import { createHmac } from 'node:crypto';
 import { pool, query } from '@genz/db';
 import { migrate } from '../../../packages/db/migrate.js';
-import { initializeSourceWatch, setSourceWatchEnabled, ingestEntries, sourceWatchStatus, sourceWebhookRouter, stopSourceWatch, SOURCE_CHANNEL, SOURCE_TOPIC, channelDashboard, addSourceChannel, channelTopic } from '../src/source-watch.js';
+import { initializeSourceWatch, setSourceWatchEnabled, ingestEntries, sourceWatchStatus, sourceWebhookRouter, stopSourceWatch, SOURCE_CHANNEL, SOURCE_TOPIC, channelDashboard, addSourceChannel, channelTopic, WEBHOOK_PROBE } from '../src/source-watch.js';
 
 await migrate();await initializeSourceWatch();
 const entry={id:'abcdefghijk',published:new Date(),isShort:true,title:'Test Short',url:'https://www.youtube.com/shorts/abcdefghijk'};
@@ -57,9 +57,16 @@ try {
  challenge.set('hub.topic','https://wrong.example');
  assert.equal((await realFetch(base+watch.callback_token+'?'+challenge)).status,400);
  const body='<feed>untrusted notification is never ingested</feed>';
- assert.equal((await realFetch(base+watch.callback_token,{method:'POST',body})).status,401);
+ assert.equal((await realFetch(base+watch.callback_token,{method:'POST',body})).status,204);
+ assert.equal((await sourceWatchStatus()).rejected_webhook_count,1);
+ assert.equal((await sourceWatchStatus()).last_webhook_at,null);
+ const probeSignature='sha1='+createHmac('sha1',watch.hub_secret).update(WEBHOOK_PROBE).digest('hex');
+ assert.equal((await realFetch(base+watch.callback_token,{method:'POST',body:WEBHOOK_PROBE,headers:{'X-Hub-Signature':probeSignature}})).status,204);
+ assert.ok((await sourceWatchStatus()).last_probe_at);
+ assert.equal((await sourceWatchStatus()).webhook_count,0,'Probes do not count as Google notifications');
  const signature='sha1='+createHmac('sha1',watch.hub_secret).update(body).digest('hex');
- assert.equal((await realFetch(base+second.callback_token,{method:'POST',body,headers:{'X-Hub-Signature':signature}})).status,401,'One channel cannot sign another channel webhook');
+ assert.equal((await realFetch(base+second.callback_token,{method:'POST',body,headers:{'X-Hub-Signature':signature}})).status,204);
+ assert.equal((await sourceWatchStatus(other)).last_webhook_at,null,'One channel cannot sign another channel webhook');
  challenge.set('hub.topic',channelTopic(other));
  assert.equal((await realFetch(base+second.callback_token+'?'+challenge)).status,200);
  assert.ok((await sourceWatchStatus(other)).lease_expires_at>new Date());
