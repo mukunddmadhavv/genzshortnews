@@ -9,6 +9,11 @@ export const config = {
  opencode: process.env.OPENCODE_BIN || 'opencode',
  python: process.env.YOUTUBE_PYTHON || path.join(root, '.venv/bin/python'),
  tokenFile: process.env.YOUTUBE_TOKEN_FILE || path.join(root, '.secrets/youtube-genzshotnews-token.json'),
- channelHandle: '@genzshotnews', data: process.env.MEDIA_ROOT || path.join(root, 'data'),
- maxJobMs: Number(process.env.GENERATION_TIMEOUT_MS || 90 * 60 * 1000)
+  channelHandle: '@genzshotnews', data: process.env.MEDIA_ROOT || path.join(root, 'data'),
+  maxJobMs: Number(process.env.GENERATION_TIMEOUT_MS || 90 * 60 * 1000),
+  instagramAppId: process.env.INSTAGRAM_APP_ID || '1736345594332140',
+  instagramAppSecret: process.env.INSTAGRAM_APP_SECRET || '59ae7b5b3662810ec883abb048e6aa94',
+  instagramToken: process.env.INSTAGRAM_API_TOKEN || process.env.INSTAGRAM_ACCESS_TOKEN || '',
+  supabaseUrl: process.env.SUPABASE_URL || '',
+  supabaseServiceRoleKey: process.env.SUPABASE_SERVICE_ROLE_KEY || ''
 };

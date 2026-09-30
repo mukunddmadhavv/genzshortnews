@@ -18,6 +18,7 @@ import {
   LogOut,
   Clapperboard,
   Youtube,
+  Instagram,
   Link,
   FileText,
   LoaderCircle,
@@ -81,7 +82,7 @@ function App() {
   const fail = (e) => setError(e.message);
   const setPage = (value) => {
     updatePage(value);
-    window.history.pushState({}, "", value === "channel" ? "/channel" : value === "settings" ? "/connections" : "/sessions");
+    window.history.pushState({}, "", value === "channel" ? (window.location.pathname === "/channels" ? "/channels" : "/channel") : value === "settings" ? "/connections" : "/sessions");
   };
   useEffect(() => {
     const pop = () => { updatePage(["/channel","/channels"].includes(window.location.pathname) ? "channel" : window.location.pathname === "/connections" ? "settings" : "sessions"); setSelected(null); };
@@ -491,7 +492,8 @@ function NewSession({ close, create, busy }) {
   const [title, setTitle] = useState(""),
     [input, setInput] = useState(""),
     [autoPublish, setAuto] = useState(false),
-    [privacy, setPrivacy] = useState("private");
+    [publishTarget, setPublishTarget] = useState("both"),
+    [privacy, setPrivacy] = useState("public");
   return (
     <div className="overlay" onClick={close}>
       <form
@@ -499,7 +501,7 @@ function NewSession({ close, create, busy }) {
         onClick={(e) => e.stopPropagation()}
         onSubmit={(e) => {
           e.preventDefault();
-          create({ title, input, autoPublish, privacy });
+          create({ title, input, autoPublish, publishTarget, privacy });
         }}
       >
         <div className="modal-heading">
@@ -540,24 +542,35 @@ function NewSession({ close, create, busy }) {
           <span>35–55 seconds</span>
           <span>Approved voice</span>
         </div>
+        <label>
+          Publishing destination
+          <select
+            value={publishTarget}
+            onChange={(e) => setPublishTarget(e.target.value)}
+          >
+            <option value="both">Both (YouTube & Instagram Reels)</option>
+            <option value="instagram">Instagram Reel only</option>
+            <option value="youtube">YouTube Short only</option>
+          </select>
+        </label>
         <label className="check-label">
           <input
             type="checkbox"
             checked={autoPublish}
             onChange={(e) => setAuto(e.target.checked)}
           />
-          Automatically upload after a successful render
+          Automatically publish after a successful render
         </label>
-        {autoPublish && (
+        {autoPublish && (publishTarget === "both" || publishTarget === "youtube") && (
           <label>
             YouTube visibility
             <select
               value={privacy}
               onChange={(e) => setPrivacy(e.target.value)}
             >
-              <option value="private">Private</option>
-              <option value="unlisted">Unlisted</option>
               <option value="public">Public</option>
+              <option value="unlisted">Unlisted</option>
+              <option value="private">Private</option>
             </select>
           </label>
         )}
@@ -689,34 +702,111 @@ function Session({ session: s, back, action, busy, refresh }) {
                 className="primary full"
                 disabled={busy || !!active || !!publication || !current.metadata.publishingCopyReady}
                 onClick={() => action(async () => {
-                  await api(`/sessions/${s.id}/publish`, {artifactId:current.id});
+                  await api(`/sessions/${s.id}/publish`, {artifactId:current.id, platform: 'both'});
                   await refresh();
                 })}
               >
-                <Youtube size={18} />
                 {publication?.status === "published"
-                  ? "Uploaded to YouTube"
+                  ? "Published"
                   : publication
-                    ? "Upload already created"
-                    : "Post to YouTube"}
+                    ? "Publishing queued"
+                    : "Publish to Both (YouTube & Instagram)"}
               </button>
-              <p className="muted small">One click · public upload to @genzshotnews · caption, description and hashtags included.</p>
-              {current.metadata.publishingCopyReady ? <section className="publishing-copy"><h2>YouTube publishing copy</h2><label>Caption / title</label><p>{current.metadata.title}</p><label>Description</label><p className="copy-description">{current.metadata.description}</p><label>Hashtags</label><div className="format-chips">{current.metadata.hashtags?.map(tag=><span key={tag}>{tag}</span>)}</div></section> : <section className="publishing-copy"><h2>Publishing copy pending</h2><p className="muted small">Caption, description and hashtags must be ready before posting. New videos include them during generation.</p><button className="secondary" disabled={busy || !!active} onClick={()=>action(async()=>{await api(`/sessions/${s.id}/prepare-copy`,{artifactId:current.id});await refresh();})}>Prepare copy for this older video</button></section>}
+              {!publication && current.metadata.publishingCopyReady && (
+                <div style={{display: 'flex', gap: 8, marginTop: 8}}>
+                  <button
+                    className="secondary"
+                    style={{flex: 1, fontSize: 12, padding: '8px 10px'}}
+                    disabled={busy || !!active}
+                    onClick={() => action(async () => {
+                      await api(`/sessions/${s.id}/publish`, {artifactId:current.id, platform: 'instagram'});
+                      await refresh();
+                    })}
+                  >
+                    <Instagram size={14} style={{verticalAlign: '-2px', marginRight: 4}} />
+                    Post to Instagram
+                  </button>
+                  <button
+                    className="secondary"
+                    style={{flex: 1, fontSize: 12, padding: '8px 10px'}}
+                    disabled={busy || !!active}
+                    onClick={() => action(async () => {
+                      await api(`/sessions/${s.id}/publish`, {artifactId:current.id, platform: 'youtube'});
+                      await refresh();
+                    })}
+                  >
+                    <Youtube size={14} style={{verticalAlign: '-2px', marginRight: 4}} />
+                    Post to YouTube
+                  </button>
+                </div>
+              )}
+              <p className="muted small">Publishing options: Both platforms, Instagram Reel only, or YouTube Short only.</p>
+              {current.metadata.publishingCopyReady ? (
+                <>
+                  <section className="publishing-copy">
+                    <h2><Youtube size={16} style={{verticalAlign: '-2px', marginRight: 6}} />YouTube publishing copy</h2>
+                    <label>Caption / title</label>
+                    <p>{current.metadata.title}</p>
+                    <label>Description</label>
+                    <p className="copy-description">{current.metadata.description}</p>
+                    <label>Hashtags</label>
+                    <div className="format-chips">
+                      {current.metadata.hashtags?.map(tag => <span key={tag}>{tag}</span>)}
+                    </div>
+                  </section>
+
+                  <section className="publishing-copy" style={{marginTop: 14}}>
+                    <h2><Instagram size={16} style={{verticalAlign: '-2px', marginRight: 6}} />Instagram Reel copy</h2>
+                    <label>Hook / Caption</label>
+                    <p>{current.metadata.instagram?.caption || current.metadata.instagram_caption || current.metadata.caption}</p>
+                    <label>Description</label>
+                    <p className="copy-description">{current.metadata.instagram?.description || current.metadata.instagram_description || current.metadata.description}</p>
+                    <label>Hashtags</label>
+                    <div className="format-chips">
+                      {(current.metadata.instagram?.hashtags || ['#reels', '#reelsindia', '#genzshortnews']).map(tag => <span key={tag}>{tag}</span>)}
+                    </div>
+                    {(current.metadata.instagram?.fullCaption) && (
+                      <>
+                        <label>Full Reel Caption</label>
+                        <p className="copy-description" style={{fontSize: 11, background: 'rgba(0,0,0,0.02)', padding: '8px 10px', borderRadius: 6}}>{current.metadata.instagram.fullCaption}</p>
+                      </>
+                    )}
+                  </section>
+                </>
+              ) : (
+                <section className="publishing-copy">
+                  <h2>Publishing copy pending</h2>
+                  <p className="muted small">YouTube and Instagram caption, description and hashtags must be ready before posting. New videos include them during generation.</p>
+                  <button className="secondary" disabled={busy || !!active} onClick={()=>action(async()=>{await api(`/sessions/${s.id}/prepare-copy`,{artifactId:current.id});await refresh();})}>Prepare copy for this older video</button>
+                </section>
+              )}
               <p className="muted small">Not made for kids. Comments follow your YouTube channel defaults.</p>
               {!publication && current.metadata.publishingCopyReady && <button className="text-button" disabled={busy || !!active} onClick={()=>setPublish(true)}>Edit publishing options</button>}
               {publication && (
-                <div className="publication">
+                <div className="publication" style={{flexWrap: 'wrap', gap: 10}}>
                   <Badge status={publication.status} />
-                  {publication.youtube_id ? (
+                  {publication.youtube_id && (
                     <a
                       href={`https://youtu.be/${publication.youtube_id}`}
                       target="_blank"
                       rel="noreferrer"
                     >
-                      Open video <ArrowUpRight size={14} />
+                      <Youtube size={14} style={{verticalAlign: '-2px', marginRight: 4}} />
+                      YouTube <ArrowUpRight size={13} />
                     </a>
-                  ) : (
-                    <span>{publication.error}</span>
+                  )}
+                  {(publication.instagram_url || publication.instagram_media_id) && (
+                    <a
+                      href={publication.instagram_url || `https://www.instagram.com/reel/${publication.instagram_media_id}/`}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <Instagram size={14} style={{verticalAlign: '-2px', marginRight: 4}} />
+                      Instagram Reel <ArrowUpRight size={13} />
+                    </a>
+                  )}
+                  {publication.error && (
+                    <span style={{color: 'var(--red, #e53935)'}}>{publication.error}</span>
                   )}
                   {publication.status === "failed" && (
                     <button
@@ -907,11 +997,15 @@ function Session({ session: s, back, action, busy, refresh }) {
   );
 }
 function Publish({ artifact, busy, close, submit }) {
-  const [title, setTitle] = useState(artifact.metadata.title || ""),
+  const [platform, setPlatform] = useState("both"),
+    [title, setTitle] = useState(artifact.metadata.title || ""),
     [description, setDescription] = useState(
       artifact.metadata.description || "",
     ),
-    [privacy, setPrivacy] = useState("private"),
+    [instagramCaption, setInstagramCaption] = useState(
+      artifact.metadata.instagram?.fullCaption || artifact.metadata.instagram_caption || ""
+    ),
+    [privacy, setPrivacy] = useState("public"),
     [madeForKids, setKids] = useState(false);
   return (
     <div className="overlay">
@@ -921,61 +1015,89 @@ function Publish({ artifact, busy, close, submit }) {
           e.preventDefault();
           submit({
             artifactId: artifact.id,
+            platform,
             title,
             description,
+            instagramCaption,
             privacy,
             madeForKids,
           });
         }}
       >
         <div className="modal-heading">
-          <p className="eyebrow">YOUTUBE · @GENZSHOTNEWS</p>
+          <p className="eyebrow">PUBLISHING OPTIONS</p>
           <button type="button" className="icon" onClick={close}>
             <X />
           </button>
         </div>
         <h2>Ready for the world?</h2>
         <label>
-          Video title
-          <input
-            maxLength={100}
-            required
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-          />
-        </label>
-        <label>
-          Description
-          <textarea
-            rows={5}
-            maxLength={5000}
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-          />
-        </label>
-        <label>
-          Visibility
-          <select value={privacy} onChange={(e) => setPrivacy(e.target.value)}>
-            {["private", "unlisted", "public"].map((p) => (
-              <option key={p}>{p}</option>
-            ))}
+          Publishing destination
+          <select value={platform} onChange={(e) => setPlatform(e.target.value)}>
+            <option value="both">Both platforms (YouTube Shorts & Instagram Reels)</option>
+            <option value="instagram">Instagram Reel only</option>
+            <option value="youtube">YouTube Short only</option>
           </select>
         </label>
-        <label className="check-label">
-          <input
-            type="checkbox"
-            checked={madeForKids}
-            onChange={(e) => setKids(e.target.checked)}
-          />
-          This video is made for kids
-        </label>
+        {["both", "youtube"].includes(platform) && (
+          <>
+            <label>
+              YouTube title
+              <input
+                maxLength={100}
+                required
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+              />
+            </label>
+            <label>
+              YouTube description
+              <textarea
+                rows={4}
+                maxLength={5000}
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+              />
+            </label>
+            <label>
+              YouTube visibility
+              <select value={privacy} onChange={(e) => setPrivacy(e.target.value)}>
+                {["public", "unlisted", "private"].map((p) => (
+                  <option key={p} value={p}>{p}</option>
+                ))}
+              </select>
+            </label>
+            <label className="check-label">
+              <input
+                type="checkbox"
+                checked={madeForKids}
+                onChange={(e) => setKids(e.target.checked)}
+              />
+              This video is made for kids
+            </label>
+          </>
+        )}
+        {["both", "instagram"].includes(platform) && (
+          <label>
+            Instagram Reel caption
+            <textarea
+              rows={4}
+              maxLength={2200}
+              value={instagramCaption}
+              onChange={(e) => setInstagramCaption(e.target.value)}
+              placeholder="Full caption for Instagram Reel with hook, description & hashtags..."
+            />
+          </label>
+        )}
         <p className="muted small">
-          YouTube may restrict unaudited API projects to private uploads. The
-          actual visibility is recorded after upload.
+          {platform === "both"
+            ? "Uploads to YouTube (@genzshotnews) and Instagram Reels (@genzshortnews)."
+            : platform === "instagram"
+              ? "Uploads to Instagram Reels (@genzshortnews) via Graph API."
+              : "Uploads to YouTube Shorts (@genzshotnews)."}
         </p>
         <button className="primary full" disabled={busy}>
-          <Youtube size={18} />
-          Upload video
+          {platform === "both" ? "Publish to Both (YouTube & Instagram)" : platform === "instagram" ? "Publish to Instagram Reel" : "Publish to YouTube Short"}
         </button>
       </form>
     </div>

@@ -8,6 +8,10 @@ if(args.includes('--token-file')) {
  console.log(JSON.stringify({type:'published',youtubeId:'test-video-id',channelId:'test-channel',privacy:spec.privacy}));
  process.exit(0);
 }
+if(args.includes('--video') || args.includes('--caption')) {
+ console.log(JSON.stringify({type:'published',platform:'instagram',instagramMediaId:'test-ig-media-id',mediaId:'test-ig-media-id'}));
+ process.exit(0);
+}
 const prompt=args.at(-1);
 if(prompt.startsWith('Create YouTube publishing copy')) {
  const file=prompt.match(/Write only (.+) with JSON/)[1];

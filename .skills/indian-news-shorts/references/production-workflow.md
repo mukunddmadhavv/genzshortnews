@@ -39,13 +39,17 @@ New ideation means original explanation and useful context, not invented facts.
 
 ## 2. Episode package
 
-Every episode must include ready-to-post caption/title, description and hashtags.
-Read `youtube-publishing.md` during generation, not only when uploading. Always
-include #shorts and #genzshortnews plus 3–6 relevant topic tags; write the copy
-from the final script and verified sources and update it for story-changing edits.
-Persist this copy before marking generation complete. Show caption/title, full
-description and hashtags openly in the dashboard; publication only consumes the
-saved copy and must not generate it on click.
+Every episode must include ready-to-post copy for both YouTube Shorts and Instagram Reels.
+Read `youtube-publishing.md` and `instagram-publishing.md` during generation, not only
+when uploading. Always include #shorts and #genzshortnews plus 3–6 relevant topic tags for
+YouTube, and write separate dedicated Instagram Reel copy: hook caption, context
+description, brand CTA `Follow GENZ SHORT NEWS for more!`, and Instagram tags
+(#reels, #reelsindia, #genzshortnews). Write the copy from the final script and
+verified sources and update it for story-changing edits.
+Persist both packages before marking generation complete. The same video must be
+posted to Instagram using the credentials (App ID: 1736345594332140, App Secret: 59ae7b5b3662810ec883abb048e6aa94)
+following the `/home/mukund/insta` faststart remux and Supabase public storage container pipeline.
+Show copy openly in the dashboard; publication only consumes saved copy and must not generate it on click.
 
 Create `episodes/<date>-<slug>/` with:
 
@@ -61,16 +65,16 @@ news-panel.mp4        # editorial timeline, no audio required
 sfx-cues.json         # optional array of placed effect files/times/gains
 render-manifest.json  # measured duration and final asset choices
 final.mp4
-publishing-copy.json   # caption/title, complete description, required + relevant hashtags
+publishing-copy.json   # YouTube & Instagram copy (separate caption, description, hashtags)
 dashboard-result.json  # final video, same publishing fields, summary and actual checks
 ```
 
 `templates/episode.json` is a planning template. `render_short.py` receives
 explicit CLI inputs and does not auto-research or render this planning JSON.
 The web dashboard queues skill-driven generation and stores resumable OpenCode
-session IDs. Its Post to YouTube button uses the generated publishing package;
+session IDs. Its publishing controls use the generated publishing package;
 explicitly enabled automatic-upload sessions publish after a successful render.
-See `youtube-publishing.md` for the handoff and comment-setting limitations.
+See `youtube-publishing.md` and `instagram-publishing.md` for handoff and specifications.
 
 ## 3. Script-to-visual mapping
 

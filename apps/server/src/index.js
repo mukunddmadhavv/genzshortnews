@@ -12,7 +12,7 @@ import { initAuth, issueCookie, verifyPassword, requireAuth, sameOrigin, authent
 import { safeFile, contained } from './files.js';
 import { startWorker, stopWorker, cancelActive, event } from './worker.js';
 import { execute } from './process.js';
-import { initializeSourceWatch, sourceWebhookRouter, sourceWatchStatus, setSourceWatchEnabled, startSourceWatch, stopSourceWatch, wakeSourceWatch, channelDashboard, addSourceChannel } from './source-watch.js';
+import { initializeSourceWatch, sourceWebhookRouter, sourceWatchStatus, setSourceWatchEnabled, startSourceWatch, stopSourceWatch, wakeSourceWatch, channelDashboard, addSourceChannel, deleteSourceChannel } from './source-watch.js';
 
 const app=express();
 app.disable('x-powered-by');
@@ -49,6 +49,10 @@ app.patch('/api/channels/:id',async(req,res)=>{
  res.json(await setSourceWatchEnabled(enabled,id));
  void wakeSourceWatch();
 });
+app.delete('/api/channels/:id',async(req,res)=>{
+ const id=z.string().regex(/^UC[\w-]{22}$/).parse(req.params.id);
+ res.json(await deleteSourceChannel(id));
+});
 app.get('/api/source-watch',async(req,res)=>res.json(await sourceWatchStatus()));
 app.post('/api/source-watch',async(req,res)=>{
  const {enabled}=z.object({enabled:z.boolean()}).parse(req.body);
@@ -57,10 +61,13 @@ app.post('/api/source-watch',async(req,res)=>{
 });
 const uuid=z.string().uuid();
 const privacy=z.enum(['private','unlisted','public']);
-const sessionInput=z.object({input:z.string().trim().min(5).max(10000),title:z.string().trim().min(1).max(120),autoPublish:z.boolean().default(false),privacy:privacy.default('private')});
+const publishTarget=z.enum(['both','youtube','instagram']).default('both');
+const sessionInput=z.object({input:z.string().trim().min(5).max(10000),title:z.string().trim().min(1).max(120),autoPublish:z.boolean().default(false),publishTarget:publishTarget,privacy:privacy.default('private')});
 app.get('/api/sessions',async(req,res)=>{
  const {rows}=await query(`SELECT s.*, (SELECT count(*)::int FROM artifacts a WHERE a.session_id=s.id AND a.kind='final') AS revisions,
- (SELECT youtube_id FROM publications p WHERE p.session_id=s.id AND p.status='published' ORDER BY created_at DESC LIMIT 1) AS youtube_id
+ (SELECT youtube_id FROM publications p WHERE p.session_id=s.id AND p.status='published' ORDER BY created_at DESC LIMIT 1) AS youtube_id,
+ (SELECT instagram_media_id FROM publications p WHERE p.session_id=s.id AND p.status='published' ORDER BY created_at DESC LIMIT 1) AS instagram_media_id,
+ (SELECT instagram_url FROM publications p WHERE p.session_id=s.id AND p.status='published' ORDER BY created_at DESC LIMIT 1) AS instagram_url
  FROM sessions s WHERE s.duplicate_of IS NULL ORDER BY updated_at DESC LIMIT 200`);res.json(rows);
 });
 app.post('/api/sessions',async(req,res)=>{
@@ -72,7 +79,7 @@ app.post('/api/sessions',async(req,res)=>{
   sourceType='youtube';
  }
  await transaction(async client=>{
-  await client.query('INSERT INTO sessions(id,title,input,source_type,auto_publish,privacy) VALUES($1,$2,$3,$4,$5,$6)',[id,input.title,input.input,sourceType,input.autoPublish,input.privacy]);
+  await client.query('INSERT INTO sessions(id,title,input,source_type,auto_publish,privacy,publish_target) VALUES($1,$2,$3,$4,$5,$6,$7)',[id,input.title,input.input,sourceType,input.autoPublish,input.privacy,input.publishTarget]);
   await client.query("INSERT INTO jobs(id,session_id,kind) VALUES($1,$2,'generate')",[jobId,id]);
  });
  await event(id,jobId,'queued','New session queued');res.status(201).json({id});
@@ -134,14 +141,36 @@ app.post('/api/jobs/:id/cancel',async(req,res)=>{
 });
 app.post('/api/sessions/:id/publish',async(req,res)=>{
  const sessionId=uuid.parse(req.params.id);
- const input=z.object({artifactId:uuid,title:z.string().trim().min(1).max(100).optional(),description:z.string().max(5000).optional(),privacy:privacy.default('public'),madeForKids:z.boolean().default(false)}).parse(req.body);
+ const input=z.object({
+  artifactId:uuid,
+  platform:z.enum(['both','youtube','instagram']).default('both'),
+  title:z.string().trim().min(1).max(100).optional(),
+  description:z.string().max(5000).optional(),
+  instagramCaption:z.string().max(3000).optional(),
+  privacy:privacy.default('public'),
+  madeForKids:z.boolean().default(false)
+ }).parse(req.body);
  const jobId=randomUUID();
  await transaction(async client=>{
   const {rows:[artifact]}=await client.query("SELECT * FROM artifacts WHERE id=$1 AND session_id=$2 AND kind='final'",[input.artifactId,sessionId]);
   if(!artifact)throw Object.assign(new Error('Select a final video from this session.'),{status:400});
   if(!artifact.metadata.publishingCopyReady)throw Object.assign(new Error('Prepare caption and description before publishing.'),{status:409});
   await client.query("INSERT INTO jobs(id,session_id,kind) VALUES($1,$2,'publish')",[jobId,sessionId]);
-  await client.query('INSERT INTO publications(id,session_id,artifact_id,job_id,title,description,privacy,made_for_kids) VALUES($1,$2,$3,$4,$5,$6,$7,$8)',[randomUUID(),sessionId,input.artifactId,jobId,input.title || artifact.metadata.title || 'GENZ SHORT NEWS',input.description ?? artifact.metadata.description ?? '',input.privacy,input.madeForKids]);
+  await client.query(
+   'INSERT INTO publications(id,session_id,artifact_id,job_id,title,description,privacy,made_for_kids,platform,instagram_caption) VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9,$10)',
+   [
+    randomUUID(),
+    sessionId,
+    input.artifactId,
+    jobId,
+    input.title || artifact.metadata.title || 'GENZ SHORT NEWS',
+    input.description ?? artifact.metadata.description ?? '',
+    input.privacy,
+    input.madeForKids,
+    input.platform,
+    input.instagramCaption || artifact.metadata.instagram?.fullCaption || artifact.metadata.instagram_caption || ''
+   ]
+  );
   await client.query("UPDATE sessions SET status='queued',updated_at=now() WHERE id=$1",[sessionId]);
  });res.status(202).json({jobId});
 });
@@ -174,11 +203,19 @@ app.get('/api/artifacts/:id/content',async(req,res)=>{
 });
 app.get('/api/settings',async(req,res)=>{
  let token=false;try{await stat(config.tokenFile);token=true;}catch{}
- res.json({channel:config.channelHandle,model:config.model,tokenPresent:token,origin:config.origin,storage:'PostgreSQL + local media',pipeline:'indian-news-shorts / FFmpeg / ElevenLabs'});
+ res.json({channel:config.channelHandle,model:config.model,tokenPresent:token,origin:config.origin,storage:'PostgreSQL + local media',pipeline:'indian-news-shorts / FFmpeg / ElevenLabs',instagramAppId:config.instagramAppId,instagramConfigured:Boolean(config.instagramAppId&&config.instagramAppSecret)});
 });
 app.post('/api/youtube/check',async(req,res)=>{
  const output=await execute(config.python,[path.join(root,'scripts/youtube_publish.py'),'--token-file',config.tokenFile,'--check'],{timeout:60000});
  res.json(JSON.parse(output.trim().split('\n').at(-1)));
+});
+app.post('/api/instagram/check',async(req,res)=>{
+ try {
+  const output=await execute(config.python,[path.join(root,'scripts/instagram_publish.py'),'--check'],{timeout:60000});
+  res.json(JSON.parse(output.trim().split('\n').at(-1)));
+ } catch(err) {
+  res.status(400).json({type:'error',message:err.message});
+ }
 });
 
 // Import an existing episode as a dashboard session without regenerating it.

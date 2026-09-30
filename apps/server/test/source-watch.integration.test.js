@@ -2,10 +2,11 @@ import {test} from 'node:test';
 import {promisify} from 'node:util';
 import {execFile} from 'node:child_process';
 import pg from 'pg';
+import {root} from '@genz/db';
 
 test('source automation uses a durable transactional ledger and verified webhook',{timeout:30000},async()=>{
  const name=`genz_source_test_${Date.now()}`;
- const url=new URL(process.env.TEST_DATABASE_URL || 'postgresql://localhost:55432/postgres');
+ const url=new URL(process.env.TEST_DATABASE_URL || (process.env.DATABASE_URL ? new URL('postgres',process.env.DATABASE_URL).href : 'postgresql://localhost:55432/postgres'));
  const admin=new pg.Client({connectionString:url.href});await admin.connect();
  try {
   await admin.query(`CREATE DATABASE ${name}`);url.pathname=`/${name}`;

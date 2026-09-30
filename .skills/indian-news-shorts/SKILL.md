@@ -7,19 +7,27 @@ description: Use when researching, scripting, narrating, or assembling Indian Ge
 
 ## Project decisions
 
-- **Every generated video includes ready-to-publish YouTube copy.** Automatically
-  write an engaging, accurate Hinglish caption/title, a complete description with
-  source attribution, and relevant topic hashtags. Always include **#shorts** and
-  **#genzshortnews**, plus 3–6 relevant hashtags. Save the copy with each revision;
-  do not leave writing it to the user or defer it until upload. Read
-  `references/youtube-publishing.md` for the required files and dashboard schema.
-  “Caption” here means the YouTube post caption/title; retain the approved
-  image-only video format. The dashboard's **Post to YouTube** button uses this
-  copy for one-click publication to **@genzshotnews**. Generation prepares the
-  assets; the dashboard uploader handles publication.
+- **Every generated video includes ready-to-publish YouTube and Instagram copy.**
+  Automatically write an engaging, accurate Hinglish caption/title, a complete
+  description with source attribution, and relevant topic hashtags. Always include
+  **#shorts** and **#genzshortnews**, plus 3–6 relevant hashtags.
+  **Also write separate caption and description for Instagram Reels:** a dedicated
+  punchy Hinglish hook, concise story context description with viewer prompt, brand CTA
+  `Follow GENZ SHORT NEWS for more!`, and Instagram hashtags (**#reels**,
+  **#reelsindia**, **#genzshortnews**, and 3–6 topic-specific hashtags).
+  Save both YouTube and Instagram copy with each revision in `publishing-copy.json` and
+  `dashboard-result.json`; do not leave writing it to the user or defer it until upload.
+  Read `references/youtube-publishing.md` and `references/instagram-publishing.md`
+  for the required files and schemas.
+  Every finished video must be posted to both YouTube (@genzshotnews) and Instagram
+  in Reel format using the Instagram Graph API credentials:
+  **Instagram App ID:** `1736345594332140`
+  **Instagram App Secret:** `59ae7b5b3662810ec883abb048e6aa94`
+  The Instagram Reel publishing workflow follows the setup in `/home/mukund/insta`:
+  remux with `-movflags +faststart`, host publicly via Supabase storage (`genz-video`),
+  create Reel media container, poll until `FINISHED`, and publish.
   **Generation is not complete until this copy is saved and visible with the
   revision in the dashboard. Never defer writing copy to the publish button.**
-  Post to YouTube must only upload the already prepared title and description.
 
 - **Only approved voice: Mukund Tight on Eleven v4**, approved 2026-09-28 from
   `library/voices/mukund-hinglish/v4-audition/mukund-tight-v4.wav` (recipe v3).
@@ -148,8 +156,12 @@ It defines preflight checks, bounded retries, ASR recovery and evidence reportin
 from the Dhurandhar episode. Record new failures in the episode's reference folder.
 Then read `references/image-sourcing.md` when finding additional related images.
 Read `references/dsp-sfx.md` for the required local sound-effects workflow.
-Read `references/youtube-publishing.md` for every episode and revision, so caption,
-description and hashtags are generated alongside the finished video.
+Read `references/youtube-publishing.md` and `references/instagram-publishing.md`
+for every episode and revision, so YouTube caption, description, hashtags and
+separate Instagram Reel caption, description and hashtags are generated
+alongside the finished video. Post the same video to Instagram in Reel format
+using the configured credentials (App ID: 1736345594332140, App Secret: 59ae7b5b3662810ec883abb048e6aa94)
+following the `/home/mukund/insta` faststart remux and Supabase public hosting setup.
 For each new reference, actively look for useful source-verified additional
 images and record their provenance in `references/<video-id>/sources.md` and
 `image-sources.json`; preserve the image-only style.
@@ -198,12 +210,17 @@ images and record their provenance in `references/<video-id>/sources.md` and
 8. Review the full render and phone-size screenshots. Check panel crop, readable
    source imagery, pronunciation, uninterrupted gameplay, audio peaks, and
    duration. Keep source records and render manifest with the episode.
-9. Generate the final YouTube publishing package from the actual finished story:
-   caption/title, description, source links and hashtags including #shorts and
-   #genzshortnews. Follow `references/youtube-publishing.md`; save
-   `publishing-copy.json` and include the same fields in `dashboard-result.json`.
+9. Generate the final YouTube and Instagram publishing packages from the actual
+   finished story: YouTube caption/title, description, source links and hashtags
+   (#shorts, #genzshortnews), and separate Instagram Reel copy: punchy hook caption,
+   story description with viewer prompt and CTA, and hashtags (#reels, #reelsindia,
+   #genzshortnews, plus topic tags). Follow `references/youtube-publishing.md` and
+   `references/instagram-publishing.md`; save both packages in `publishing-copy.json`
+   and include the same fields in `dashboard-result.json`. Post the same video to
+   Instagram using the credentials (App ID: 1736345594332140, App Secret: 59ae7b5b3662810ec883abb048e6aa94)
+   via the faststart remux + Supabase public video hosting container workflow.
    Update the copy when an edit changes the story. A complete deliverable includes
-   both the rendered video and its publishing copy, ready for one-click upload.
+   the rendered video and its ready-to-publish multi-platform copy.
 
 ## Evidence discipline
 

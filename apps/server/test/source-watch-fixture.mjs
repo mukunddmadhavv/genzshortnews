@@ -4,7 +4,7 @@ import express from 'express';
 import { createHmac } from 'node:crypto';
 import { pool, query } from '@genz/db';
 import { migrate } from '../../../packages/db/migrate.js';
-import { initializeSourceWatch, setSourceWatchEnabled, ingestEntries, sourceWatchStatus, sourceWebhookRouter, stopSourceWatch, SOURCE_CHANNEL, SOURCE_TOPIC, channelDashboard, addSourceChannel, channelTopic, WEBHOOK_PROBE } from '../src/source-watch.js';
+import { initializeSourceWatch, setSourceWatchEnabled, ingestEntries, sourceWatchStatus, sourceWebhookRouter, stopSourceWatch, SOURCE_CHANNEL, SOURCE_TOPIC, channelDashboard, addSourceChannel, channelTopic, deleteSourceChannel, WEBHOOK_PROBE } from '../src/source-watch.js';
 
 await migrate();await initializeSourceWatch();
 const entry={id:'abcdefghijk',published:new Date(),isShort:true,title:'Test Short',url:'https://www.youtube.com/shorts/abcdefghijk'};
@@ -81,5 +81,12 @@ try {
  await stopSourceWatch();
  assert.ok((await sourceWatchStatus()).last_webhook_at);
  assert.equal((await query('SELECT count(*)::int AS count FROM sessions')).rows[0].count,2);
+ const deleteResult=await deleteSourceChannel(other);
+ assert.equal(deleteResult.ok,true);
+ const remaining=await channelDashboard();
+ assert.equal(remaining.channels.length,1);
+ assert.equal(remaining.channels[0].channel_id,SOURCE_CHANNEL);
+ assert.equal(remaining.recent.some(r=>r.channel_id===other),false);
+ await assert.rejects(()=>deleteSourceChannel(other),{status:404});
 } finally {await stopSourceWatch();server.close();await pool.end();}
 console.log('PASS: source ingestion, cutoff, concurrency, fresh sessions, public jobs, restart deduplication, signed webhook and verification.');

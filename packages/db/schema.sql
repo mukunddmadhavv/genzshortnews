@@ -67,7 +67,7 @@ CREATE TABLE IF NOT EXISTS source_watches (
  next_subscribe_at timestamptz, last_error text
 );
 CREATE TABLE IF NOT EXISTS source_videos (
- channel_id text NOT NULL REFERENCES source_watches(channel_id), video_id text NOT NULL,
+ channel_id text NOT NULL REFERENCES source_watches(channel_id) ON DELETE CASCADE, video_id text NOT NULL,
  session_id uuid NOT NULL UNIQUE REFERENCES sessions(id), published_at timestamptz NOT NULL,
  created_at timestamptz NOT NULL DEFAULT now(), PRIMARY KEY(channel_id,video_id)
 );
@@ -77,6 +77,27 @@ ALTER TABLE source_watches ADD COLUMN IF NOT EXISTS created_at timestamptz NOT N
 UPDATE source_watches SET title='Neon Man Shorts',channel_url='https://www.youtube.com/@NeonManShorts/shorts'
 WHERE channel_id='UCg48OIfYWyNrUAIM2CLeWLg' AND channel_url IS NULL;
 CREATE UNIQUE INDEX IF NOT EXISTS source_watch_callback ON source_watches(callback_token);
+CREATE TABLE IF NOT EXISTS system_flags (
+ key text PRIMARY KEY,
+ value text NOT NULL
+);
+INSERT INTO system_flags(key, value)
+SELECT 'source_watch_initialized', 'true'
+WHERE EXISTS (SELECT 1 FROM source_watches)
+ON CONFLICT (key) DO NOTHING;
+DO $$ BEGIN
+ IF EXISTS (
+  SELECT 1 FROM information_schema.table_constraints
+  WHERE constraint_name = 'source_videos_channel_id_fkey'
+ ) AND NOT EXISTS (
+  SELECT 1 FROM information_schema.referential_constraints
+  WHERE constraint_name = 'source_videos_channel_id_fkey' AND delete_rule = 'CASCADE'
+ ) THEN
+  ALTER TABLE source_videos DROP CONSTRAINT source_videos_channel_id_fkey;
+  ALTER TABLE source_videos ADD CONSTRAINT source_videos_channel_id_fkey FOREIGN KEY (channel_id) REFERENCES source_watches(channel_id) ON DELETE CASCADE;
+ END IF;
+END $$;
+
 ALTER TABLE source_watches ADD COLUMN IF NOT EXISTS last_verified_at timestamptz;
 ALTER TABLE source_watches ADD COLUMN IF NOT EXISTS last_probe_at timestamptz;
 ALTER TABLE source_watches ADD COLUMN IF NOT EXISTS webhook_count integer NOT NULL DEFAULT 0;
@@ -90,3 +111,10 @@ ALTER TABLE source_videos ADD COLUMN IF NOT EXISTS capture_source text
 UPDATE source_videos v SET capture_source='polling' FROM source_watches w
 WHERE v.channel_id=w.channel_id AND v.capture_source IS NULL
  AND w.last_webhook_at IS NULL;
+
+-- Multi-platform publishing (YouTube Shorts, Instagram Reels, or Both)
+ALTER TABLE sessions ADD COLUMN IF NOT EXISTS publish_target text NOT NULL DEFAULT 'both';
+ALTER TABLE publications ADD COLUMN IF NOT EXISTS platform text NOT NULL DEFAULT 'both';
+ALTER TABLE publications ADD COLUMN IF NOT EXISTS instagram_media_id text;
+ALTER TABLE publications ADD COLUMN IF NOT EXISTS instagram_url text;
+ALTER TABLE publications ADD COLUMN IF NOT EXISTS instagram_caption text;

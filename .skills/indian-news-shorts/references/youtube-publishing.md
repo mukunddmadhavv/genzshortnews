@@ -29,19 +29,26 @@ Maintain the image-only visual contract in `approved-format.md`.
 ## Required files
 
 Save `publishing-copy.json` beside the final render in the current episode/revision
-directory. Use the actual story's copy, not placeholders:
+directory. Include both YouTube metadata and the dedicated Instagram Reel copy
+(see `references/instagram-publishing.md`):
 
 ```json
 {
-  "title": "Accurate, engaging Hinglish title",
+  "title": "Accurate, engaging Hinglish title #shorts",
   "caption": "Accurate, engaging Hinglish title",
   "description": "Story summary with attribution and verified source links.\n\nFollow GENZ SHORT NEWS for more!\n\n#shorts #genzshortnews #RelevantTopic #RelevantPerson #RelevantEvent",
-  "hashtags": ["#shorts", "#genzshortnews", "#RelevantTopic", "#RelevantPerson", "#RelevantEvent"]
+  "hashtags": ["#shorts", "#genzshortnews", "#RelevantTopic", "#RelevantPerson", "#RelevantEvent"],
+  "instagram": {
+    "caption": "Accurate engaging Hinglish hook line for Instagram",
+    "description": "Short engaging story summary tailored for Instagram Reel viewers with viewer prompt.\n\nFollow GENZ SHORT NEWS for more!",
+    "hashtags": ["#reels", "#reelsindia", "#genzshortnews", "#RelevantTopic"],
+    "fullCaption": "Accurate engaging Hinglish hook line for Instagram\n\nShort engaging story summary tailored for Instagram Reel viewers with viewer prompt.\n\nFollow GENZ SHORT NEWS for more!\n\n#reels #reelsindia #genzshortnews #RelevantTopic"
+  }
 }
 ```
 
-Also save `dashboard-result.json` with the same `title`, `caption`, `description`
-and `hashtags` fields, plus:
+Also save `dashboard-result.json` with the same `title`, `caption`, `description`,
+`hashtags`, and `instagram` fields, plus:
 
 - `video`: `final.mp4` for dashboard generation jobs.
 - `summary`: a short account of what was produced or changed.

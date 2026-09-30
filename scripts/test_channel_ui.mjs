@@ -23,9 +23,10 @@ try {
     const value={...channel,channel_id:'UCabcdefghijklmnopqrstuv',title:'Second channel',fetched:0,fetched_today:0,published:0,in_progress:0};channels.push(value);data={created:true,channel:value};
    }else data={channels,pollSeconds:300,totals:{fetched:4,fetched_today:2,published:1,in_progress:3,active:channels.filter(c=>c.enabled).length},recent:[{channel_id:channel.channel_id,video_id:'abcdefghijk',title:'Polling example',capture_source:'polling',status:'ready'},{channel_id:channel.channel_id,video_id:'lmnopqrstuv',title:'Webhook example',capture_source:'webhook',status:'ready'}]};
   }
-  if(req.method()==='PATCH'){const c=channels.find(c=>url.pathname.endsWith(c.channel_id));c.enabled=req.postDataJSON().enabled;data=c;}
-  await route.fulfill({json:data});
- });
+   if(req.method()==='PATCH'){const c=channels.find(c=>url.pathname.endsWith(c.channel_id));c.enabled=req.postDataJSON().enabled;data=c;}
+   if(req.method()==='DELETE'){const idx=channels.findIndex(c=>url.pathname.endsWith(c.channel_id));if(idx!==-1)channels.splice(idx,1);data={ok:true};}
+   await route.fulfill({json:data});
+  });
  await page.goto('http://127.0.0.1:4179/channel');
  await page.getByRole('heading',{name:'Channels on your radar.'}).waitFor();
  assert.equal(await page.locator('.stats > div').first().locator('strong').textContent(),'4');
@@ -41,12 +42,23 @@ try {
  assert.equal(channels[0].enabled,true);
  await page.getByRole('button',{name:'Resume Second channel',exact:true}).click();
  await page.getByRole('button',{name:'Pause Second channel',exact:true}).waitFor();
+ await page.getByRole('button',{name:'Delete Second channel',exact:true}).click();
+ await page.getByRole('button',{name:'Confirm delete Second channel',exact:true}).waitFor();
+ await page.getByRole('button',{name:'Cancel delete Second channel',exact:true}).click();
+ await page.getByRole('button',{name:'Delete Second channel',exact:true}).waitFor();
+ await page.getByRole('button',{name:'Delete Second channel',exact:true}).click();
+ await page.getByRole('button',{name:'Confirm delete Second channel',exact:true}).click();
+ await page.getByRole('heading',{name:'Second channel',exact:true}).waitFor({state:'detached'});
+ assert.equal(channels.length,1);
+ assert.equal(channels[0].title,'Neon Man Shorts');
  await page.reload();await page.getByRole('heading',{name:'Channels on your radar.'}).waitFor();
  await page.getByRole('button',{name:'Sessions',exact:true}).click();
  assert.equal(new URL(page.url()).pathname,'/sessions');
  await page.goBack();await page.getByRole('heading',{name:'Channels on your radar.'}).waitFor();
+ await page.goto('http://127.0.0.1:4179/channels');
+ await page.getByRole('heading',{name:'Channels on your radar.'}).waitFor();
  await page.setViewportSize({width:390,height:844});
  assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth),true,'Mobile page must not overflow');
  assert.deepEqual(errors,[]);
- console.log('PASS: /channel deep link, counts, add channel, independent pause/resume, reload/back navigation, mobile layout.');
+ console.log('PASS: /channel and /channels deep link, counts, add channel, independent pause/resume, delete with confirm/cancel, reload/back navigation, mobile layout.');
 } finally {await browser?.close();child.kill('SIGTERM');}

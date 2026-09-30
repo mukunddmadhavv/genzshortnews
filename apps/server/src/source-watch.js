@@ -37,7 +37,12 @@ export function validSignature(body, signature, secret) {
 }
 
 export async function initializeSourceWatch() {
- await query(`INSERT INTO source_watches(channel_id,callback_token,hub_secret,title,channel_url) VALUES($1,$2,$3,'Neon Man Shorts','https://www.youtube.com/@NeonManShorts/shorts') ON CONFLICT DO NOTHING`,[SOURCE_CHANNEL,randomBytes(24).toString('hex'),randomBytes(32).toString('hex')]);
+ const {rows:[flag]}=await query(`SELECT 1 FROM system_flags WHERE key='source_watch_initialized'`);
+ if(flag)return;
+ await transaction(async client=>{
+  await client.query(`INSERT INTO source_watches(channel_id,callback_token,hub_secret,title,channel_url) VALUES($1,$2,$3,'Neon Man Shorts','https://www.youtube.com/@NeonManShorts/shorts') ON CONFLICT DO NOTHING`,[SOURCE_CHANNEL,randomBytes(24).toString('hex'),randomBytes(32).toString('hex')]);
+  await client.query(`INSERT INTO system_flags(key,value) VALUES('source_watch_initialized','true') ON CONFLICT DO NOTHING`);
+ });
 }
 
 export async function sourceWatchStatus(channelId=SOURCE_CHANNEL) {
@@ -115,6 +120,29 @@ export async function setSourceWatchEnabled(enabled,channelId=SOURCE_CHANNEL) {
  return sourceWatchStatus(channelId);
 }
 
+async function unsubscribe(watch) {
+ try {
+  const origin=new URL(config.origin);
+  if(origin.protocol!=='https:')return;
+  await fetch(HUB,{method:'POST',signal:AbortSignal.timeout(5000),body:new URLSearchParams({
+   'hub.mode':'unsubscribe','hub.topic':channelTopic(watch.channel_id),'hub.callback':`${origin.origin}/webhooks/youtube/${watch.callback_token}`,
+   'hub.verify':'async','hub.secret':watch.hub_secret
+  })});
+ } catch {}
+}
+
+export async function deleteSourceChannel(channelId) {
+ const {rows:[watch]}=await query('SELECT * FROM source_watches WHERE channel_id=$1',[channelId]);
+ if(!watch)throw Object.assign(new Error('Channel not found.'),{status:404});
+ pending.delete(channelId);
+ void unsubscribe(watch);
+ return transaction(async client=>{
+  await client.query('DELETE FROM source_videos WHERE channel_id=$1',[channelId]);
+  await client.query('DELETE FROM source_watches WHERE channel_id=$1',[channelId]);
+  return {ok:true,channelId};
+ });
+}
+
 export async function ingestEntries(entries,channelId=SOURCE_CHANNEL,captureSource='polling') {
  if(!['polling','webhook'].includes(captureSource))throw new Error('Invalid capture source.');
  return transaction(async client=>{
@@ -126,10 +154,10 @@ export async function ingestEntries(entries,channelId=SOURCE_CHANNEL,captureSour
    const {rows}=await client.query('SELECT video_id FROM source_videos WHERE channel_id=$1 AND video_id=$2',[channelId,entry.id]);
    if(rows.length)continue;
    const sessionId=randomUUID(),jobId=randomUUID();
-   await client.query(`INSERT INTO sessions(id,title,input,source_type,auto_publish,privacy) VALUES($1,$2,$3,'youtube',true,'public')`,[sessionId,entry.title,entry.url]);
-   await client.query(`INSERT INTO jobs(id,session_id,kind) VALUES($1,$2,'generate')`,[jobId,sessionId]);
+    await client.query(`INSERT INTO sessions(id,title,input,source_type,auto_publish,privacy,publish_target) VALUES($1,$2,$3,'youtube',true,'public','both')`,[sessionId,entry.title,entry.url]);
+    await client.query(`INSERT INTO jobs(id,session_id,kind) VALUES($1,$2,'generate')`,[jobId,sessionId]);
     await client.query(`INSERT INTO source_videos(channel_id,video_id,session_id,published_at,capture_source) VALUES($1,$2,$3,$4,$5)`,[channelId,entry.id,sessionId,entry.published,captureSource]);
-    await client.query(`INSERT INTO events(session_id,job_id,kind,message) VALUES($1,$2,'queued',$3)`,[sessionId,jobId,`Automatically detected ${watch.title} upload via ${captureSource}: ${entry.url}. New OpenCode session → indian-news-shorts → public upload.`]);
+    await client.query(`INSERT INTO events(session_id,job_id,kind,message) VALUES($1,$2,'queued',$3)`,[sessionId,jobId,`Automatically detected ${watch.title} upload via ${captureSource}: ${entry.url}. New OpenCode session → indian-news-shorts → auto-publish to YouTube & Instagram.`]);
    created.push(sessionId);
   }
   return created;
