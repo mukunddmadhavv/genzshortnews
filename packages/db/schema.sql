@@ -59,3 +59,21 @@ WHERE s.id=e.session_id AND e.kind='imported' AND s.source_type='import'
  AND NOT EXISTS(SELECT 1 FROM jobs j WHERE j.session_id=s.id)
  AND NOT EXISTS(SELECT 1 FROM publications p WHERE p.session_id=s.id);
 UPDATE sessions SET duplicate_of=NULL WHERE id IN(SELECT session_id FROM episode_imports);
+
+CREATE TABLE IF NOT EXISTS source_watches (
+ channel_id text PRIMARY KEY, enabled boolean NOT NULL DEFAULT false,
+ started_at timestamptz, callback_token text NOT NULL, hub_secret text NOT NULL,
+ last_poll_at timestamptz, last_webhook_at timestamptz, lease_expires_at timestamptz,
+ next_subscribe_at timestamptz, last_error text
+);
+CREATE TABLE IF NOT EXISTS source_videos (
+ channel_id text NOT NULL REFERENCES source_watches(channel_id), video_id text NOT NULL,
+ session_id uuid NOT NULL UNIQUE REFERENCES sessions(id), published_at timestamptz NOT NULL,
+ created_at timestamptz NOT NULL DEFAULT now(), PRIMARY KEY(channel_id,video_id)
+);
+ALTER TABLE source_watches ADD COLUMN IF NOT EXISTS title text NOT NULL DEFAULT 'YouTube channel';
+ALTER TABLE source_watches ADD COLUMN IF NOT EXISTS channel_url text;
+ALTER TABLE source_watches ADD COLUMN IF NOT EXISTS created_at timestamptz NOT NULL DEFAULT now();
+UPDATE source_watches SET title='Neon Man Shorts',channel_url='https://www.youtube.com/@NeonManShorts/shorts'
+WHERE channel_id='UCg48OIfYWyNrUAIM2CLeWLg' AND channel_url IS NULL;
+CREATE UNIQUE INDEX IF NOT EXISTS source_watch_callback ON source_watches(callback_token);

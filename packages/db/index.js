@@ -3,10 +3,11 @@ import dotenv from 'dotenv';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 export const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
-const callerDb = process.env.DATABASE_URL;
+// Explicit service/test environment takes precedence over both dotenv files.
+const callerEnv = {...process.env};
 dotenv.config({ path: path.join(root, '.env'), quiet: true });
 dotenv.config({ path: path.join(root, '.env.dashboard'), override: true, quiet: true });
-if (callerDb) process.env.DATABASE_URL = callerDb;
+Object.assign(process.env, callerEnv);
 export const pool = new pg.Pool({ connectionString: process.env.DATABASE_URL || 'postgresql://localhost:55432/genz_studio', max: 10 });
 export const query = (sql, params) => pool.query(sql, params);
 export async function transaction(fn) {

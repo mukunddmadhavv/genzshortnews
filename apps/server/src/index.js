@@ -12,9 +12,11 @@ import { initAuth, issueCookie, verifyPassword, requireAuth, sameOrigin, authent
 import { safeFile, contained } from './files.js';
 import { startWorker, stopWorker, cancelActive, event } from './worker.js';
 import { execute } from './process.js';
+import { initializeSourceWatch, sourceWebhookRouter, sourceWatchStatus, setSourceWatchEnabled, startSourceWatch, stopSourceWatch, wakeSourceWatch, channelDashboard, addSourceChannel } from './source-watch.js';
 
 const app=express();
 app.disable('x-powered-by');
+app.use('/webhooks/youtube',sourceWebhookRouter());
 app.use(express.json({limit:'100kb'}));
 app.use(cookieParser());
 app.use((req,res,next)=>{
@@ -34,6 +36,25 @@ app.post('/api/login',rateLimit({windowMs:15*60*1000,limit:15,standardHeaders:tr
 });
 app.post('/api/logout',(req,res)=>{res.clearCookie('genz_session');res.json({ok:true});});
 app.use('/api',requireAuth);
+app.get('/api/channels',async(req,res)=>res.json(await channelDashboard()));
+app.post('/api/channels',rateLimit({windowMs:60000,limit:15,standardHeaders:true,legacyHeaders:false}),async(req,res)=>{
+ const {url}=z.object({url:z.string().trim().min(3).max(500)}).parse(req.body);
+ const result=await addSourceChannel(url);
+ res.status(result.created?201:200).json(result);
+ void wakeSourceWatch(true,result.channel.channel_id);
+});
+app.patch('/api/channels/:id',async(req,res)=>{
+ const id=z.string().regex(/^UC[\w-]{22}$/).parse(req.params.id);
+ const {enabled}=z.object({enabled:z.boolean()}).parse(req.body);
+ res.json(await setSourceWatchEnabled(enabled,id));
+ void wakeSourceWatch();
+});
+app.get('/api/source-watch',async(req,res)=>res.json(await sourceWatchStatus()));
+app.post('/api/source-watch',async(req,res)=>{
+ const {enabled}=z.object({enabled:z.boolean()}).parse(req.body);
+ res.json(await setSourceWatchEnabled(enabled));
+ void wakeSourceWatch();
+});
 const uuid=z.string().uuid();
 const privacy=z.enum(['private','unlisted','public']);
 const sessionInput=z.object({input:z.string().trim().min(5).max(10000),title:z.string().trim().min(1).max(120),autoPublish:z.boolean().default(false),privacy:privacy.default('private')});
@@ -308,7 +329,7 @@ app.use((error,req,res,next)=>{
  console.error('Request failed:',error.code || error.name);
  res.status(error.status || 500).json({error:error.status?error.message:'Operation failed. Check service availability and try again.'});
 });
-await mkdir(config.data,{recursive:true});await initAuth();await migrate();await startWorker();
-const server=app.listen(config.port,config.host,()=>console.log(`GENZ Studio ready at ${config.origin}. Run npm run access for the password.`));
-async function shutdown(){server.close();await stopWorker();await pool.end();process.exit(0);}
+await mkdir(config.data,{recursive:true});await initAuth();await migrate();await initializeSourceWatch();await startWorker();
+const server=app.listen(config.port,config.host,()=>{console.log(`GENZ Studio ready at ${config.origin}. Run npm run access for the password.`);startSourceWatch();});
+async function shutdown(){server.close();await stopSourceWatch();await stopWorker();await pool.end();process.exit(0);}
 process.once('SIGTERM',shutdown);process.once('SIGINT',shutdown);

@@ -30,9 +30,14 @@ test('dashboard creates, resumes, previews, publishes and cancels durable sessio
  async function wait(fn){for(let i=0;i<100;i++){const result=await fn();if(result)return result;await new Promise(r=>setTimeout(r,200));}throw new Error(`Timed out. ${log}`);}
  try {
   await wait(async()=>{try{return(await request('/healthz')).ok;}catch{return false;}});
-  assert.equal((await request('/api/sessions')).status,401);
+   assert.equal((await request('/api/sessions')).status,401);
+   assert.equal((await request('/api/channels')).status,401);
   const {password}=JSON.parse(await readFile(path.join(root,'.secrets/dashboard-access.json'),'utf8'));
-  const login=await request('/api/login',{password});assert.equal(login.status,200);cookie=login.headers.get('set-cookie').split(';')[0];
+   const login=await request('/api/login',{password});assert.equal(login.status,200);cookie=login.headers.get('set-cookie').split(';')[0];
+   const overview=await(await request('/api/channels')).json();
+   assert.equal(overview.channels.length,1);assert.equal(overview.totals.fetched,0);
+   assert.equal(overview.channels[0].hub_secret,undefined);
+   assert.equal((await request('/api/channels',{url:'https://evil.example/@Creator'})).status,400);
   const library=await(await request('/api/library')).json();
   assert.ok(library.length>0,'An existing episode is required for the import regression check');
   const source={episode:library[0].episode,file:library[0].file};
@@ -70,9 +75,10 @@ test('dashboard creates, resumes, previews, publishes and cancels durable sessio
   await wait(async()=>{const s=await(await request(`/api/sessions/${id}`)).json();return s.jobs.find(j=>j.id===queued.jobId)?.status==='running';});
   assert.equal((await request(`/api/jobs/${queued.jobId}/cancel`,{})).status,200);
   await wait(async()=>{const s=await(await request(`/api/sessions/${id}`)).json();return s.status==='paused';});
-  const automatic=await(await request('/api/sessions',{title:'Automatic test',input:'Automatically generate and upload fixture',autoPublish:true,privacy:'private'})).json();
+   const automatic=await(await request('/api/sessions',{title:'Automatic test',input:'Automatically generate and upload fixture',autoPublish:true,privacy:'public'})).json();
   const autoResult=await wait(async()=>{const s=await(await request(`/api/sessions/${automatic.id}`)).json();return s.status==='published'&&s;});
-  assert.equal(autoResult.publications.length,1);
+   assert.equal(autoResult.publications.length,1);
+   assert.equal(autoResult.publications[0].privacy,'public');
   assert.equal(autoResult.jobs.filter(j=>j.status==='completed').length,2);
  } finally {
   child.kill('SIGTERM');await new Promise(resolve=>{child.once('exit',resolve);setTimeout(()=>{child.kill('SIGKILL');resolve();},5000).unref();});

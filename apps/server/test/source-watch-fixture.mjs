@@ -1,0 +1,71 @@
+// Run only against the isolated test database created by source-watch.integration.test.js.
+import assert from 'node:assert/strict';
+import express from 'express';
+import { createHmac } from 'node:crypto';
+import { pool, query } from '@genz/db';
+import { migrate } from '../../../packages/db/migrate.js';
+import { initializeSourceWatch, setSourceWatchEnabled, ingestEntries, sourceWatchStatus, sourceWebhookRouter, stopSourceWatch, SOURCE_CHANNEL, SOURCE_TOPIC, channelDashboard, addSourceChannel, channelTopic } from '../src/source-watch.js';
+
+await migrate();await initializeSourceWatch();
+const entry={id:'abcdefghijk',published:new Date(),isShort:true,title:'Test Short',url:'https://www.youtube.com/shorts/abcdefghijk'};
+assert.deepEqual(await ingestEntries([entry]),[],'Disabled watcher never queues');
+await setSourceWatchEnabled(true);
+await query("UPDATE source_watches SET started_at=now()-interval '1 hour' WHERE channel_id=$1",[SOURCE_CHANNEL]);
+const ignored=[{...entry,id:'oldoldold12',published:new Date(Date.now()-7200000)},{...entry,id:'longlong123',isShort:false},{...entry,id:'future12345',published:new Date(Date.now()+7200000)}];
+assert.deepEqual(await ingestEntries(ignored),[]);
+const results=await Promise.all([ingestEntries([entry]),ingestEntries([entry]),ingestEntries([entry])]);
+assert.equal(results.flat().length,1,'Concurrent deliveries create exactly one session');
+const session=(await query('SELECT * FROM sessions')).rows[0];
+assert.equal(session.input,entry.url);assert.equal(session.auto_publish,true);assert.equal(session.privacy,'public');
+assert.equal(session.opencode_session_id,null,'First generation starts a fresh OpenCode session');
+assert.equal((await query('SELECT * FROM jobs')).rows.length,1);
+assert.equal((await sourceWatchStatus()).recent.length,1);
+assert.equal((await sourceWatchStatus()).hub_secret,undefined);
+await setSourceWatchEnabled(false);assert.deepEqual(await ingestEntries([{...entry,id:'paused12345'}]),[]);
+await setSourceWatchEnabled(true);assert.deepEqual(await ingestEntries([entry]),[],'Re-enable preserves deduplication');
+
+const realFetch=globalThis.fetch;
+const other='UCabcdefghijklmnopqrstuv';
+globalThis.fetch=async()=>new Response(`<feed><id>yt:channel:${other.slice(2)}</id><title>Second channel</title></feed>`);
+const added=await addSourceChannel(other);
+assert.equal(added.created,true);assert.equal(added.channel.enabled,true);
+assert.equal((await addSourceChannel(other)).created,false,'Duplicate channels preserve their existing watcher');
+await query("UPDATE source_watches SET started_at=now()-interval '1 hour' WHERE channel_id=$1",[other]);
+await ingestEntries([{...entry,id:'second12345',url:'https://www.youtube.com/shorts/second12345'}],other);
+const overview=await channelDashboard();
+assert.equal(overview.channels.length,2);assert.equal(overview.totals.fetched,2);assert.equal(overview.totals.in_progress,2);
+assert.equal(overview.channels.find(c=>c.channel_id===other).fetched,1);
+assert.ok(!JSON.stringify(overview).includes('hub_secret'));
+await setSourceWatchEnabled(false,other);
+assert.equal((await sourceWatchStatus()).enabled,true,'Pausing one channel does not pause another');
+await setSourceWatchEnabled(true,other);
+await initializeSourceWatch();
+assert.equal((await channelDashboard()).totals.fetched,2,'Initialization preserves all ledger counts');
+// Public webhook only wakes a canonical feed fetch; its body cannot supply work.
+globalThis.fetch=async url=>new Response(`<feed><id>yt:channel:${new URL(url).searchParams.get('channel_id')?.slice(2)}</id></feed>`);
+const app=express();app.use('/webhooks/youtube',sourceWebhookRouter());
+const server=app.listen(0,'127.0.0.1');await new Promise(resolve=>server.once('listening',resolve));
+try {
+ const watch=(await query('SELECT * FROM source_watches WHERE channel_id=$1',[SOURCE_CHANNEL])).rows[0];
+ const second=(await query('SELECT * FROM source_watches WHERE channel_id=$1',[other])).rows[0];
+ const base=`http://127.0.0.1:${server.address().port}/webhooks/youtube/`;
+ assert.equal((await realFetch(base+'wrong')).status,404);
+ const challenge=new URLSearchParams({'hub.mode':'subscribe','hub.topic':SOURCE_TOPIC,'hub.challenge':'challenge-123','hub.lease_seconds':'864000'});
+ const response=await realFetch(base+watch.callback_token+'?'+challenge);
+ assert.equal(response.status,200);assert.equal(await response.text(),'challenge-123');
+ assert.ok((await sourceWatchStatus()).lease_expires_at>new Date());
+ challenge.set('hub.topic','https://wrong.example');
+ assert.equal((await realFetch(base+watch.callback_token+'?'+challenge)).status,400);
+ const body='<feed>untrusted notification is never ingested</feed>';
+ assert.equal((await realFetch(base+watch.callback_token,{method:'POST',body})).status,401);
+ const signature='sha1='+createHmac('sha1',watch.hub_secret).update(body).digest('hex');
+ assert.equal((await realFetch(base+second.callback_token,{method:'POST',body,headers:{'X-Hub-Signature':signature}})).status,401,'One channel cannot sign another channel webhook');
+ challenge.set('hub.topic',channelTopic(other));
+ assert.equal((await realFetch(base+second.callback_token+'?'+challenge)).status,200);
+ assert.ok((await sourceWatchStatus(other)).lease_expires_at>new Date());
+ assert.equal((await realFetch(base+watch.callback_token,{method:'POST',body,headers:{'X-Hub-Signature':signature}})).status,202);
+ await stopSourceWatch();
+ assert.ok((await sourceWatchStatus()).last_webhook_at);
+ assert.equal((await query('SELECT count(*)::int AS count FROM sessions')).rows[0].count,2);
+} finally {await stopSourceWatch();server.close();await pool.end();}
+console.log('PASS: source ingestion, cutoff, concurrency, fresh sessions, public jobs, restart deduplication, signed webhook and verification.');

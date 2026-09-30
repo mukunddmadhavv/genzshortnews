@@ -1,10 +1,11 @@
 #!/usr/bin/env node
 // Integration fixture: deterministic real MP4, no model/API calls.
-import {writeFile,copyFile} from 'node:fs/promises';
+import {writeFile,copyFile,readFile} from 'node:fs/promises';
 import path from 'node:path';
 const args=process.argv.slice(2);
 if(args.includes('--token-file')) {
- console.log(JSON.stringify({type:'published',youtubeId:'test-video-id',channelId:'test-channel',privacy:'private'}));
+ const spec=JSON.parse(await readFile(args[args.indexOf('--spec')+1],'utf8'));
+ console.log(JSON.stringify({type:'published',youtubeId:'test-video-id',channelId:'test-channel',privacy:spec.privacy}));
  process.exit(0);
 }
 const prompt=args.at(-1);

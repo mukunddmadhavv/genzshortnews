@@ -58,8 +58,10 @@ wrapper to generate future narration with the approved processing chain.
 The reference's exact vocal inflections and SFX require direct listening;
 ASR is not an acoustic review.
 The studio orchestrates generation through the current skill and existing scripts.
-It supports manual or automatic uploads after rendering; publishing schedules and
-continuous news discovery are not configured.
+It supports manual or automatic uploads after rendering. The NeonManShorts watcher
+can automatically discover new Shorts, create fresh OpenCode sessions and queue
+public uploads through this pipeline. Add more channels and view fetched-Short
+counts at **/channel**. See [channel automation](docs/source-watch.md).
 
 Quit and restart OpenCode to load the newly registered `.skills/` skill.
 

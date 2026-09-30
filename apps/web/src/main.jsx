@@ -29,6 +29,7 @@ import {
 import "./style.css";
 import "./light-theme.css";
 import "./mobile.css";
+import { Channels } from "./channels.jsx";
 
 async function api(url, body, method) {
   const response = await fetch(`/api${url}`, {
@@ -68,7 +69,7 @@ function App() {
   const [auth, setAuth] = useState(null),
     [password, setPassword] = useState(""),
     [error, setError] = useState(""),
-    [page, setPage] = useState("sessions"),
+    [page, updatePage] = useState(() => window.location.pathname === "/channel" ? "channel" : "sessions"),
     [sessions, setSessions] = useState([]),
     [detail, setDetail] = useState(null),
     [selected, setSelected] = useState(null),
@@ -77,6 +78,15 @@ function App() {
     [busy, setBusy] = useState(false),
     [search, setSearch] = useState("");
   const fail = (e) => setError(e.message);
+  const setPage = (value) => {
+    updatePage(value);
+    window.history.pushState({}, "", value === "channel" ? "/channel" : "/");
+  };
+  useEffect(() => {
+    const pop = () => { updatePage(window.location.pathname === "/channel" ? "channel" : "sessions"); setSelected(null); };
+    window.addEventListener("popstate", pop);
+    return () => window.removeEventListener("popstate", pop);
+  }, []);
   useEffect(() => {
     api("/auth")
       .then((x) => setAuth(x.authenticated))
@@ -194,6 +204,7 @@ function App() {
         <nav>
           {[
             ["sessions", Layers, "Sessions"],
+            ["channel", Radio, "Channels"],
             ["library", FolderOpen, "Media library"],
             ["settings", Settings, "Connections"],
           ].map(([id, Icon, label]) => (
@@ -256,7 +267,7 @@ function App() {
                   ? "Sessions"
                   : page === "library"
                     ? "Media library"
-                    : "Connections"}
+                    : page === "channel" ? "Channels" : "Connections"}
             </strong>
           </div>
           <div className="server-status">
@@ -440,7 +451,9 @@ function App() {
                 off, anytime.
               </div>
             </>
-          ) : page === "library" ? (
+           ) : page === "channel" ? (
+             <Channels api={api} open={id => setSelected(id)} />
+           ) : page === "library" ? (
             <Library
               action={action}
               open={(id) => {
@@ -1282,6 +1295,18 @@ function Library({ action, open }) {
 }
 function Connections({ settings, action }) {
   const [channel, setChannel] = useState(null);
+  const [watch, setWatch] = useState(null);
+  const [watchError, setWatchError] = useState("");
+  const [watchBusy, setWatchBusy] = useState(false);
+  useEffect(() => {
+    let mounted = true;
+    const load = () => api("/source-watch").then(value => {
+      if (mounted) { setWatch(value); setWatchError(""); }
+    }).catch(error => { if (mounted) setWatchError(error.message); });
+    load();
+    const timer = setInterval(load, 15000);
+    return () => { mounted = false; clearInterval(timer); };
+  }, []);
   return (
     <>
       <div className="page-heading">
@@ -1294,6 +1319,26 @@ function Connections({ settings, action }) {
         </div>
       </div>
       <div className="connections">
+        <section>
+          <Youtube size={28} />
+          <h2>NeonManShorts automation</h2>
+          <p>New Short → fresh OpenCode session → indian-news-shorts → public upload.</p>
+          <Badge status={watch?.enabled ? "watching" : "paused"} />
+          {watchError && <p role="alert">{watchError}</p>}
+          {watch && <>
+            <p className="muted">Webhook notifications with a {watch.pollSeconds}-second feed backup. Existing uploads before initial activation are excluded.</p>
+            <p>Last feed check: {watch.last_poll_at ? formatIST(watch.last_poll_at) : "Waiting"}</p>
+            <p>Webhook: {watch.lease_expires_at && new Date(watch.lease_expires_at) > new Date() ? "Subscribed" : "Awaiting subscription"}</p>
+            {watch.last_error && <p role="alert">{watch.last_error}</p>}
+            <button className="secondary" disabled={watchBusy} onClick={() => action(async () => {
+              setWatchBusy(true);
+              try { setWatch(await api("/source-watch", { enabled: !watch.enabled })); }
+              finally { setWatchBusy(false); }
+            })}>{watch.enabled ? "Pause channel watcher" : "Enable channel watcher"}</button>
+            <p className="muted">Pausing stops discovery. Already queued sessions continue; cancel them from their session page.</p>
+            <p>{watch.recent.length} recent detected Shorts. Follow generation and uploads in Sessions.</p>
+          </>}
+        </section>
         <section>
           <Youtube size={28} />
           <h2>YouTube</h2>

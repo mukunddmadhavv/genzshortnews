@@ -28,6 +28,10 @@ all settings. Existing ElevenLabs settings remain in `.env`.
 
 ## Workflow
 
+For automatic NeonManShorts discovery and public publishing, see
+[channel automation](source-watch.md). The **Channels** page at `/channel` shows
+fetched counts, source history, health and controls for adding or pausing channels.
+
 1. **New session:** supply a topic or YouTube video/Short URL. Select automatic
    upload if wanted, otherwise the video stops at Ready for review.
 2. The PostgreSQL queue runs one resource-heavy job at a time. An OpenCode CLI
