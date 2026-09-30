@@ -1,0 +1,89 @@
+{
+  "alignment": "narration-final.alignment.json",
+  "narration": "narration-final.wav",
+  "output": "news-panel.mp4",
+  "beats": [
+    {
+      "start": 0,
+      "file": "../../references/-HxnEOFxrhM/frames/024.jpg",
+      "crop": [
+        0,
+        214,
+        1080,
+        1008
+      ]
+    },
+    {
+      "start": 4.400656814449918,
+      "file": "../../references/-HxnEOFxrhM/images/ht-sharif-srinivas.png"
+    },
+    {
+      "start": 7.471264367816092,
+      "file": "../../references/-HxnEOFxrhM/frames/006.jpg",
+      "crop": [
+        0,
+        214,
+        1080,
+        1008
+      ]
+    },
+    {
+      "start": 12.194581280788178,
+      "file": "../../references/-HxnEOFxrhM/frames/010.jpg",
+      "crop": [
+        0,
+        214,
+        1080,
+        1008
+      ]
+    },
+    {
+      "start": 16.726600985221676,
+      "file": "../../references/-HxnEOFxrhM/frames/024.jpg",
+      "crop": [
+        0,
+        214,
+        1080,
+        1008
+      ]
+    },
+    {
+      "start": 21.839080459770116,
+      "file": "../../references/-HxnEOFxrhM/frames/000.jpg",
+      "crop": [
+        135,
+        214,
+        945,
+        1008
+      ]
+    },
+    {
+      "start": 25.48440065681445,
+      "file": "../../references/-HxnEOFxrhM/images/it-jaishankar-briefing.jpg"
+    },
+    {
+      "start": 28.637110016420365,
+      "file": "../../references/-HxnEOFxrhM/frames/038.jpg",
+      "crop": [
+        0,
+        214,
+        1080,
+        1008
+      ]
+    },
+    {
+      "start": 34.94252873563219,
+      "file": "../../references/-HxnEOFxrhM/frames/042.jpg",
+      "crop": [
+        0,
+        214,
+        1080,
+        1008
+      ]
+    },
+    {
+      "start": 39.83579638752053,
+      "file": "../../references/-HxnEOFxrhM/images/it-jaishankar-briefing.jpg"
+    }
+  ]
+}

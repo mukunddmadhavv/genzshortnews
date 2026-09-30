@@ -1,0 +1,46 @@
+{
+  "reference_video_id": "Yw5Q3jf7DOM",
+  "channel": "Neon Man Shorts",
+  "title": "Complaint Against CJP by a Woman! 😱 #shorts",
+  "duration_seconds": 35.63,
+  "analysis_date": "2026-09-28",
+  "delivery_observations": [
+    {
+      "start": 0.0,
+      "end": 5.34,
+      "tone": "Surprised, hook delivery",
+      "pacing": "Fast opening, sets up the shocking complaint by a woman against CJP",
+      "expression": "Alert and inquisitive",
+      "energy": "High"
+    },
+    {
+      "start": 5.34,
+      "end": 16.7,
+      "tone": "Serious factual explanation",
+      "pacing": "Steady explanatory pace, naming Abhijeet Dipke, Saurav Das, Ranka and Jantar Mantar protest",
+      "expression": "Neutral journalistic reporting",
+      "energy": "Medium-high"
+    },
+    {
+      "start": 16.7,
+      "end": 29.88,
+      "tone": "Grave, outlining the severity of allegations",
+      "pacing": "Emphasizing non-consensual AI face swapping, banners waved at crowds, derogatory slogans",
+      "expression": "Shocked and serious",
+      "energy": "High"
+    },
+    {
+      "start": 29.88,
+      "end": 35.48,
+      "tone": "Direct conclusion",
+      "pacing": "Names named in complaint, direct responsibility claimed by complainant",
+      "expression": "Firm concluding takeaway",
+      "energy": "High"
+    }
+  ],
+  "editorial_translation": {
+    "narrator_preset": "mukund-tight",
+    "delivery": "Brisk, serious and conversational Hindi-led Hinglish; clear emphasis on Delhi HC action and AI abuse allegations",
+    "ending": "Follow GENZ SHORT NEWS for more!"
+  }
+}

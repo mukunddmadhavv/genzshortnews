@@ -1,0 +1,62 @@
+[
+  {
+    "id": "ani-cjp-press-conference",
+    "file": "images/ani-cjp-press-conference.jpg",
+    "publisher": "ANI / Hindustan Times",
+    "page_url": "https://www.hindustantimes.com/india-news/delhi-hc-notice-to-dipke-saurav-das-ranka-over-ai-morphed-photo-of-woman-next-to-pm-modi-orders-takedown-101790334097333.html",
+    "image_url": "https://www.hindustantimes.com/ht-img/img/2026/09/25/1600x900/ANI-20260924225-0_1790334300850_DOgY_1790334315989_2jOQ_feb670df-8cad-43b1-9d1d-ec12fe855e8e_57l3.jpg",
+    "published": "2026-09-25",
+    "checked_at": "2026-09-28",
+    "subject": "CJP leaders Abhijeet Dipke, Ashutosh Ranka, Saurav Das at press conference",
+    "use": "Opening identification of the CJP leadership facing complaint",
+    "rights": "ANI photo via Hindustan Times reporting",
+    "width": 1600,
+    "height": 900,
+    "sha256": "8d4126fd18213f97d7fc15fe7c8861e02cb3c124f31c8393c9dea22094a38ad6"
+  },
+  {
+    "id": "abp-court-notice",
+    "file": "images/abp-court-notice.jpg",
+    "publisher": "ABP Live / ANI",
+    "page_url": "https://news.abplive.com/news/india/delhi-hc-issues-notice-to-cjp-leaders-abhijeet-dipke-over-alleged-ai-morphed-photo-with-pm-modi-1868299",
+    "image_url": "https://feeds.abplive.com/onecms/images/uploaded-images/2026/09/25/217efe4f69fc1eed3d2f525738b9cc2617903363253221401_original.jpg",
+    "published": "2026-09-25",
+    "checked_at": "2026-09-28",
+    "subject": "CJP convenor Abhijeet Dipke addressing media with Das and Ranka",
+    "use": "Showing the named organisers in the complaint",
+    "rights": "ANI photo via ABP Live",
+    "width": 1200,
+    "height": 675,
+    "sha256": "26bebb3948069376f95a779ea95c0a9e4a8fcd38ac4881f7ed4e697dd2918552"
+  },
+  {
+    "id": "delhi-high-court",
+    "file": "images/delhi-high-court.jpg",
+    "publisher": "Indian Express",
+    "page_url": "https://indianexpress.com",
+    "image_url": "https://images.indianexpress.com/2021/04/delhi-high-court-1.jpg",
+    "published": "2021-04-10",
+    "checked_at": "2026-09-28",
+    "subject": "Delhi High Court entrance signage",
+    "use": "Visual anchor when detailing the High Court order and directives",
+    "rights": "Indian Express archive photo",
+    "width": 1200,
+    "height": 668,
+    "sha256": "b8c6eba902f506b0791a1fe8159d2df5b3aef4e2e175547063e7986617b00a8d"
+  },
+  {
+    "id": "pm-modi-portrait",
+    "file": "images/pm-modi-portrait.jpg",
+    "publisher": "Wikimedia Commons / PMO",
+    "page_url": "https://en.wikipedia.org/wiki/Narendra_Modi",
+    "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/ba/Narendra_Modi_Portrait_2026.jpg/500px-Narendra_Modi_Portrait_2026.jpg",
+    "published": "2026-01-01",
+    "checked_at": "2026-09-28",
+    "subject": "Official portrait of Prime Minister Narendra Modi",
+    "use": "Illustrating the alleged morphed photo alongside PM Modi",
+    "rights": "Wikimedia Commons / Public Domain",
+    "width": 500,
+    "height": 500,
+    "sha256": "f635fa625b4ca40c298c25d5cc7706b1d67f790d4cd3ed20c7b0c01456eeac8c"
+  }
+]

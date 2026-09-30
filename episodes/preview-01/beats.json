@@ -1,0 +1,42 @@
+[
+  {
+    "start": 0,
+    "label": "THE HEADLINE",
+    "headline": "A COMPLAINT.\nBUT WHAT'S\nCONFIRMED?"
+  },
+  {
+    "start": 5.02,
+    "label": "01 / WHAT WAS REPORTED",
+    "headline": "A VIEWER\nFILES A\nCOMPLAINT"
+  },
+  {
+    "start": 13.88,
+    "label": "02 / THE OBJECTION",
+    "headline": "A REMARK.\nA REACTION.\nA PLATFORM."
+  },
+  {
+    "start": 20.22,
+    "label": "03 / THE DISTINCTION",
+    "headline": "ALLEGATION\nIS NOT\nA VERDICT."
+  },
+  {
+    "start": 25.22,
+    "label": "04 / THE IMPORTANT DETAIL",
+    "headline": "THE SOURCE\nSTILL NEEDS\nCHECKING."
+  },
+  {
+    "start": 30.34,
+    "label": "05 / THREE THINGS TO CHECK",
+    "headline": "WHO SAID IT?\nWHAT CONTEXT?\nWHICH SOURCE?"
+  },
+  {
+    "start": 36.96,
+    "label": "THE TAKEAWAY",
+    "headline": "CHECK THE\nFULL SOURCE."
+  },
+  {
+    "start": 41.543,
+    "label": "GEN Z NEWS / FORMAT PREVIEW",
+    "headline": "CONTEXT\nBEHIND THE\nHEADLINES."
+  }
+]

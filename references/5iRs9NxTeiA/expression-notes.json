@@ -1,0 +1,12 @@
+{
+  "source_audio": "audio.wav",
+  "method": "Whisper large-v3 plus Scribe v2 words/timestamps; visual inspection of source frames",
+  "acoustic_review": "Unavailable; no direct listening or audio-capable prosody analysis performed",
+  "expression_verified": false,
+  "segments": [
+    {"start": 0, "end": 29.5, "speaker": "reference narrator", "transcript_excerpt": "Incident and mutual apologies", "observable_audio_cues": null, "interpreted_expression": "unverified", "confidence": "not assessed", "proposed_delivery_direction": "Curious hook; measured account of confrontation. Creative recommendation only."},
+    {"start": 29.5, "end": 73.9, "speaker": "reference narrator", "transcript_excerpt": "Protests and committee", "observable_audio_cues": null, "interpreted_expression": "unverified", "confidence": "not assessed", "proposed_delivery_direction": "Clear factual update, brief pause before university response. Creative recommendation only."},
+    {"start": 73.9, "end": 94.7, "speaker": "reference narrator", "transcript_excerpt": "Online opinions and introduction of Rajat Sood", "observable_audio_cues": null, "interpreted_expression": "unverified", "confidence": "not assessed", "proposed_delivery_direction": "Use an original question, distinguish opinion from reporting."},
+    {"start": 94.7, "end": 134.45, "speaker": "Rajat Sood in embedded clip", "transcript_excerpt": "Nothing happened to him; crime-scene joke", "observable_audio_cues": null, "interpreted_expression": "unverified", "confidence": "not assessed", "proposed_delivery_direction": "Briefly paraphrase factual clarification; do not attribute guest performance to reference narrator."}
+  ]
+}

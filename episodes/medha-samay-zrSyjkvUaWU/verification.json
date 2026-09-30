@@ -1,0 +1,17 @@
+{
+  "video": "final-genz-short-news.mp4",
+  "duration_seconds": 45.874417,
+  "resolution": "1080x1920",
+  "fps": 30,
+  "full_decode": "passed",
+  "integrated_loudness_lufs": -14.79,
+  "true_peak_dbtp": -4.17,
+  "loudness_range_lu": 2.2,
+  "visual_review": "Five-second contact sheet and full-size final frame inspected: image-only black upper panel, red headline, continuous Minecraft gameplay, blue GENZ SHORT NEWS footer. Final image retained through outro.",
+  "wording_review": "Scribe v2 transcript checked against script. Car ownership attributed, relationship not confirmed, wedding-rumour dismissal attributed. Closing recognized as Follow GeneZ Short News for more (ASR spelling variant).",
+  "voice": "F2bjsMJJPYo3S15YpV24",
+  "model": "eleven_multilingual_v2",
+  "profile": "Identity 2",
+  "outro": "Same generation and processing as the body",
+  "limitations": "No direct listening/prosody review available. ASR does not establish voice identity or exact brand pronunciation."
+}

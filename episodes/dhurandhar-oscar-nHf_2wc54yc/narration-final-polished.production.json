@@ -1,0 +1,58 @@
+{
+  "source": "/home/mukund/genzshortnews/episodes/dhurandhar-oscar-nHf_2wc54yc/narration-final-raw.mp3",
+  "profile": {
+    "id": "mukund-tight",
+    "label": "Mukund Tight",
+    "description": "Mukund's approved Eleven v4 clone: expressive Hinglish, energetic delivery and minimal pauses",
+    "recipe_version": 3,
+    "kind": "user_clone",
+    "voice_id": "F2bjsMJJPYo3S15YpV24",
+    "model": "eleven_v4",
+    "generation_endpoint": "/v1/text-to-dialogue",
+    "language": "hi",
+    "tts_speed": 1.0,
+    "stability": 0.5,
+    "similarity_boost": 0.9,
+    "style": 0,
+    "use_speaker_boost": false,
+    "atempo": 1.0,
+    "audio_filter": "highpass=f=55,acompressor=threshold=0.125:ratio=1.8:attack=15:release=120:makeup=1,loudnorm=I=-16:TP=-2:LRA=7",
+    "tighten_pauses": true,
+    "pause_settings": {
+      "threshold_db": -28,
+      "minimum_gap_seconds": 0.3,
+      "keep_each_edge_seconds": 0.08,
+      "fade_seconds": 0.003
+    },
+    "post_tightening_stages": [
+      {
+        "id": "energetic",
+        "type": "polish",
+        "atempo": 1.07,
+        "audio_filter": "acompressor=threshold=0.125:ratio=2.2:attack=12:release=100:makeup=1.25,loudnorm=I=-14:TP=-2:LRA=5"
+      },
+      {
+        "id": "depaused",
+        "type": "tighten",
+        "minimum_gap_seconds": 0.12,
+        "retained_gap_seconds": 0.06
+      },
+      {
+        "id": "fast10",
+        "type": "polish",
+        "atempo": 1.1,
+        "audio_filter": "anull"
+      }
+    ],
+    "post_tts_tempo_product": 1.177,
+    "video_mix_loudness_target": -13,
+    "preview": "library/voices/mukund-hinglish/v4-audition/mukund-tight-v4.wav",
+    "raw_reference": "library/voices/mukund-hinglish/v4-audition/mukund-tight-v4-raw.mp3",
+    "approved_on": "2026-09-28",
+    "source_recording": "library/voices/mukund-hinglish/source.m4a",
+    "source_pcm_md5": "7122b5c59797999e6a6be87630e68126"
+  },
+  "filter": "atempo=1.0,highpass=f=55,acompressor=threshold=0.125:ratio=1.8:attack=15:release=120:makeup=1,loudnorm=I=-16:TP=-2:LRA=7",
+  "alignment": "/home/mukund/genzshortnews/episodes/dhurandhar-oscar-nHf_2wc54yc/narration-final-polished.alignment.json",
+  "note": "Apply once to the raw TTS take. Pitch is preserved; alignment times are divided by atempo."
+}

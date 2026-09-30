@@ -1,0 +1,49 @@
+{
+  "source_audio": "source.mp4 (original audio); audio.wav (ASR derivative)",
+  "transcription_models": ["mlx-community/whisper-small-mlx"],
+  "review_method": "Whisper-small ASR and visual/OCR inspection of the supplied Short only; no recorded direct listening or original NDTV article review",
+  "expression_verified": false,
+  "notes": "Corrected unsupported verification claims. Excerpts are approximate text reconstructions; segment boundaries are rough. Proposed delivery is creative guidance, not observed acoustic evidence. See production-issues.md.",
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 5.0,
+      "speaker": "reference narrator",
+      "excerpt": "तो धुरंधर मूवी को ऑस्कर जूरी ने रिजेक्ट कर दिया, जहां इस साल के एकेडमी अवॉर्ड्स के लिए",
+      "observable_audio_cues": null,
+      "interpreted_expression": null,
+      "confidence": "unverified",
+      "proposed_delivery": "Punchy, confident news hook highlighting Dhurandhar's rejection"
+    },
+    {
+      "start": 5.0,
+      "end": 8.5,
+      "speaker": "reference narrator",
+      "excerpt": "मराठी फिल्म गोंधळ को सिलेक्ट किया गया as an official entry",
+      "observable_audio_cues": null,
+      "interpreted_expression": null,
+      "confidence": "unverified",
+      "proposed_delivery": "Crisp attribution of Marathi film Gondhal's selection"
+    },
+    {
+      "start": 8.5,
+      "end": 13.0,
+      "speaker": "reference narrator",
+      "excerpt": "धुरंधर को क्यों रिजेक्ट किया गया? जब ये चीज़ फिल्म जूरी से पूछा गया, तो एक मेंबर ने जवाब दिया",
+      "observable_audio_cues": null,
+      "interpreted_expression": null,
+      "confidence": "unverified",
+      "proposed_delivery": "Curious rhetorical beat introducing jury member Vivek Vaswani's statement"
+    },
+    {
+      "start": 13.0,
+      "end": 20.0,
+      "speaker": "reference narrator",
+      "excerpt": "ये फिल्म अपने इंडियन कल्चर को इस वे में रिप्रेजेंट नहीं करता है जैसा हम लोग चाहते हैं। 14 में से सिर्फ चार जूरी के वोट्स आए थे वो मूवी के लिए।",
+      "observable_audio_cues": null,
+      "interpreted_expression": null,
+      "confidence": "unverified",
+      "proposed_delivery": "Sharp, clear quote delivery and surprising vote tally"
+    }
+  ]
+}

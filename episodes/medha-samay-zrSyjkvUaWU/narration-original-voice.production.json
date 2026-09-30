@@ -1,0 +1,19 @@
+{
+  "source": "episodes/medha-samay-zrSyjkvUaWU/narration-original-voice-raw.mp3",
+  "profile": {
+    "voice_id": "JBFqnCBsd6RMkjVDRZzb",
+    "model": "eleven_v3",
+    "language": "hi",
+    "tts_speed": 1.12,
+    "stability": 0.5,
+    "similarity_boost": 0.75,
+    "style": 0,
+    "atempo": 1.218,
+    "audio_filter": "highpass=f=75,equalizer=f=2600:t=q:w=0.8:g=1.5,acompressor=threshold=0.1:ratio=2.5:attack=8:release=90:makeup=1.4,loudnorm=I=-14:TP=-1.7:LRA=5",
+    "reference": "episodes/sunil-pal-ez1YRJeIJyw/prepare.py",
+    "note": "Original pre-clone narrator and production settings; 0.2 dB extra peak headroom for resampling."
+  },
+  "filter": "atempo=1.218,highpass=f=75,equalizer=f=2600:t=q:w=0.8:g=1.5,acompressor=threshold=0.1:ratio=2.5:attack=8:release=90:makeup=1.4,loudnorm=I=-14:TP=-1.7:LRA=5",
+  "alignment": "episodes/medha-samay-zrSyjkvUaWU/narration-original-voice.alignment.json",
+  "note": "Apply once to the raw TTS take. Pitch is preserved; alignment times are divided by atempo."
+}

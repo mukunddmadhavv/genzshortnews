@@ -1,0 +1,13 @@
+{
+  "source": "episodes/medha-samay-zrSyjkvUaWU/narration-mukund-energetic-depaused.wav",
+  "profile": {
+    "voice_id": "F2bjsMJJPYo3S15YpV24",
+    "source": "narration-mukund-energetic-depaused.wav",
+    "atempo": 1.1,
+    "audio_filter": "anull",
+    "note": "User requested another 10% speed increase relative to the energetic revision. Before this pass, remaining quiet gaps >=120 ms at -28 dB are shortened to 60 ms. Preserve pitch and existing loudness treatment."
+  },
+  "filter": "atempo=1.1,anull",
+  "alignment": "episodes/medha-samay-zrSyjkvUaWU/narration-mukund-fast10.alignment.json",
+  "note": "Apply once to the raw TTS take. Pitch is preserved; alignment times are divided by atempo."
+}

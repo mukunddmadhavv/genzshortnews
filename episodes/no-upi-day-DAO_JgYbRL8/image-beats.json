@@ -1,0 +1,75 @@
+[
+  {
+    "start": 0,
+    "file": "../../references/DAO_JgYbRL8/images/thehindu-bhopal-scanner.jpg",
+    "purpose": "Hook: ANI photo of shopkeeper covering QR code scanner with black cloth in Bhopal"
+  },
+  {
+    "start": 8.128078817733991,
+    "file": "../../references/DAO_JgYbRL8/frames/007.jpg",
+    "purpose": "Reporting headline: MP traders, retailers observe 'No UPI Day', seek rollback of MDR charges",
+    "crop": [
+      0,
+      140,
+      1080,
+      1004
+    ],
+    "source_second": 7
+  },
+  {
+    "start": 16.32183908045977,
+    "file": "../../references/DAO_JgYbRL8/images/fpj-no-upi-day.jpg",
+    "purpose": "Protest banner: shopkeeper displaying 'NO UPI DAY' poster in MP market"
+  },
+  {
+    "start": 20.147783251231527,
+    "file": "../../references/DAO_JgYbRL8/images/indiatoday-mdr-gst.png",
+    "purpose": "Explainer infographic: 0.4% MDR charge on UPI transactions above Rs 2,000"
+  },
+  {
+    "start": 29.950738916256157,
+    "file": "../../references/DAO_JgYbRL8/frames/018.jpg",
+    "purpose": "Livemint source: What consumers should keep in mind / UPI for people",
+    "crop": [
+      0,
+      140,
+      1080,
+      1004
+    ],
+    "source_second": 18
+  },
+  {
+    "start": 33.66174055829228,
+    "file": "../../references/DAO_JgYbRL8/images/thehindu-bhopal-scanner.jpg",
+    "purpose": "Trader perspective: shops and soundboxes covered in protest against extra transaction costs"
+  },
+  {
+    "start": 38.9055829228243,
+    "file": "../../references/DAO_JgYbRL8/frames/024.jpg",
+    "purpose": "Maharashtra escalation: 20,000 traders switching to cash only on Gandhi Jayanti",
+    "crop": [
+      0,
+      140,
+      1080,
+      1004
+    ],
+    "source_second": 24
+  },
+  {
+    "start": 48.50574712643678,
+    "file": "../../references/DAO_JgYbRL8/frames/029.jpg",
+    "purpose": "Practical consumer takeaway: all payments in cash during protest",
+    "crop": [
+      0,
+      140,
+      1080,
+      1004
+    ],
+    "source_second": 29
+  },
+  {
+    "start": 52.339080459770116,
+    "file": "../../references/DAO_JgYbRL8/images/livemint-maharashtra.jpg",
+    "purpose": "Closing call to action: retain relevant protest visuals through branded CTA"
+  }
+]

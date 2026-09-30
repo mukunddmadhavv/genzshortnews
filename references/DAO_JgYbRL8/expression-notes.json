@@ -1,0 +1,49 @@
+{
+  "source_audio": "source.mp4 (original audio); audio.wav (ASR derivative)",
+  "transcription_models": ["ElevenLabs scribe_v2"],
+  "review_method": "ASR cross-check with visual frames and news reporting; direct acoustic listening unavailable",
+  "expression_verified": false,
+  "notes": "Neon Man delivers a fast-paced, curious hook on 'No UPI Day' protest, transitions into the visual shock of QR codes covered in black cloth over MDR charges, expands to Maharashtra joining on Gandhi Jayanti, and closes on consumer cash requirement. Directions below are creative recommendations for our narrator.",
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 6.5,
+      "speaker": "reference narrator",
+      "excerpt": "काफी सारे traders ने no UPI day का protest announce कर दिया। जहां मध्य प्रदेश के कुछ traders ने सबसे पहले ये चीज announce किया.",
+      "observable_audio_cues": null,
+      "interpreted_expression": null,
+      "confidence": "unverified",
+      "proposed_delivery": "Curious, punchy hook announcing the boycott"
+    },
+    {
+      "start": 6.5,
+      "end": 16.5,
+      "speaker": "reference narrator",
+      "excerpt": "MDR charges को लेकर वो अपने shops के QR codes के आगे ऐसे black कपड़ा लगाकर बोल रहे हैं कि हम लोग UPI payments accept ही नहीं करेंगे।",
+      "observable_audio_cues": null,
+      "interpreted_expression": null,
+      "confidence": "unverified",
+      "proposed_delivery": "Surprised, vivid explanation of black cloth covering QR scanners and MDR charges"
+    },
+    {
+      "start": 16.5,
+      "end": 24.5,
+      "speaker": "reference narrator",
+      "excerpt": "and after मध्य प्रदेश, महाराष्ट्र के traders भी October second को ये protest announce कर दी। करीबन बीस हज़ार traders across the state ये protest को join करने वाले हैं",
+      "observable_audio_cues": null,
+      "interpreted_expression": null,
+      "confidence": "unverified",
+      "proposed_delivery": "Escalating news delivery: 20,000 traders joining on Gandhi Jayanti"
+    },
+    {
+      "start": 24.5,
+      "end": 29.88,
+      "speaker": "reference narrator",
+      "excerpt": "जहां पर वो बिल्कुल भी UPI payment accept नहीं करेंगे। सभी लोगों को cash payments ही देना होगा, जो भी customers है।",
+      "observable_audio_cues": null,
+      "interpreted_expression": null,
+      "confidence": "unverified",
+      "proposed_delivery": "Decisive, clear takeaway for consumers"
+    }
+  ]
+}

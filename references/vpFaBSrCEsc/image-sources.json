@@ -1,0 +1,33 @@
+[
+  {
+    "id": "india-today-visit",
+    "file": "images/india-today-visit.jpg",
+    "publisher": "India Today",
+    "page_url": "https://www.indiatoday.in/trending-news/story/mrbeast-visits-taj-mahal-with-wife-in-agra-young-fan-gives-him-handmade-sketchbook-3002757-2026-09-25",
+    "image_url": "https://akm-img-a-in.tosshub.com/indiatoday/images/story/202609/mrbeast-visits-taj-mahal-with-wife-in-agra--young-fan-gives-him-handmade-sketchbook-254346188-16x9_0.jpg?VersionId=E6yxj.RRmN4NMbguqTvuQmbRxhs3v7GE&size=690:388",
+    "published_at": "2026-09-25",
+    "checked_at": "2026-09-28",
+    "subject": "MrBeast during Taj Mahal visit",
+    "intended_use": "Visit and reported fan interaction",
+    "rights": "Publisher image; open license not established",
+    "width": 690,
+    "height": 388,
+    "sha256": "e1df516feada6d8a4b34ded4039c068639a45c82997bf81a6cb9b86d5a19b9f2"
+  },
+  {
+    "id": "indulge-visit",
+    "file": "images/indulge-visit.webp",
+    "publisher": "Indulge Express",
+    "page_url": "https://www.indulgexpress.com/entertainment/2026/Sep/25/mrbeast-visits-taj-mahal-with-wife-ahead-of-chat-with-ramayana-stars",
+    "image_url": "https://cf-images.assettype.com/indulgexpress%2F2026-09-25%2Fnbqm5yje%2F6ab62bb5756c9-mrbeast-jimmy-donaldson-wife-thea-visits-taj-mahal-agra-asi-filming-permission-250716415-16x9.webp?w=480&auto=format%2Ccompress&fit=max",
+    "published_at": "2026-09-25",
+    "checked_at": "2026-09-28",
+    "subject": "MrBeast and Thea at Taj Mahal",
+    "intended_use": "Accompanied visit and concluding image",
+    "rights": "Publisher image; open license not established",
+    "limitation": "Actual linked 480px image; no invented higher-resolution URL",
+    "width": 480,
+    "height": 270,
+    "sha256": "1fbdf9bd5382d6101297ca4aaa1f75aa7b2edbcd3bd164ff87c791d7add40b03"
+  }
+]

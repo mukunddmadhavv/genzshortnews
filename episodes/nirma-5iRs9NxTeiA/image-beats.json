@@ -1,0 +1,81 @@
+[
+  {
+    "start": 0,
+    "file": "../../references/5iRs9NxTeiA/frames/000.jpg",
+    "purpose": "Hook: actual confrontation",
+    "crop": [
+      60,
+      208,
+      1020,
+      1014
+    ],
+    "source_second": 0
+  },
+  {
+    "start": 5.073891625615763,
+    "file": "../../references/5iRs9NxTeiA/images/edex-probe.avif",
+    "purpose": "Identify university and incident"
+  },
+  {
+    "start": 11.461412151067325,
+    "file": "../../references/5iRs9NxTeiA/images/india-today-event.png",
+    "purpose": "Published screenshots show interaction"
+  },
+  {
+    "start": 19.29392446633826,
+    "file": "../../references/5iRs9NxTeiA/frames/039.jpg",
+    "purpose": "ABVP protest, original social handle retained",
+    "crop": [
+      0,
+      208,
+      1080,
+      1014
+    ],
+    "source_second": 39
+  },
+  {
+    "start": 24.608374384236452,
+    "file": "../../references/5iRs9NxTeiA/images/edex-probe.avif",
+    "purpose": "University response and mutual apologies"
+  },
+  {
+    "start": 31.395730706075536,
+    "file": "../../references/5iRs9NxTeiA/images/india-today-event.png",
+    "purpose": "Inquiry context; no result asserted"
+  },
+  {
+    "start": 34.41707717569787,
+    "file": "../../references/5iRs9NxTeiA/images/theprint-event.png",
+    "purpose": "Attribute professor's account; central original image",
+    "crop": [
+      178,
+      0,
+      526,
+      392
+    ]
+  },
+  {
+    "start": 40.4376026272578,
+    "file": "../../references/5iRs9NxTeiA/frames/120.jpg",
+    "purpose": "Rajat Sood clarification, original handle retained",
+    "crop": [
+      313,
+      208,
+      763,
+      1014
+    ],
+    "source_second": 120
+  },
+  {
+    "start": 45.48440065681445,
+    "file": "../../references/5iRs9NxTeiA/frames/000.jpg",
+    "purpose": "Open question and same-voice brand ending",
+    "crop": [
+      60,
+      208,
+      1020,
+      1014
+    ],
+    "source_second": 0
+  }
+]

@@ -1,0 +1,21 @@
+{
+  "alignment": "narration.alignment.json",
+  "narration": "narration.mp3",
+  "output": "news-panel.mp4",
+  "beats": [
+    {"start": 0, "file": "../../references/6V_gg2zt3b8/frames/000.jpg", "crop": [216, 200, 864, 1010], "purpose": "Mau and Taneja, archival family photo"},
+    {"phrase": "Gaurav Taneja's Labrador", "file": "../../references/6V_gg2zt3b8/images/ht-mau-photo.png", "purpose": "Additional publisher image of Taneja and adult Mau"},
+    {"phrase": "Mau had moved", "file": "../../references/6V_gg2zt3b8/frames/004.jpg", "crop": [208, 200, 875, 1010], "purpose": "Reference post describing the farmhouse move"},
+    {"phrase": "Taneja had previously", "file": "../../references/6V_gg2zt3b8/frames/010.jpg", "crop": [306, 200, 774, 1010], "purpose": "Earlier explanation shown in the reference"},
+    {"phrase": "Former employee", "file": "../../references/6V_gg2zt3b8/frames/018.jpg", "crop": [0, 369, 1080, 840], "purpose": "Identify the person making the allegations"},
+    {"phrase": "His posts raised", "file": "../../references/6V_gg2zt3b8/frames/060.jpg", "crop": [0, 200, 1080, 1010], "purpose": "His own account, reproduced in the reference"},
+    {"phrase": "Now, Taneja has responded", "file": "../../references/6V_gg2zt3b8/images/ie-mau-collage.jpg", "purpose": "Additional Indian Express response image"},
+    {"phrase": "He denies neglect", "file": "../../references/6V_gg2zt3b8/frames/128.jpg", "crop": [0, 200, 1080, 1010], "purpose": "Taneja speaking in his response video"},
+    {"phrase": "He also says", "file": "../../references/6V_gg2zt3b8/frames/134.jpg", "crop": [0, 200, 1080, 1010], "purpose": "Response, medical-record claim"},
+    {"phrase": "The backlash", "file": "../../references/6V_gg2zt3b8/images/ie-mau-collage.jpg", "purpose": "Image from reporting that covers business boycott calls"},
+    {"phrase": "But here's", "file": "../../references/6V_gg2zt3b8/frames/146.jpg", "crop": [0, 200, 1080, 1010], "purpose": "Hold response visual while explaining that claims remain disputed"},
+    {"phrase": "The Indian Express reports", "file": "../../references/6V_gg2zt3b8/images/ie-mau-collage.jpg", "purpose": "Publisher image accompanies explicit spoken attribution"},
+    {"phrase": "The key questions", "file": "../../references/6V_gg2zt3b8/images/ht-mau-photo.png", "purpose": "Return focus to Mau"},
+    {"phrase": "Follow for updates", "file": "../../references/6V_gg2zt3b8/frames/000.jpg", "crop": [216, 200, 864, 1010], "purpose": "Close on relevant photo, no end card"}
+  ]
+}

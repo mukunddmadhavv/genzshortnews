@@ -1,0 +1,47 @@
+[
+  {
+    "id": "india-today-event",
+    "file": "images/india-today-event.png",
+    "publisher": "India Today; screenshots from viral video",
+    "page_url": "https://www.indiatoday.in/education-today/news/story/nirma-university-professor-video-student-collar-grab-technofora-row-3002293-2026-09-24",
+    "image_url": "https://akm-img-a-in.tosshub.com/indiatoday/images/story/202609/engineering-professor-grabs-student-by-collar-on-stage-in-gujarat--sparks-internet-row-255625767-16x9_0.png?VersionId=E8Vg3I6IjonFn.v_wnrIqK2SZ.6kesaw&size=690:388",
+    "publication_date": "2026-09-25",
+    "checked_at": "2026-09-28",
+    "subject": "Professor Patel and student on stage",
+    "intended_use": "Incident context",
+    "rights": "Publisher/underlying footage rights retained; no open license established",
+    "width": 690,
+    "height": 388,
+    "sha256": "706102c09dd93a7ed172424302349059eec4c5db155481ebbfb0cdc6e469bea0"
+  },
+  {
+    "id": "theprint-event",
+    "file": "images/theprint-event.png",
+    "publisher": "ThePrint; image credited X",
+    "page_url": "https://theprint.in/feature/ahmedabad-nirma-universitys-viral-video-golmaal-meme-student-vs-professor-apology/3052974/",
+    "image_url": "https://staticprintenglish.theprint.in/wp-content/uploads/2026/09/NIRMA-696x392.png",
+    "publication_date": "2026-09-25",
+    "checked_at": "2026-09-28",
+    "subject": "Professor Patel and student confrontation",
+    "intended_use": "Professor's attributed response",
+    "rights": "Publisher/underlying footage rights retained; no open license established",
+    "width": 696,
+    "height": 392,
+    "sha256": "dd8633884920aa598bb332773e8b5675625f23d024d1fa6deb463febfbb35d67"
+  },
+  {
+    "id": "edex-probe",
+    "file": "images/edex-probe.avif",
+    "publisher": "EdexLive/PTI",
+    "page_url": "https://www.edexlive.com/news/video-of-professor-threatening-student-gujarat-s-nirma-university-sets-up-probe-panel",
+    "image_url": "https://cf-images.assettype.com/edexlive%2F2026-09-26%2Fd510nlkb%2Fnirma-university-professor-grabs-students-collar-abvp-protests-3-member-panel-formed-25593862-16x90.avif?w=480&auto=format%2Ccompress&fit=max",
+    "publication_date": "2026-09-27",
+    "checked_at": "2026-09-28",
+    "subject": "Nirma incident and protests as pictured by publisher",
+    "intended_use": "Investigation update",
+    "rights": "Publisher/underlying footage rights retained; no open license established",
+    "width": 480,
+    "height": 269,
+    "sha256": "57212340dd8c9e14597cb64a16d2f19ffc2adb6d69edbfcd5a2bd5dabcc4b6b8"
+  }
+]

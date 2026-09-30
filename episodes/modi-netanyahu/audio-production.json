@@ -1,0 +1,11 @@
+{
+  "model": "eleven_v3",
+  "voice": "Configured ELEVENLABS_VOICE_ID",
+  "language": "hi",
+  "script": "Devanagari Hindi always (no bracketed tags)",
+  "tts_speed": 1.12,
+  "atempo": 1.218,
+  "outro_text": "Follow GENZ SHORT NEWS for more!",
+  "outro": "Same complete generation and processing as body",
+  "sfx": "Four user-whoosh cues at key transition cuts, below speech"
+}

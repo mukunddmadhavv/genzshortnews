@@ -1,0 +1,139 @@
+[
+  {
+    "start": 0,
+    "file": "../../references/6V_gg2zt3b8/frames/000.jpg",
+    "crop": [
+      216,
+      200,
+      864,
+      1010
+    ],
+    "purpose": "Mau and Taneja, archival family photo"
+  },
+  {
+    "phrase": "Gaurav Taneja's Labrador",
+    "file": "../../references/6V_gg2zt3b8/images/ht-mau-photo.png",
+    "purpose": "Additional publisher image of Taneja and adult Mau",
+    "start": 3.6
+  },
+  {
+    "phrase": "Mau had moved",
+    "file": "../../references/6V_gg2zt3b8/frames/004.jpg",
+    "crop": [
+      208,
+      200,
+      875,
+      1010
+    ],
+    "purpose": "Reference post describing the farmhouse move",
+    "start": 11.4
+  },
+  {
+    "phrase": "Taneja had previously",
+    "file": "../../references/6V_gg2zt3b8/frames/010.jpg",
+    "crop": [
+      306,
+      200,
+      774,
+      1010
+    ],
+    "purpose": "Earlier explanation shown in the reference",
+    "start": 15.08
+  },
+  {
+    "phrase": "Former employee",
+    "file": "../../references/6V_gg2zt3b8/frames/018.jpg",
+    "crop": [
+      0,
+      369,
+      1080,
+      840
+    ],
+    "purpose": "Identify the person making the allegations",
+    "start": 20.583
+  },
+  {
+    "phrase": "His posts raised",
+    "file": "../../references/6V_gg2zt3b8/frames/060.jpg",
+    "crop": [
+      0,
+      200,
+      1080,
+      1010
+    ],
+    "purpose": "His own account, reproduced in the reference",
+    "start": 28.4
+  },
+  {
+    "phrase": "Now, Taneja has responded",
+    "file": "../../references/6V_gg2zt3b8/images/ie-mau-collage.jpg",
+    "purpose": "Additional Indian Express response image",
+    "start": 33.98
+  },
+  {
+    "phrase": "He denies neglect",
+    "file": "../../references/6V_gg2zt3b8/frames/128.jpg",
+    "crop": [
+      0,
+      200,
+      1080,
+      1010
+    ],
+    "purpose": "Taneja speaking in his response video",
+    "start": 36.293
+  },
+  {
+    "phrase": "He also says",
+    "file": "../../references/6V_gg2zt3b8/frames/134.jpg",
+    "crop": [
+      0,
+      200,
+      1080,
+      1010
+    ],
+    "purpose": "Response, medical-record claim",
+    "start": 43.6
+  },
+  {
+    "phrase": "The backlash",
+    "file": "../../references/6V_gg2zt3b8/images/ie-mau-collage.jpg",
+    "purpose": "Image from reporting that covers business boycott calls",
+    "start": 49.14
+  },
+  {
+    "phrase": "But here's",
+    "file": "../../references/6V_gg2zt3b8/frames/146.jpg",
+    "crop": [
+      0,
+      200,
+      1080,
+      1010
+    ],
+    "purpose": "Hold response visual while explaining that claims remain disputed",
+    "start": 53.32
+  },
+  {
+    "phrase": "The Indian Express reports",
+    "file": "../../references/6V_gg2zt3b8/images/ie-mau-collage.jpg",
+    "purpose": "Publisher image accompanies explicit spoken attribution",
+    "start": 57.78
+  },
+  {
+    "phrase": "The key questions",
+    "file": "../../references/6V_gg2zt3b8/images/ht-mau-photo.png",
+    "purpose": "Return focus to Mau",
+    "start": 66.04
+  },
+  {
+    "phrase": "Follow for updates",
+    "file": "../../references/6V_gg2zt3b8/frames/000.jpg",
+    "crop": [
+      216,
+      200,
+      864,
+      1010
+    ],
+    "purpose": "Close on relevant photo, no end card",
+    "start": 71.2
+  }
+]

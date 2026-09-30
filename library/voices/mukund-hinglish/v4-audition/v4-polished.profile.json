@@ -1,0 +1,9 @@
+{
+  "voice_id": "F2bjsMJJPYo3S15YpV24",
+  "model": "eleven_v4",
+  "stability": 0.5,
+  "similarity": 0.9,
+  "atempo": 1.0,
+  "audio_filter": "highpass=f=55,acompressor=threshold=0.125:ratio=1.8:attack=15:release=120:makeup=1,loudnorm=I=-16:TP=-2:LRA=7",
+  "note": "Mukund Tight local processing. V2 TTS speed/style/speaker boost were not sent to the dialogue endpoint."
+}

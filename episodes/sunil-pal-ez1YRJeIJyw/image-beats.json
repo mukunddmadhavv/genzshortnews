@@ -1,0 +1,82 @@
+[
+  {
+    "start": 0,
+    "file": "../../references/ez1YRJeIJyw/frames/000.jpg",
+    "purpose": "Introduce Sunil Pal and Salman Khan",
+    "crop": [
+      0,
+      194,
+      1080,
+      1004
+    ],
+    "source_second": 0
+  },
+  {
+    "start": 5.079638752052546,
+    "file": "../../references/ez1YRJeIJyw/frames/034.jpg",
+    "purpose": "Salman's prior on-show response to trolling",
+    "crop": [
+      150,
+      194,
+      930,
+      1004
+    ],
+    "source_second": 34
+  },
+  {
+    "start": 10.618226600985222,
+    "file": "../../references/ez1YRJeIJyw/images/bhl-sunil.jpg",
+    "purpose": "Attribute Pal's audience argument"
+  },
+  {
+    "start": 16.091954022988507,
+    "file": "../../references/ez1YRJeIJyw/frames/010.jpg",
+    "purpose": "Pal speaking; paraphrased quote attributed in narration",
+    "crop": [
+      135,
+      194,
+      945,
+      1004
+    ],
+    "source_second": 10
+  },
+  {
+    "start": 20.26272577996716,
+    "file": "../../references/ez1YRJeIJyw/frames/024.jpg",
+    "purpose": "Pal making the film earnings comparison",
+    "crop": [
+      150,
+      194,
+      930,
+      1004
+    ],
+    "source_second": 24
+  },
+  {
+    "start": 26.89655172413793,
+    "file": "../../references/ez1YRJeIJyw/images/news18-salman.jpg",
+    "purpose": "Qualification: box-office comparison is Pal's claim"
+  },
+  {
+    "start": 29.523809523809526,
+    "file": "../../references/ez1YRJeIJyw/images/bhl-sunil.jpg",
+    "purpose": "Pal's criticism of Bigg Boss; publisher watermark retained"
+  },
+  {
+    "start": 35.008210180623976,
+    "file": "../../references/ez1YRJeIJyw/frames/034.jpg",
+    "purpose": "Recall Salman discussing personal attacks, not replying to Pal",
+    "crop": [
+      150,
+      194,
+      930,
+      1004
+    ],
+    "source_second": 34
+  },
+  {
+    "start": 37.816091954022994,
+    "file": "../../references/ez1YRJeIJyw/images/outlook-sunil-salman.webp",
+    "purpose": "Contrast positions and retain relevant imagery through the CTA"
+  }
+]

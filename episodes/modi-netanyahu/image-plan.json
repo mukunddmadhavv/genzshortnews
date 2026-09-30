@@ -1,0 +1,47 @@
+{
+  "alignment": "narration-final.alignment.json",
+  "narration": "narration-final.wav",
+  "output": "news-panel.mp4",
+  "beats": [
+    {
+      "start": 0.0,
+      "file": "images/beat-01-greeting.jpg",
+      "purpose": "PM Modi and Netanyahu personal chemistry introduction"
+    },
+    {
+      "start": 10.607553366174056,
+      "file": "images/beat-02-2017-visit.jpg",
+      "purpose": "Historic 2017 first visit to Israel by an Indian PM"
+    },
+    {
+      "start": 17.389162561576356,
+      "file": "images/beat-03-beach-walk.jpg",
+      "purpose": "Iconic barefoot walk at Olga Beach"
+    },
+    {
+      "start": 22.26600985221675,
+      "file": "images/beat-04-ahmedabad-2018.jpg",
+      "purpose": "Netanyahu visiting Ahmedabad and Sabarmati Ashram in 2018"
+    },
+    {
+      "start": 31.822660098522167,
+      "file": "images/beat-05-knesset-speech.jpg",
+      "purpose": "PM Modi addressing the Knesset"
+    },
+    {
+      "start": 39.40886699507389,
+      "file": "images/beat-06-agreements-mou.jpg",
+      "purpose": "Defense agreements and bilateral MoUs exchange"
+    },
+    {
+      "start": 44.433497536945815,
+      "file": "images/beat-07-tete-a-tete.jpg",
+      "purpose": "Warm tete-a-tete meeting / close personal bond"
+    },
+    {
+      "start": 46.37110016420361,
+      "file": "images/beat-08-partnership-cta.jpg",
+      "purpose": "Strategic partnership question and same-voice CTA"
+    }
+  ]
+}

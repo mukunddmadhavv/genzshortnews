@@ -1,0 +1,63 @@
+{
+  "alignment": "narration-final.alignment.json",
+  "narration": "narration-final.wav",
+  "output": "news-panel.mp4",
+  "beats_output": "image-beats.json",
+  "beats": [
+    {
+      "start": 0.0,
+      "file": "../../references/Yw5Q3jf7DOM/images/ani-cjp-press-conference.jpg",
+      "purpose": "Hook: ANI photo of CJP leaders Dipke, Ranka, Das at press conference"
+    },
+    {
+      "start": 6.28,
+      "file": "../../references/Yw5Q3jf7DOM/images/delhi-high-court.jpg",
+      "purpose": "Delhi High Court steps in"
+    },
+    {
+      "start": 9.78,
+      "file": "../../references/Yw5Q3jf7DOM/images/ref-clean-003.jpg",
+      "purpose": "Inshorts reporting on 25yo woman filing complaint against CJP leaders"
+    },
+    {
+      "start": 12.68,
+      "file": "../../references/Yw5Q3jf7DOM/images/ref-clean-013.jpg",
+      "purpose": "Allegation: Jantar Mantar protest and AI face swapping tools"
+    },
+    {
+      "start": 19.30,
+      "file": "../../references/Yw5Q3jf7DOM/images/pm-modi-portrait.jpg",
+      "purpose": "Morphed photo alongside PM Narendra Modi"
+    },
+    {
+      "start": 21.72,
+      "file": "../../references/Yw5Q3jf7DOM/images/ref-clean-023.jpg",
+      "purpose": "Banners displayed at crowds and derogatory slogans chanted"
+    },
+    {
+      "start": 29.80,
+      "file": "../../references/Yw5Q3jf7DOM/images/ref-clean-030.jpg",
+      "purpose": "Key functionaries named: Saurabh Das, Abhijeet Dipke, Ashutosh Ranka, Ratna Singh"
+    },
+    {
+      "start": 37.30,
+      "file": "../../references/Yw5Q3jf7DOM/images/delhi-high-court.jpg",
+      "purpose": "Delhi HC stern rebuke: matter concerning Prime Minister of the country"
+    },
+    {
+      "start": 43.92,
+      "file": "../../references/Yw5Q3jf7DOM/images/abp-court-notice.jpg",
+      "purpose": "Directives: Meta ordered to remove posts in 24 hours"
+    },
+    {
+      "start": 48.40,
+      "file": "../../references/Yw5Q3jf7DOM/images/delhi-police.jpg",
+      "purpose": "Delhi Police directed to provide full protection to woman"
+    },
+    {
+      "start": 52.10,
+      "file": "../../references/Yw5Q3jf7DOM/images/ani-cjp-press-conference.jpg",
+      "purpose": "Closing brand call to action with relevant context visible"
+    }
+  ]
+}

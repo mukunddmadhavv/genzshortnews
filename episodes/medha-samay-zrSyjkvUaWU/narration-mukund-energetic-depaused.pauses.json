@@ -1,0 +1,43 @@
+{
+  "source": "episodes/medha-samay-zrSyjkvUaWU/narration-mukund-energetic.wav",
+  "cuts": [
+    [
+      0.05275,
+      0.132917
+    ],
+    [
+      5.555083000000001,
+      5.615729
+    ],
+    [
+      19.41925,
+      19.479416999999998
+    ],
+    [
+      24.239542,
+      24.324437
+    ],
+    [
+      33.614292,
+      33.674396
+    ],
+    [
+      33.739542,
+      33.822792
+    ],
+    [
+      40.454479,
+      40.641646
+    ],
+    [
+      45.384229,
+      45.54925
+    ]
+  ],
+  "removed_seconds": 0.7814170000000026,
+  "retained_gap_seconds": 0.06,
+  "minimum_gap_seconds": 0.12,
+  "threshold_db": -28,
+  "speech_speed_changed": false,
+  "edge_fade_seconds": 0.003
+}

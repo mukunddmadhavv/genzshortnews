@@ -1,0 +1,83 @@
+[
+  {
+    "start": 0.0,
+    "file": "../../references/nHf_2wc54yc/images/ranveer-singh.jpg",
+    "purpose": "Hook: High-res portrait of lead actor Ranveer Singh"
+  },
+  {
+    "start": 4.28,
+    "file": "../../references/nHf_2wc54yc/frames/001.jpg",
+    "crop": [
+      0,
+      144,
+      1080,
+      946
+    ],
+    "purpose": "Official movie poster of Aditya Dhar's Dhurandhar"
+  },
+  {
+    "start": 8.0,
+    "file": "../../references/nHf_2wc54yc/frames/004.jpg",
+    "crop": [
+      0,
+      144,
+      1080,
+      946
+    ],
+    "purpose": "Indian Tech & Infra tweet announcing Marathi film Gondhal as India's official entry for Oscars"
+  },
+  {
+    "start": 15.02,
+    "file": "../../references/nHf_2wc54yc/images/aditya-dhar.jpg",
+    "purpose": "Director spotlight: High-res portrait of director Aditya Dhar"
+  },
+  {
+    "start": 19.48,
+    "file": "../../references/nHf_2wc54yc/images/vivek-vaswani.jpg",
+    "purpose": "Jury attribution: High-res portrait of Oscar jury member Vivek Vaswani"
+  },
+  {
+    "start": 24.48,
+    "file": "../../references/nHf_2wc54yc/frames/009.jpg",
+    "crop": [
+      0,
+      144,
+      1080,
+      946
+    ],
+    "purpose": "Inshorts card: Jury member reveals why Dhurandhar wasn't selected as India's Oscar entry"
+  },
+  {
+    "start": 29.58,
+    "file": "../../references/nHf_2wc54yc/frames/012.jpg",
+    "crop": [
+      0,
+      144,
+      1080,
+      946
+    ],
+    "purpose": "Legible excerpt of NDTV report quoting Vivek Vaswani (4 of 14 votes, shortlist of Gondhal, Angh, Main Vaapas Aaunga)"
+  },
+  {
+    "start": 38.06,
+    "file": "../../references/nHf_2wc54yc/frames/004.jpg",
+    "crop": [
+      0,
+      144,
+      1080,
+      946
+    ],
+    "purpose": "Winning entry: Marathi film Gondhal triumph"
+  },
+  {
+    "start": 39.76,
+    "file": "../../references/nHf_2wc54yc/frames/001.jpg",
+    "crop": [
+      0,
+      144,
+      1080,
+      946
+    ],
+    "purpose": "Closing question and branded CTA with Dhurandhar poster backdrop"
+  }
+]

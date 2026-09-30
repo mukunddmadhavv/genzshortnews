@@ -1,0 +1,82 @@
+[
+  {
+    "id": "beat-01-endgame-poster",
+    "file": "images/beat-01-endgame-poster.jpg",
+    "title": "Avengers: Endgame theatrical poster",
+    "source": "Marvel Studios / Wikimedia",
+    "subject": "Avengers Endgame Encore theatrical poster introducing the re-release",
+    "width": 220,
+    "height": 326,
+    "sha256": "570fe60e566734fd0ce448a79ffcc11c2b4cd03a55a6ddeb2d22e43714f2af25"
+  },
+  {
+    "id": "beat-02-russo-brothers",
+    "file": "images/beat-02-russo-brothers.jpg",
+    "title": "Joe Russo and Anthony Russo at San Diego Comic-Con",
+    "source": "Gage Skidmore / Wikimedia Commons",
+    "subject": "Directors Anthony & Joe Russo who helmed Avengers: Endgame and its 2019 .2B historic opening",
+    "width": 2874,
+    "height": 1374,
+    "sha256": "82a0575bf0e64c95e6f521226ff2155011e41257fb224877bc59c70d64222b09"
+  },
+  {
+    "id": "beat-03-imax-theater",
+    "file": "images/beat-03-imax-theater.jpg",
+    "title": "China National Film Museum IMAX Giant Screen",
+    "source": "Wikimedia Commons",
+    "subject": "IMAX giant screen representing the M worldwide opening weekend of Encore",
+    "width": 4032,
+    "height": 3024,
+    "sha256": "217ae76122f7f9158e10adda54337e4a875630a47c8c947ae2847fed0eccefb7"
+  },
+  {
+    "id": "beat-04-james-cameron",
+    "file": "images/beat-04-james-cameron.jpg",
+    "title": "James Cameron at San Diego Comic-Con",
+    "source": "Gage Skidmore / Wikimedia Commons",
+    "subject": "Director James Cameron whose Avatar (.92B) is being chased by Endgame (.89B)",
+    "width": 2046,
+    "height": 2782,
+    "sha256": "51adb31ea8293ab23f0b5eafd27abb289d0b635108d6cf640d1c94037bceb7ce"
+  },
+  {
+    "id": "beat-05-cinema-crowd",
+    "file": "images/beat-05-cinema-crowd.jpg",
+    "title": "Grand auditorium movie theater screen and seating",
+    "source": "Wikimedia Commons",
+    "subject": "Cinema auditorium representing Indian box office (\u20b9440 Cr gross record)",
+    "width": 6362,
+    "height": 3976,
+    "sha256": "cf9c8238fe7c87603d65fdec9a70e0b7b0ad8cd7fb2bbfa3e4fadc547de3b221"
+  },
+  {
+    "id": "beat-06-robert-downey-jr",
+    "file": "images/beat-06-robert-downey-jr.jpg",
+    "title": "Robert Downey Jr. at D23 Expo Disney Legends Ceremony",
+    "source": "Wikimedia Commons",
+    "subject": "Robert Downey Jr. returning as Victor von Doom / Doctor Doom in Encore new footage",
+    "width": 5782,
+    "height": 3855,
+    "sha256": "7f0c84f3b3af6220fcbea72d7e8866d97933302dfb31b741be2dd34a5d9097f3"
+  },
+  {
+    "id": "beat-07-doomsday-teaser",
+    "file": "images/beat-07-doomsday-teaser.jpg",
+    "title": "Avengers: Doomsday teaser poster",
+    "source": "Marvel Studios / Wikimedia",
+    "subject": "Avengers: Doomsday teaser connecting directly to Encore extra scenes",
+    "width": 250,
+    "height": 377,
+    "sha256": "12e8cb9972231a0fe0addf485f33019e310b9f6ab859ed19bd191a0680aaf048"
+  },
+  {
+    "id": "beat-08-chris-evans",
+    "file": "images/beat-08-chris-evans.jpg",
+    "title": "Chris Evans at San Diego Comic-Con",
+    "source": "Gage Skidmore / Wikimedia Commons",
+    "subject": "Chris Evans (Captain America) who introduces Encore and stars in the extended ending with Loki",
+    "width": 1750,
+    "height": 2500,
+    "sha256": "d7ad5f4dac829115f9cfc59c787b8ac6d6967dae10c99bcf18e9ad3df44fcc18"
+  }
+]

@@ -1,0 +1,69 @@
+"""Run export checks against the CJP Complaint episode."""
+import io
+import json
+import re
+import subprocess
+from pathlib import Path
+
+from PIL import Image, ImageDraw
+
+EP = Path(__file__).resolve().parent
+VIDEO = EP / "final-genz-short-news.mp4"
+
+
+def main():
+    probe = json.loads(subprocess.check_output([
+        "ffprobe", "-v", "error", "-show_format", "-show_streams", "-of", "json", str(VIDEO)
+    ], text=True))
+    duration = float(probe["format"]["duration"])
+
+    # Full decode check
+    subprocess.run([
+        "ffmpeg", "-v", "error", "-xerror", "-i", str(VIDEO),
+        "-map", "0:v:0", "-map", "0:a:0", "-f", "null", "-"
+    ], check=True)
+
+    # Audio loudness measurement
+    measured = subprocess.run([
+        "ffmpeg", "-hide_banner", "-i", str(VIDEO), "-vn", "-af",
+        "loudnorm=I=-14:TP=-1.5:LRA=7:print_format=json", "-f", "null", "-"
+    ], capture_output=True, text=True, check=True)
+    loudness = json.loads(re.search(r'\{\s*"input_i".*?\}', measured.stderr, re.S).group())
+
+    beats = json.loads((EP / "image-beats.json").read_text())
+    times = [min(b["start"] + 0.5, duration - 0.1) for b in beats] + [duration - 0.15]
+
+    # Contact sheet
+    cols = 4
+    rows = (len(times) + cols - 1) // cols
+    sheet = Image.new("RGB", (1080, rows * 510), "#222222")
+    draw = ImageDraw.Draw(sheet)
+
+    for i, second in enumerate(times):
+        raw = subprocess.check_output([
+            "ffmpeg", "-v", "error", "-ss", str(second), "-i", str(VIDEO),
+            "-frames:v", "1", "-f", "image2pipe", "-vcodec", "png", "-"
+        ])
+        frame = Image.open(io.BytesIO(raw)).convert("RGB")
+        if i == len(times) - 1:
+            frame.save(EP / "final-frame.jpg", quality=95)
+        frame.thumbnail((270, 480))
+        x, y = (i % cols) * 270, (i // cols) * 510
+        sheet.paste(frame, (x, y + 26))
+        draw.text((x + 8, y + 6), f"{second:.2f}s", fill="white")
+
+    sheet.save(EP / "contact-sheet.jpg", quality=93)
+
+    result = {
+        "full_decode": "passed",
+        "duration": duration,
+        "video": next(s for s in probe["streams"] if s["codec_type"] == "video"),
+        "audio": next(s for s in probe["streams"] if s["codec_type"] == "audio"),
+        "loudness": loudness
+    }
+    (EP / "verification.json").write_text(json.dumps(result, indent=2))
+    print(f"Verified {duration:.2f}s video; integrated loudness: {loudness['input_i']} LUFS, true peak: {loudness['input_tp']} dBTP.")
+
+
+if __name__ == "__main__":
+    main()

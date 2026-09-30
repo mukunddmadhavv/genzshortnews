@@ -1,0 +1,96 @@
+/* Touch-first layouts, with the same navigation on phones and tablets. */
+.mobile-signout{display:none}
+.page-heading>div,.stats>div,.connections>section,.detail-layout>section{min-width:0}
+.detail-heading h1,.library-list h3{overflow-wrap:anywhere}
+@media(max-width:1050px) and (min-width:801px){
+ .detail-layout{grid-template-columns:1fr}
+ .preview-panel .video-stage video{max-height:560px}
+ .work-body{height:400px}
+}
+@media(max-width:800px){
+ .shell{display:block;min-height:100dvh}
+ .sidebar{position:fixed;top:auto;bottom:0;left:0;right:0;width:100%;min-height:0;height:auto;padding:5px max(8px,env(safe-area-inset-right)) calc(5px + env(safe-area-inset-bottom)) max(8px,env(safe-area-inset-left));border:0;border-top:1px solid #dfe5ed;box-shadow:0 -3px 16px #18345408;z-index:30;background:#fff}
+ .sidebar>.brand,.sidebar>.workspace,.sidebar>.nav-label,.sidebar>.pipeline-note,.sidebar>.sidebar-bottom{display:none}
+ .sidebar nav{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px}
+ .sidebar nav button,.sidebar nav button.active{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:8px 4px;min-height:56px;font-size:11px;line-height:1.2;border:0;border-radius:9px;white-space:nowrap}
+ .sidebar nav button svg{height:21px;width:21px}
+ .sidebar nav em{display:none}
+ .main{margin:0;width:100%;padding-bottom:calc(80px + env(safe-area-inset-bottom))}
+ .main>header{height:58px;padding:0 16px;position:sticky;top:0;z-index:20;background:#fffffff5;backdrop-filter:blur(12px)}
+ .mobile-signout{display:flex}
+ .main>header>div:first-child:before{content:'';width:30px;height:30px;flex-shrink:0;border-radius:50%;background:url('/branding/profile.png') center/cover}
+ .content{padding:20px 16px 24px}
+ .page-heading{gap:16px;margin-bottom:22px}
+ .page-heading h1{font-size:27px;line-height:1.2}
+ .page-heading>.primary,.page-heading>.secondary{width:100%;min-height:46px}
+ .page-heading p:not(.eyebrow){font-size:13px}
+ .channel-banner{margin-bottom:23px}
+ .primary,.secondary{min-height:44px;font-size:13px;white-space:normal;line-height:1.4}
+ .icon{min-width:44px;min-height:44px}
+ .text-button{min-height:44px;font-size:12px}
+ input,textarea,select,.search input,.composer textarea,.panel-heading select{font-size:16px!important;min-height:44px}
+ .search{width:100%;min-height:46px}
+ .search input{width:100%;min-width:0}
+ label{font-size:13px}
+ .stats{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+ .stats>div{padding:16px}
+ .stats span{font-size:12px;gap:6px}
+ .stats span svg{flex-shrink:0}
+ .stats strong{margin-top:12px;font-size:28px}
+ .create-banner{padding:18px;gap:12px}
+ .create-banner p{font-size:12px}
+ .create-banner button{min-height:44px;font-size:12px}
+ .session-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+ .card-visual{height:165px}
+ .card-body h3{font-size:14px;overflow-wrap:anywhere}
+ .card-body p,.card-body footer{font-size:11px}
+ .badge{font-size:11px;padding:5px 8px}
+ .bottom-note{font-size:11px;padding:0 8px}
+ .detail-layout{display:flex;flex-direction:column;gap:18px}
+ .detail-layout>section{width:100%}
+ .preview-panel{padding:15px}
+ .panel-heading{flex-wrap:wrap}
+ .panel-heading select{max-width:100%;min-width:0;padding:8px}
+ .video-stage{min-height:0}
+ .video-stage video{max-height:65dvh;width:100%;aspect-ratio:9/16;object-fit:contain}
+ .render-placeholder{min-height:300px}
+ .video-details{flex-wrap:wrap;font-size:12px;gap:12px}
+ .video-details a{min-height:44px}
+ .publishing-copy{padding:15px}
+ .publishing-copy label{font-size:12px}
+ .publishing-copy p,.summary,.muted.small{font-size:13px}
+ .format-chips{gap:6px}.format-chips span{font-size:11px;overflow-wrap:anywhere;max-width:100%}
+ .tabs{gap:0;padding:0 12px;justify-content:space-between}
+ .tabs button{min-height:50px;padding:14px 8px;font-size:13px}
+ .work-body{height:360px;max-height:55dvh;padding:18px;overscroll-behavior:contain}
+ .event p{font-size:13px}.event strong,.event time{font-size:11px}.event.tool p{font-size:12px}
+ .composer{padding:16px}
+ .composer>div{align-items:stretch;flex-direction:column}
+ .composer>div>span{max-width:none;font-size:11px}
+ .composer .primary{width:100%;min-height:44px;font-size:13px}
+ .file-name{font-size:13px}.file-name small{font-size:11px}.file-row>a{min-width:44px;min-height:44px;display:grid;place-items:center}
+ .library-list,.library-list-view{padding:0 16px}
+ .library-controls{flex-direction:column;align-items:stretch;gap:10px}
+ .library-search{max-width:100%;min-width:0;width:100%}
+ .library-sort{justify-content:space-between;width:100%}
+ .library-sort select{flex:1;max-width:200px}
+ .library-status-pills{overflow-x:auto;padding-bottom:4px;flex-wrap:nowrap}
+ .status-pill{white-space:nowrap}
+ .library-row-header{flex-direction:column;align-items:flex-start;gap:12px}
+ .library-row-left{width:100%}
+ .library-row-right{width:100%;justify-content:space-between;flex-wrap:wrap}
+ .library-row-right .small-action-btn{margin-left:auto}
+ .library-chat-send{min-height:38px}
+ .library-list h3{font-size:14px}.library-list p{font-size:12px;overflow-wrap:anywhere}
+ .connections>section{padding:22px}.connections p,.connections .muted{font-size:13px}.connections .secondary{width:100%;font-size:13px}
+ .overlay{padding:max(12px,env(safe-area-inset-top)) 12px max(12px,env(safe-area-inset-bottom));z-index:60;align-items:center}
+ .modal{padding:20px;width:100%;max-height:calc(100dvh - 24px);overscroll-behavior:contain;border-radius:12px}
+ .modal h2{font-size:25px}.modal>p{font-size:13px}.modal-heading{gap:8px}.modal-heading .eyebrow{line-height:1.5}
+ .modal-footer{gap:14px;margin-top:20px}.modal-footer>span{max-width:none;font-size:12px}.modal-footer .primary{width:100%}
+ .check-label{font-size:13px;min-height:44px}.check-label input{min-height:20px;width:20px;height:20px;flex-shrink:0}
+ .toast{top:66px;left:12px;right:12px;max-height:40dvh;overflow:auto;font-size:13px;z-index:80}
+ .login{margin:24px auto;width:calc(100% - 32px);max-width:470px;padding:25px;min-height:0}.login .brand>div{display:block}.login .brand{margin-bottom:30px}.login h1{font-size:33px}
+}
+@media(max-width:540px){.session-grid{grid-template-columns:1fr}.card-visual{height:180px}}
+@media(max-width:360px){.content{padding-left:12px;padding-right:12px}.page-heading h1{font-size:25px}.stats>div{padding:13px}.stats span{font-size:11px}.stats span svg{width:15px}.panel-heading select{width:100%}.tabs button{padding-left:5px;padding-right:5px}.modal{padding:16px}}
+@media(prefers-reduced-motion:reduce){.spin{animation:none}.session-card{transition:none}}

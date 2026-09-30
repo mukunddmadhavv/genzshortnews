@@ -1,0 +1,13 @@
+{
+  "speed_change": "1.05x applied to the already 1.16x Hinglish body",
+  "body_duration": 69.689542,
+  "outro_duration": 2.24,
+  "outro": "Follow GENZ SHOT NEWS for more!",
+  "footer": {
+    "background": "#1260dc",
+    "text": "white",
+    "channel": "GENZ SHOT NEWS",
+    "cta": "FOLLOW FOR MORE"
+  },
+  "whoosh": "/Users/mukundmadhav/pitch/assets/sfx/whoosh.mp3"
+}

@@ -1,0 +1,100 @@
+{
+  "language_code": "eng",
+  "language_probability": 1.0,
+  "text": "Follow Gen Z Shot News for more",
+  "words": [
+    {
+      "text": "Follow",
+      "start": 0.14,
+      "end": 0.38,
+      "type": "word",
+      "logprob": -0.00012683063687290996
+    },
+    {
+      "text": " ",
+      "start": 0.38,
+      "end": 0.48,
+      "type": "spacing",
+      "logprob": -0.00466200103983283
+    },
+    {
+      "text": "Gen",
+      "start": 0.48,
+      "end": 0.68,
+      "type": "word",
+      "logprob": -0.00466200103983283
+    },
+    {
+      "text": " ",
+      "start": 0.68,
+      "end": 0.76,
+      "type": "spacing",
+      "logprob": -0.018476052209734917
+    },
+    {
+      "text": "Z",
+      "start": 0.76,
+      "end": 0.92,
+      "type": "word",
+      "logprob": -0.018476052209734917
+    },
+    {
+      "text": " ",
+      "start": 0.92,
+      "end": 1.06,
+      "type": "spacing",
+      "logprob": -0.003338004695251584
+    },
+    {
+      "text": "Shot",
+      "start": 1.06,
+      "end": 1.3,
+      "type": "word",
+      "logprob": -0.003338004695251584
+    },
+    {
+      "text": " ",
+      "start": 1.3,
+      "end": 1.36,
+      "type": "spacing",
+      "logprob": -0.0028641889803111553
+    },
+    {
+      "text": "News",
+      "start": 1.36,
+      "end": 1.64,
+      "type": "word",
+      "logprob": -0.0028641889803111553
+    },
+    {
+      "text": " ",
+      "start": 1.64,
+      "end": 1.7,
+      "type": "spacing",
+      "logprob": -5.602820692729438e-06
+    },
+    {
+      "text": "for",
+      "start": 1.7,
+      "end": 1.78,
+      "type": "word",
+      "logprob": -5.602820692729438e-06
+    },
+    {
+      "text": " ",
+      "start": 1.78,
+      "end": 1.86,
+      "type": "spacing",
+      "logprob": -6.9141146923357155e-06
+    },
+    {
+      "text": "more",
+      "start": 1.86,
+      "end": 2.18,
+      "type": "word",
+      "logprob": -6.9141146923357155e-06
+    }
+  ],
+  "transcription_id": "gYvsph5Un7hdgS7NvM99",
+  "audio_duration_secs": 2.24
+}

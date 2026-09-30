@@ -1,0 +1,112 @@
+[
+  {
+    "start": 0.0,
+    "file": "../../references/6V_gg2zt3b8/frames/000.jpg",
+    "crop": [
+      216,
+      200,
+      864,
+      1010
+    ]
+  },
+  {
+    "start": 6.203612479474549,
+    "file": "../../references/6V_gg2zt3b8/images/ht-mau-photo.png"
+  },
+  {
+    "start": 13.021346469622332,
+    "file": "../../references/6V_gg2zt3b8/frames/004.jpg",
+    "crop": [
+      208,
+      200,
+      875,
+      1010
+    ]
+  },
+  {
+    "start": 18.105911330049263,
+    "file": "../../references/6V_gg2zt3b8/frames/010.jpg",
+    "crop": [
+      306,
+      200,
+      774,
+      1010
+    ]
+  },
+  {
+    "start": 21.718390804597703,
+    "file": "../../references/6V_gg2zt3b8/frames/018.jpg",
+    "crop": [
+      0,
+      369,
+      1080,
+      840
+    ]
+  },
+  {
+    "start": 28.68062397372742,
+    "file": "../../references/6V_gg2zt3b8/frames/060.jpg",
+    "crop": [
+      0,
+      200,
+      1080,
+      1010
+    ]
+  },
+  {
+    "start": 32.57799671592775,
+    "file": "../../references/6V_gg2zt3b8/images/ie-mau-collage.jpg"
+  },
+  {
+    "start": 35.03037766830871,
+    "file": "../../references/6V_gg2zt3b8/frames/128.jpg",
+    "crop": [
+      0,
+      200,
+      1080,
+      1010
+    ]
+  },
+  {
+    "start": 42.95566502463054,
+    "file": "../../references/6V_gg2zt3b8/frames/134.jpg",
+    "crop": [
+      0,
+      200,
+      1080,
+      1010
+    ]
+  },
+  {
+    "start": 49.21756978653531,
+    "file": "../../references/6V_gg2zt3b8/images/ie-mau-collage.jpg"
+  },
+  {
+    "start": 53.47290640394088,
+    "file": "../../references/6V_gg2zt3b8/frames/146.jpg",
+    "crop": [
+      0,
+      200,
+      1080,
+      1010
+    ]
+  },
+  {
+    "start": 57.002463054187196,
+    "file": "../../references/6V_gg2zt3b8/images/ie-mau-collage.jpg"
+  },
+  {
+    "start": 65.68144499178982,
+    "file": "../../references/6V_gg2zt3b8/images/ht-mau-photo.png"
+  },
+  {
+    "start": 69.689542,
+    "file": "../../references/6V_gg2zt3b8/frames/000.jpg",
+    "crop": [
+      216,
+      200,
+      864,
+      1010
+    ]
+  }
+]

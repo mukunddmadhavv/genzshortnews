@@ -1,0 +1,34 @@
+{
+  "red_bands_y_exclusive": [
+    [
+      0,
+      213
+    ],
+    [
+      1754,
+      1920
+    ]
+  ],
+  "editorial_scene_candidates_threshold_0_12": [
+    1.583333,
+    3.85,
+    3.883333,
+    4.55,
+    7.933333,
+    11.95,
+    16.466667,
+    19.7,
+    19.716667,
+    26.9,
+    34.833333,
+    40.75
+  ],
+  "asr_whitespace_tokens": 140,
+  "asr_tokens_per_minute_approx": 186.2,
+  "asr_caveat": "Mixed Hindi/English token count, missed opening words and inaccurate proper nouns; not an exact spoken English WPM.",
+  "audio_full_mix": {
+    "integrated_lufs": -12.44,
+    "true_peak_dbtp": 0.52,
+    "loudness_range_lu": 3.1
+  }
+}

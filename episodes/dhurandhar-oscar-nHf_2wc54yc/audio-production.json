@@ -1,0 +1,17 @@
+{
+  "model": "eleven_v4",
+  "preset": "mukund-tight",
+  "voice_id": "F2bjsMJJPYo3S15YpV24",
+  "language": "hi",
+  "tts_speed": 1.0,
+  "pause_shortening": "enabled (threshold -28 dB, min gap 0.3s)",
+  "post_tightening_stages": [
+    "energetic (1.07x)",
+    "depaused",
+    "fast10 (1.10x)"
+  ],
+  "post_tts_tempo_product": 1.177,
+  "outro_text": "Follow GENZ SHORT NEWS for more!",
+  "outro": "Same generation and processing as body in one continuous take",
+  "sfx": "Unmodified user-whoosh.mp3 at four narration-aligned cuts"
+}

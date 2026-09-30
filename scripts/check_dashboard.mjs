@@ -1,0 +1,50 @@
+import {chromium} from '@playwright/test';
+import {readFile} from 'node:fs/promises';
+import assert from 'node:assert/strict';
+const {password}=JSON.parse(await readFile(new URL('../.secrets/dashboard-access.json',import.meta.url),'utf8'));
+const browser=await chromium.launch({headless:true,channel:'chrome'});
+const page=await browser.newPage({viewport:{width:1440,height:1000}});
+const errors=[];page.on('pageerror',error=>errors.push(error.message));
+await page.goto('http://localhost:6969');
+await page.getByLabel('Studio password').fill(password);
+await page.getByRole('button',{name:'Enter studio'}).click();
+await page.getByRole('heading',{name:'Stories in the making.'}).waitFor();
+await page.waitForTimeout(400);
+await page.waitForFunction(()=>[...document.querySelectorAll('.brand img,.channel-banner img')].every(img=>img.complete&&img.naturalWidth>0));
+assert.equal(await page.evaluate(()=>getComputedStyle(document.documentElement).backgroundColor),'rgb(249, 249, 249)');
+await page.screenshot({path:'/var/folders/tp/smqsgm855jxgl8t06fj7vj840000gn/T/opencode/genz-dashboard.png',fullPage:true});
+await page.getByRole('button',{name:'New session',exact:true}).click();
+await page.getByLabel('Session name').fill('Browser test');
+await page.getByLabel('Topic or YouTube link').fill('A new story about technology');
+await page.getByText('Automatically upload after a successful render').click();
+assert.equal(await page.getByLabel('YouTube visibility').inputValue(),'private');
+await page.keyboard.press('Escape');
+await page.locator('.modal-heading .icon').click();
+const card=page.locator('.session-card').first();
+if(await card.count()) {
+ await card.click();
+ await page.locator('video').waitFor();
+ await page.waitForFunction(()=>document.querySelector('video')?.readyState>=1);
+ assert.equal(await page.locator('video').evaluate(video=>video.videoWidth),1080);
+ if(await page.getByRole('button',{name:'Edit publishing options'}).count()) {
+  await page.getByRole('button',{name:'Post to YouTube',exact:true}).waitFor();
+  await page.getByRole('button',{name:'Edit publishing options'}).click();
+  await page.getByRole('heading',{name:'Ready for the world?'}).waitFor();
+  await page.locator('.modal-heading .icon').click();
+ }
+ await page.getByRole('button',{name:'All sessions',exact:true}).click();
+}
+await page.getByRole('button',{name:'Media library',exact:true}).click();
+await page.getByRole('heading',{name:'Your episode library.'}).waitFor();
+await page.getByRole('button',{name:'Import session'}).first().waitFor();
+assert.ok(await page.getByRole('button',{name:'Open session',exact:true}).count()>0);
+console.log('Existing episode imports available:',await page.getByRole('button',{name:'Import session'}).count());
+await page.getByRole('button',{name:'Connections',exact:true}).click();
+await page.getByRole('button',{name:'Verify connection'}).click();
+await page.getByText('Connected to GENZ SHORT NEWS (@genzshotnews)').waitFor({timeout:60000});
+await page.setViewportSize({width:390,height:844});
+assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth),true);
+await page.screenshot({path:'/var/folders/tp/smqsgm855jxgl8t06fj7vj840000gn/T/opencode/genz-mobile.png',fullPage:true});
+assert.deepEqual(errors,[]);
+console.log('Browser checks passed: sign-in, dashboard, generation form, library, live YouTube channel verification, mobile overflow.');
+await browser.close();

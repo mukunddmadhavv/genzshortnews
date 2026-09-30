@@ -1,0 +1,118 @@
+{
+  "alignment": "narration-punchy.alignment.json",
+  "narration": "narration-punchy.wav",
+  "output": "news-panel-punchy.mp4",
+  "beats_output": "image-beats-punchy.json",
+  "beats": [
+    {
+      "start": 0,
+      "file": "../../references/6V_gg2zt3b8/frames/000.jpg",
+      "crop": [
+        216,
+        200,
+        864,
+        1010
+      ]
+    },
+    {
+      "phrase": "Basically",
+      "file": "../../references/6V_gg2zt3b8/images/ht-mau-photo.png"
+    },
+    {
+      "phrase": "पहले Mau",
+      "file": "../../references/6V_gg2zt3b8/frames/004.jpg",
+      "crop": [
+        208,
+        200,
+        875,
+        1010
+      ]
+    },
+    {
+      "phrase": "उस time",
+      "file": "../../references/6V_gg2zt3b8/frames/010.jpg",
+      "crop": [
+        306,
+        200,
+        774,
+        1010
+      ]
+    },
+    {
+      "phrase": "अब उनके former",
+      "file": "../../references/6V_gg2zt3b8/frames/018.jpg",
+      "crop": [
+        0,
+        369,
+        1080,
+        840
+      ]
+    },
+    {
+      "phrase": "उन्होंने उसकी",
+      "file": "../../references/6V_gg2zt3b8/frames/060.jpg",
+      "crop": [
+        0,
+        200,
+        1080,
+        1010
+      ]
+    },
+    {
+      "phrase": "लेकिन अब",
+      "file": "../../references/6V_gg2zt3b8/images/ie-mau-collage.jpg"
+    },
+    {
+      "phrase": "उन्होंने neglect",
+      "file": "../../references/6V_gg2zt3b8/frames/128.jpg",
+      "crop": [
+        0,
+        200,
+        1080,
+        1010
+      ]
+    },
+    {
+      "phrase": "गौरव ने ये भी",
+      "file": "../../references/6V_gg2zt3b8/frames/134.jpg",
+      "crop": [
+        0,
+        200,
+        1080,
+        1010
+      ]
+    },
+    {
+      "phrase": "इस controversy",
+      "file": "../../references/6V_gg2zt3b8/images/ie-mau-collage.jpg"
+    },
+    {
+      "phrase": "But यहाँ",
+      "file": "../../references/6V_gg2zt3b8/frames/146.jpg",
+      "crop": [
+        0,
+        200,
+        1080,
+        1010
+      ]
+    },
+    {
+      "phrase": "Indian Express की",
+      "file": "../../references/6V_gg2zt3b8/images/ie-mau-collage.jpg"
+    },
+    {
+      "phrase": "तो असली सवाल",
+      "file": "../../references/6V_gg2zt3b8/images/ht-mau-photo.png"
+    },
+    {
+      "phrase": "ऐसी updates",
+      "file": "../../references/6V_gg2zt3b8/frames/000.jpg",
+      "crop": [
+        216,
+        200,
+        864,
+        1010
+      ]
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+[
+  {"file": "../../library/sfx/dsp/soft-click.wav", "start_seconds": 26.453, "gain_db": -14},
+  {"file": "../../library/sfx/dsp/soft-whoosh.wav", "start_seconds": 39.68, "gain_db": -12},
+  {"file": "../../library/sfx/dsp/soft-click.wav", "start_seconds": 65.13, "gain_db": -16}
+]

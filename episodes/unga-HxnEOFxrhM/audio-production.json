@@ -1,0 +1,9 @@
+{
+  "body_tts": "eleven_v3, configured voice, hi, speed 1.12",
+  "body_atempo": 1.218,
+  "body_duration": 46.06075,
+  "outro_file": "/home/mukund/genzshortnews/episodes/mau-6V_gg2zt3b8/brand-outro.wav",
+  "outro_text": "Follow GENZ SHOT NEWS for more!",
+  "duration": 48.30075,
+  "alignment_scope": "Body only; outro starts at body_duration"
+}

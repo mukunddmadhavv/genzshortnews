@@ -1,0 +1,62 @@
+[
+  {
+    "id": "thehindu-bhopal-scanner",
+    "file": "images/thehindu-bhopal-scanner.jpg",
+    "publisher": "The Hindu; Photo Credit: ANI",
+    "page_url": "https://www.thehindu.com/news/national/madhya-pradesh/madhya-pradesh-traders-retailers-observe-no-upi-day-seek-rollback-of-mdr-charges/article71500720.ece",
+    "image_url": "https://th-i.thgim.com/public/incoming/6gxrpz/article71501688.ece/alternates/LANDSCAPE_1200/20260923189L.jpg",
+    "published_at": "2026-09-24",
+    "checked_at": "2026-09-28",
+    "subject": "Shopkeepers cover QR code scanners with black cloth in Bhopal",
+    "intended_use": "Hook: Visual proof of black cloth covering QR codes",
+    "rights": "ANI / The Hindu photograph; no open license established",
+    "width": 1200,
+    "height": 675,
+    "sha256": "659762e2f553c6098ae8e8e0a1c4eac514622f0eb029fb40aa6f225d6504de26"
+  },
+  {
+    "id": "fpj-no-upi-day",
+    "file": "images/fpj-no-upi-day.jpg",
+    "publisher": "Free Press Journal",
+    "page_url": "https://www.freepressjournal.in/bhopal/madhya-pradesh-traders-observe-no-upi-day-shopkeepers-in-bhopal-indore-reject-payments-above-2000-over-mdr-charge-video",
+    "image_url": "https://media.assettype.com/freepressjournal/2026-09-22/f1vapwky/No-UPI-Day-Manish-1.jpg",
+    "published_at": "2026-09-23",
+    "checked_at": "2026-09-28",
+    "subject": "Shopkeeper holding 'NO UPI DAY' protest banner in Bhopal/Indore",
+    "intended_use": "Slogan and trader demonstration in MP cities",
+    "rights": "Free Press Journal photograph; no open license established",
+    "width": 1200,
+    "height": 674,
+    "sha256": "855be5f91d2f68c86ebbf4990bf388dc9dcacdde008aadabcf8b33357692c3c1"
+  },
+  {
+    "id": "indiatoday-mdr-gst",
+    "file": "images/indiatoday-mdr-gst.png",
+    "publisher": "India Today",
+    "page_url": "https://www.indiatoday.in/india/story/mp-traders-no-upi-day-mdr-upi-payments-above-rs-2000-ptag-3001072-2026-09-23",
+    "image_url": "https://akm-img-a-in.tosshub.com/indiatoday/images/story/202609/upi-mdr-gst-2348183-16x9_0.png",
+    "published_at": "2026-09-23",
+    "checked_at": "2026-09-28",
+    "subject": "MDR charge and UPI transaction explanation graphic",
+    "intended_use": "Explaining the 0.4% MDR charge on merchant payments above Rs 2000",
+    "rights": "India Today infographic; no open license established",
+    "width": 1200,
+    "height": 675,
+    "sha256": "a45805957c4aea223f74b2901a0815581a40766528c9c755b54884c65096249f"
+  },
+  {
+    "id": "livemint-maharashtra",
+    "file": "images/livemint-maharashtra.jpg",
+    "publisher": "Livemint",
+    "page_url": "https://www.livemint.com/money/after-madhya-pradesh-now-maharashtra-to-observe-no-upi-day-on-october-2-what-should-consumers-keep-in-mind-11790246898058.html",
+    "image_url": "https://www.livemint.com/lm-img/img/2026/09/24/1600x900/logo/21566_1790250668272_l2SD_1790250671654_iao8_4d5db543-d7d3-4a9f-aac9-79570e2ba191_HGFO.jpg",
+    "published_at": "2026-09-24",
+    "checked_at": "2026-09-28",
+    "subject": "Visuals of protest against MDR charges",
+    "intended_use": "Expansion of protest to Maharashtra and CTA backdrop",
+    "rights": "Livemint photograph; no open license established",
+    "width": 1600,
+    "height": 900,
+    "sha256": "ba18903e0a7f00f0dbd2fb6c153d453beb531051791daf994dba21da2c31c063"
+  }
+]

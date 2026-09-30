@@ -1,0 +1,9 @@
+{
+  "speed_multiplier": 1.16,
+  "source": "narration-hinglish.mp3",
+  "processing": "pitch-preserving atempo, high-pass, presence EQ, compression",
+  "target_lufs": -14,
+  "dsp_seed": 711,
+  "sfx": "filtered noise sweeps plus descending sine impact; peak -3 dBFS before cue gain",
+  "alignment": "original times divided by 1.16; approximate DSP time mapping"
+}

@@ -1,0 +1,47 @@
+[
+  {
+    "id": "ranveer-singh",
+    "file": "images/ranveer-singh.jpg",
+    "publisher": "Wikimedia Commons / Bollywood Hungama",
+    "page_url": "https://commons.wikimedia.org/wiki/File:Ranveer_Singh_(51914787844)_(cropped).jpg",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/1/1f/Ranveer_Singh_%2851914787844%29_%28cropped%29.jpg",
+    "published_at": "2023",
+    "checked_at": "2026-09-28",
+    "subject": "Ranveer Singh, starring lead actor of Dhurandhar",
+    "intended_use": "Hook: Visual introduction of Ranveer Singh and Dhurandhar buzz",
+    "rights": "CC-BY-3.0 / Wikimedia Commons",
+    "width": 1855,
+    "height": 3301,
+    "sha256": "cbe6865a26bf153a7809a07dfef4f8e45afeee55f8712c787e064a4b748212a7"
+  },
+  {
+    "id": "vivek-vaswani",
+    "file": "images/vivek-vaswani.jpg",
+    "publisher": "Wikimedia Commons / Bollywood Hungama",
+    "page_url": "https://commons.wikimedia.org/wiki/File:Photo_Of_Vivek_Vaswani_From_The_Success_bash_of_%E2%80%98Hate_Story%E2%80%99.jpg",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/1/16/Photo_Of_Vivek_Vaswani_From_The_Success_bash_of_%E2%80%98Hate_Story%E2%80%99.jpg",
+    "published_at": "2012",
+    "checked_at": "2026-09-28",
+    "subject": "Vivek Vaswani, Oscar selection jury member",
+    "intended_use": "Jury statement: Visual attribution to jury member Vivek Vaswani quoting NDTV",
+    "rights": "CC-BY-3.0 / Wikimedia Commons",
+    "width": 585,
+    "height": 881,
+    "sha256": "6c4ce8192005c5420b85865d390e8ac94e19e5b3a40e36db7c22b92653dfb773"
+  },
+  {
+    "id": "aditya-dhar",
+    "file": "images/aditya-dhar.jpg",
+    "publisher": "Wikimedia Commons / Ministry of Information & Broadcasting",
+    "page_url": "https://commons.wikimedia.org/wiki/File:Aditya_Dhar_at_IFFI_2019_(cropped).jpg",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/9/9d/Aditya_Dhar_at_IFFI_2019_%28cropped%29.jpg",
+    "published_at": "2019",
+    "checked_at": "2026-09-28",
+    "subject": "Aditya Dhar, director and producer of Dhurandhar",
+    "intended_use": "Production context: Visual attribution to director Aditya Dhar",
+    "rights": "GODL-India / Wikimedia Commons",
+    "width": 581,
+    "height": 730,
+    "sha256": "fba61edc657e19797557fd6f4dbee5efa4d667b6a41ddd90ad25927e542b7cb2"
+  }
+]

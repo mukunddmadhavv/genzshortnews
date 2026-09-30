@@ -1,0 +1,88 @@
+{
+  "alignment": "narration-mukund-tight.alignment.json",
+  "narration": "narration-mukund-tight.wav",
+  "output": "news-panel-mukund-tight.mp4",
+  "beats": [
+    {
+      "start": 0,
+      "file": "../../references/zrSyjkvUaWU/frames/000.jpg",
+      "crop": [
+        210,
+        214,
+        850,
+        1015
+      ],
+      "purpose": "Introduce the two subjects",
+      "source_second": 0
+    },
+    {
+      "phrase": "मुंबई के जुहू",
+      "file": "../../references/zrSyjkvUaWU/images/siasat-medha.jpg",
+      "crop": [
+        0,
+        0,
+        360,
+        470
+      ],
+      "purpose": "Show Medha exiting the car",
+      "start": 5.9939160000000005
+    },
+    {
+      "phrase": "फ्री प्रेस जर्नल",
+      "file": "../../references/zrSyjkvUaWU/images/fpj-car.jpg",
+      "purpose": "Publisher composite accompanying attributed car identification",
+      "start": 10.370769999999998
+    },
+    {
+      "phrase": "कैमरों पर",
+      "file": "../../references/zrSyjkvUaWU/images/fpj-car.jpg",
+      "crop": [
+        0,
+        0,
+        600,
+        675
+      ],
+      "purpose": "Visible reaction",
+      "start": 14.87202
+    },
+    {
+      "phrase": "बस, यही",
+      "file": "../../references/zrSyjkvUaWU/frames/016.jpg",
+      "crop": [
+        284,
+        214,
+        800,
+        1008
+      ],
+      "purpose": "Social clip screenshot with embedded source handle",
+      "source_second": 16,
+      "start": 20.89795699999999
+    },
+    {
+      "phrase": "लेकिन यहाँ",
+      "file": "../../references/zrSyjkvUaWU/images/siasat-medha.jpg",
+      "purpose": "Qualification: sighting does not establish dating",
+      "start": 24.03195699999999
+    },
+    {
+      "phrase": "और दिसंबर",
+      "file": "../../references/zrSyjkvUaWU/frames/000.jpg",
+      "crop": [
+        210,
+        214,
+        850,
+        1015
+      ],
+      "purpose": "Subjects during attributed wedding-rumour dismissal",
+      "source_second": 0,
+      "start": 33.32076899999998
+    },
+    {
+      "phrase": "तो क्लिप",
+      "file": "../../references/zrSyjkvUaWU/images/fpj-car.jpg",
+      "purpose": "Retain relevant imagery through same-voice closing",
+      "start": 41.73454099999997
+    }
+  ],
+  "beats_output": "image-beats-mukund-tight.json"
+}

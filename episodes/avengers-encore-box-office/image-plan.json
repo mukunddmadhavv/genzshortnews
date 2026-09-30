@@ -1,0 +1,47 @@
+{
+  "alignment": "narration-final.alignment.json",
+  "narration": "narration-final.wav",
+  "output": "news-panel.mp4",
+  "beats": [
+    {
+      "start": 0.0,
+      "file": "images/beat-01-endgame-poster.jpg",
+      "purpose": "Avengers Endgame Encore re-release intro"
+    },
+    {
+      "start": 4.523076923076923,
+      "file": "images/beat-02-russo-brothers.jpg",
+      "purpose": "Russo Brothers and 2019 historic $1.2B Endgame opening"
+    },
+    {
+      "start": 12.963846153846154,
+      "file": "images/beat-03-imax-theater.jpg",
+      "purpose": "September 2026 Encore $86M opening weekend / IMAX record"
+    },
+    {
+      "start": 21.93846153846154,
+      "file": "images/beat-04-james-cameron.jpg",
+      "purpose": "James Cameron Avatar ($2.92B) box office chase at $2.89B"
+    },
+    {
+      "start": 31.30230769230769,
+      "file": "images/beat-05-cinema-crowd.jpg",
+      "purpose": "Indian box office ₹440 Cr gross record for Hollywood films"
+    },
+    {
+      "start": 40.47153846153846,
+      "file": "images/beat-06-robert-downey-jr.jpg",
+      "purpose": "Robert Downey Jr. returning as Victor von Doom / Doctor Doom"
+    },
+    {
+      "start": 44.49230769230769,
+      "file": "images/beat-07-doomsday-teaser.jpg",
+      "purpose": "Avengers: Doomsday teaser connection in Encore scenes"
+    },
+    {
+      "start": 48.03076923076923,
+      "file": "images/beat-08-chris-evans.jpg",
+      "purpose": "Chris Evans (Steve Rogers) and engagement question + same-voice CTA"
+    }
+  ]
+}

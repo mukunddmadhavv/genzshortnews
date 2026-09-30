@@ -1,0 +1,82 @@
+[
+  {
+    "start": 0,
+    "file": "../../references/zrSyjkvUaWU/frames/000.jpg",
+    "crop": [
+      210,
+      214,
+      850,
+      1015
+    ],
+    "purpose": "Introduce the two subjects",
+    "source_second": 0
+  },
+  {
+    "phrase": "मुंबई के जुहू",
+    "file": "../../references/zrSyjkvUaWU/images/siasat-medha.jpg",
+    "crop": [
+      0,
+      0,
+      360,
+      470
+    ],
+    "purpose": "Show Medha exiting the car",
+    "start": 4.977196363636364
+  },
+  {
+    "phrase": "फ्री प्रेस जर्नल",
+    "file": "../../references/zrSyjkvUaWU/images/fpj-car.jpg",
+    "purpose": "Publisher composite accompanying attributed car identification",
+    "start": 8.683177646559045
+  },
+  {
+    "phrase": "कैमरों पर",
+    "file": "../../references/zrSyjkvUaWU/images/fpj-car.jpg",
+    "crop": [
+      0,
+      0,
+      600,
+      675
+    ],
+    "purpose": "Visible reaction",
+    "start": 12.507519192863208
+  },
+  {
+    "phrase": "बस, यही",
+    "file": "../../references/zrSyjkvUaWU/frames/016.jpg",
+    "crop": [
+      284,
+      214,
+      800,
+      1008
+    ],
+    "purpose": "Social clip screenshot with embedded source handle",
+    "source_second": 16,
+    "start": 17.572564485981303
+  },
+  {
+    "phrase": "लेकिन यहाँ",
+    "file": "../../references/zrSyjkvUaWU/images/siasat-medha.jpg",
+    "purpose": "Qualification: sighting does not establish dating",
+    "start": 20.235266270178414
+  },
+  {
+    "phrase": "और दिसंबर",
+    "file": "../../references/zrSyjkvUaWU/frames/000.jpg",
+    "crop": [
+      210,
+      214,
+      850,
+      1015
+    ],
+    "purpose": "Subjects during attributed wedding-rumour dismissal",
+    "source_second": 0,
+    "start": 28.05002782497874
+  },
+  {
+    "phrase": "तो क्लिप",
+    "file": "../../references/zrSyjkvUaWU/images/fpj-car.jpg",
+    "purpose": "Retain relevant imagery through same-voice closing",
+    "start": 35.068195386576015
+  }
+]

@@ -1,0 +1,22 @@
+[
+  {
+    "file": "pop.mp3",
+    "start_seconds": 5.02,
+    "gain_db": -17
+  },
+  {
+    "file": "pop.mp3",
+    "start_seconds": 20.22,
+    "gain_db": -17
+  },
+  {
+    "file": "pop.mp3",
+    "start_seconds": 25.22,
+    "gain_db": -17
+  },
+  {
+    "file": "pop.mp3",
+    "start_seconds": 41.543,
+    "gain_db": -17
+  }
+]

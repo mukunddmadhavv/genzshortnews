@@ -1,0 +1,33 @@
+[
+  {
+    "id": "ht-sharif-srinivas",
+    "file": "images/ht-sharif-srinivas.png",
+    "publisher": "Hindustan Times; AP/Screengrab",
+    "page_url": "https://www.hindustantimes.com/india-news/indian-diplomat-r-srinivas-reaction-pakistan-pm-shehbaz-sharif-victory-claim-after-operation-sindoor-viral-video-101790423207708.html",
+    "image_url": "https://www.hindustantimes.com/ht-img/img/2026/09/26/400x225/shehbaz_sharif_1790423614831_nw9w_1790423624232_CzL0_40a9cfd2-52c7-44d5-abfc-8f44d595c5d3_IYkI.png",
+    "published": "2026-09-26",
+    "checked_at": "2026-09-27",
+    "subject": "Shehbaz Sharif and R Srinivas during the UN speech",
+    "use": "Opening identification and distinction between the two events",
+    "rights": "Publisher/AP screengrab; no open license established",
+    "limitation": "Published 400x225 asset; enlargement does not restore detail",
+    "width": 400,
+    "height": 225,
+    "sha256": "0f0e71b4b91bf3eebf14fb572fc79c25cce1ad4d4b562605cc760670e968a8dd"
+  },
+  {
+    "id": "it-jaishankar-briefing",
+    "file": "images/it-jaishankar-briefing.jpg",
+    "publisher": "India Today; Screengrab",
+    "page_url": "https://www.indiatoday.in/india/story/s-jaishankar-pakistani-reporter-terrorism-unga-briefing-exchange-3003110-2026-09-25",
+    "image_url": "https://akm-img-a-in.tosshub.com/indiatoday/images/story/202609/jaishankar-pak-reporter-new-york-question-blasts-264007815-16x9_0.jpeg?VersionId=YZTIPNu_QuIc_HXz6xWnHa_0MOcoKQBO&size=690:388",
+    "published": "2026-09-25",
+    "checked_at": "2026-09-27",
+    "subject": "S Jaishankar and Pakistani reporter at the New York briefing",
+    "use": "Introduce separate press briefing; closing context",
+    "rights": "Publisher screengrab; no open license established",
+    "width": 690,
+    "height": 388,
+    "sha256": "0b90bfbea0b3fb33ae2d77f17b48ccadfeb3f82a376717bdf251d9bba721f17e"
+  }
+]

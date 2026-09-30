@@ -1,0 +1,18 @@
+{
+  "source": "episodes/medha-samay-zrSyjkvUaWU/narration-hinglish.mp3",
+  "profile": {
+    "voice_id": "F2bjsMJJPYo3S15YpV24",
+    "model": "eleven_multilingual_v2",
+    "tts_speed": 1.03,
+    "stability": 0.4,
+    "similarity_boost": 0.9,
+    "style": 0.15,
+    "use_speaker_boost": true,
+    "atempo": 1.0,
+    "audio_filter": "highpass=f=55,acompressor=threshold=0.125:ratio=1.8:attack=15:release=120:makeup=1,loudnorm=I=-16:TP=-2:LRA=7",
+    "status": "Selected by user as the default (Identity 2). Near-natural speed, no presence EQ or extra tempo acceleration."
+  },
+  "filter": "atempo=1.0,highpass=f=55,acompressor=threshold=0.125:ratio=1.8:attack=15:release=120:makeup=1,loudnorm=I=-16:TP=-2:LRA=7",
+  "alignment": "episodes/medha-samay-zrSyjkvUaWU/narration-final.alignment.json",
+  "note": "Apply once to the raw TTS take. Pitch is preserved; alignment times are divided by atempo."
+}

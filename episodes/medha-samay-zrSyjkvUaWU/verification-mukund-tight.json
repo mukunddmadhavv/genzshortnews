@@ -1,0 +1,17 @@
+{
+  "file": "final-mukund-tight.mp4",
+  "voice_preset": "mukund-tight",
+  "voice_id": "F2bjsMJJPYo3S15YpV24",
+  "narration": "narration-mukund-tight.wav",
+  "duration_seconds": 48.77,
+  "resolution": "1080x1920",
+  "fps": 30,
+  "full_decode": "passed",
+  "integrated_loudness_lufs": -15.17,
+  "true_peak_dbtp": -4.24,
+  "image_beats": 8,
+  "whoosh_cues": 4,
+  "timing": "Recomputed from approved take's pause-adjusted character alignment",
+  "visual_review": "Five-second contact sheet inspected; correct branding, image-only panel, gameplay and closing imagery",
+  "audio_review": "Reused approved take; objective decode and loudness checks performed, no new direct listening review"
+}

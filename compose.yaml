@@ -1,0 +1,18 @@
+services:
+  postgres:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_USER: genz
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in your shell}
+      POSTGRES_DB: genz_studio
+    ports:
+      - "127.0.0.1:55432:5432"
+    volumes:
+      - studio-postgres:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U genz -d genz_studio"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+volumes:
+  studio-postgres:

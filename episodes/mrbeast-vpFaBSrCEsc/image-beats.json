@@ -1,0 +1,70 @@
+[
+  {
+    "start": 0,
+    "file": "../../references/vpFaBSrCEsc/images/indulge-visit.webp",
+    "purpose": "MrBeast waving at Taj Mahal: immediate event context"
+  },
+  {
+    "start": 7.733990147783252,
+    "file": "../../references/vpFaBSrCEsc/frames/006.jpg",
+    "purpose": "Fan-recorded Taj Mahal scene; preserve agrawitharshiya credit",
+    "crop": [
+      246,
+      214,
+      834,
+      1024
+    ],
+    "source_second": 6
+  },
+  {
+    "start": 11.047619047619047,
+    "file": "../../references/vpFaBSrCEsc/frames/017.jpg",
+    "purpose": "Crowd around MrBeast; preserve footage credit",
+    "crop": [
+      312,
+      214,
+      772,
+      1024
+    ],
+    "source_second": 17
+  },
+  {
+    "start": 14.56486042692939,
+    "file": "../../references/vpFaBSrCEsc/images/indulge-visit.webp",
+    "purpose": "Thea with MrBeast at the monument"
+  },
+  {
+    "start": 17.339901477832512,
+    "file": "../../references/vpFaBSrCEsc/frames/008.jpg",
+    "purpose": "Filming location context for attributed permission report",
+    "crop": [
+      246,
+      214,
+      834,
+      1024
+    ],
+    "source_second": 8
+  },
+  {
+    "start": 21.69704433497537,
+    "file": "../../references/vpFaBSrCEsc/images/india-today-visit.jpg",
+    "purpose": "Publisher composite shows handmade portrait and young fan"
+  },
+  {
+    "start": 27.35632183908046,
+    "file": "../../references/vpFaBSrCEsc/frames/022.jpg",
+    "purpose": "Actual Mr Bean caption, keep complete caption and handle",
+    "crop": [
+      288,
+      214,
+      792,
+      1024
+    ],
+    "source_second": 22
+  },
+  {
+    "start": 40.45977011494253,
+    "file": "../../references/vpFaBSrCEsc/images/indulge-visit.webp",
+    "purpose": "Return to greeting image for viewer question and same-voice CTA"
+  }
+]

@@ -1,0 +1,1 @@
+{"name":"@genz/server","version":"1.0.0","private":true,"type":"module","scripts":{"start":"node src/index.js","dev":"node --watch src/index.js","test":"node --test test/*.test.js","build":"node --check src/index.js && node --check src/worker.js"},"dependencies":{"@genz/db":"*","express":"^5.1.0","zod":"^3.25.0","cookie-parser":"^1.4.7","express-rate-limit":"^7.5.0"}}

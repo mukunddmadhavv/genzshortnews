@@ -1,0 +1,13 @@
+{
+  "source": "/home/mukund/genzshortnews/episodes/cjp-complaint-Yw5Q3jf7DOM/narration-final-depaused.wav",
+  "profile": {
+    "id": "fast10",
+    "type": "polish",
+    "atempo": 1.1,
+    "audio_filter": "anull",
+    "voice_id": "F2bjsMJJPYo3S15YpV24"
+  },
+  "filter": "atempo=1.1,anull",
+  "alignment": "/home/mukund/genzshortnews/episodes/cjp-complaint-Yw5Q3jf7DOM/narration-final.alignment.json",
+  "note": "Apply once to the raw TTS take. Pitch is preserved; alignment times are divided by atempo."
+}

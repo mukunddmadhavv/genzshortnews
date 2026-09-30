@@ -1,0 +1,12 @@
+{
+  "source_audio": "source.mp4 (original audio); audio.wav (ASR derivative)",
+  "transcription_models": ["mlx-community/whisper-large-v3-mlx", "ElevenLabs scribe_v2"],
+  "review_method": "ASR cross-check and visual source review; direct listening/audio-capable expression analysis unavailable",
+  "expression_verified": false,
+  "notes": "Whisper misrecognised opening MrBeast and several English words; Scribe was clearer. Neither transcript establishes emotion or prosody. Directions below are original creative recommendations, not observations of audible delivery.",
+  "segments": [
+    {"start": 0, "end": 5.1, "speaker": "reference narrator", "excerpt": "Fans spot MrBeast at Taj Mahal", "observable_audio_cues": null, "interpreted_expression": null, "confidence": "unverified", "proposed_delivery": "Excited but clear opening"},
+    {"start": 5.1, "end": 19.5, "speaker": "reference narrator", "excerpt": "Filming, fan footage and greetings", "observable_audio_cues": null, "interpreted_expression": null, "confidence": "unverified", "proposed_delivery": "Conversational reporting, warm fan-interaction beat"},
+    {"start": 19.5, "end": 25.45, "speaker": "reference narrator", "excerpt": "Agra Taj Mahal Mr Bean", "observable_audio_cues": null, "interpreted_expression": null, "confidence": "unverified", "visual_evidence": "frames/022.jpg visibly shows the caption", "proposed_delivery": "Brief laugh then playful punchline; no anger needed"}
+  ]
+}

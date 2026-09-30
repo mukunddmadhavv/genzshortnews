@@ -1,0 +1,10 @@
+{
+  "model": "eleven_v3",
+  "voice": "Configured ELEVENLABS_VOICE_ID",
+  "language": "hi",
+  "tts_speed": 1.12,
+  "atempo": 1.218,
+  "outro_text": "Follow GENZ SHORT NEWS for more!",
+  "outro": "Same generation and processing as body; alignment covers complete take",
+  "sfx": "Unmodified user-whoosh.mp3 at four narration-aligned cuts"
+}

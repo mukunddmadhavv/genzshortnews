@@ -1,0 +1,15 @@
+{
+  "method": "local DSP",
+  "sample_rate": 48000,
+  "seed": 320,
+  "soft-click.wav": {
+    "duration": 0.16,
+    "peak_dbfs": -9,
+    "method": "descending sine oscillator, noise transient, exponential decay, endpoint fades"
+  },
+  "soft-whoosh.wav": {
+    "duration": 0.38,
+    "peak_dbfs": -12,
+    "method": "white noise, swept one-pole low-pass, high-pass subtraction, sine-squared envelope"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "voice_id": "F2bjsMJJPYo3S15YpV24",
+  "model": "eleven_multilingual_v2",
+  "tts_speed": 1.05,
+  "stability": 0.35,
+  "similarity_boost": 0.9,
+  "style": 0.25,
+  "use_speaker_boost": true,
+  "atempo": 1.0,
+  "audio_filter": "highpass=f=55,acompressor=threshold=0.125:ratio=1.8:attack=15:release=120:makeup=1,loudnorm=I=-16:TP=-2:LRA=7",
+  "note": "User's clone, based on selected Identity 2 with modest expression and pace adjustment. No additional tempo acceleration. Perceived identity and energy require user listening review.",
+  "source_pcm_md5": "7122b5c59797999e6a6be87630e68126"
+}

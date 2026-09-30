@@ -1,0 +1,7 @@
+{
+  "voice_id": "F2bjsMJJPYo3S15YpV24",
+  "source": "narration-mukund-tight.wav",
+  "atempo": 1.07,
+  "audio_filter": "acompressor=threshold=0.125:ratio=2.2:attack=12:release=100:makeup=1.25,loudnorm=I=-14:TP=-2:LRA=5",
+  "note": "One 7% pitch-preserving speed increase on the approved pause-tightened take, with firmer compression and higher loudness. No voice regeneration. Audition revision; do not compound this speed increase."
+}

@@ -1,0 +1,18 @@
+{
+  "subject": "Nirma University professor-student confrontation, apologies and inquiry",
+  "source": "https://www.youtube.com/shorts/5iRs9NxTeiA",
+  "checked_at": "2026-09-28",
+  "model": "eleven_v3",
+  "voice": "Configured approved ELEVENLABS_VOICE_ID",
+  "language": "hi",
+  "tts_speed": 1.12,
+  "pitch_preserving_atempo": 1.218,
+  "outro": "Follow GENZ SHORT NEWS for more!",
+  "outro_generation": "Same take and processing as body",
+  "gameplay": "../mau-6V_gg2zt3b8/gameplay-hinglish.mp4",
+  "gameplay_start": 18,
+  "gameplay_provenance": "Reused reference-derived Rocket League demo from approved prior episodes; local gameplay library remains empty",
+  "format": "1080x1920, 30fps, image-only upper panel, red headline, blue footer",
+  "sources": "../../references/5iRs9NxTeiA/sources.md",
+  "direct_listening": "Unavailable; final wording checked separately with Scribe"
+}

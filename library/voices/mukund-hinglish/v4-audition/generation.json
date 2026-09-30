@@ -1,0 +1,23 @@
+{
+  "preset": "mukund-tight",
+  "source_script": "episodes/medha-samay-zrSyjkvUaWU/narration-hinglish.txt",
+  "endpoint": "/v1/text-to-dialogue",
+  "request": {
+    "inputs": [
+      {
+        "text": "मेधा शंकर की एक क्लिप ने समय रैना के साथ डेटिंग की चर्चा फिर शुरू कर दी!\nमुंबई के जुहू में मेधा एक काली गाड़ी से उतरती दिखीं। फ्री प्रेस जर्नल की रिपोर्ट के मुताबिक, ये गाड़ी समय रैना की है।\nकैमरों पर नज़र पड़ते ही मेधा का सरप्राइज़्ड रिएक्शन दिखा, और फिर वो आगे बढ़ गईं। बस, यही मोमेंट सोशल मीडिया पर चर्चा में है!\nलेकिन यहाँ एक ज़रूरी बात है। किसी की गाड़ी से उतरना, रिलेशनशिप का कन्फ़र्मेशन नहीं होता। रिपोर्ट्स में भी दोनों की डेटिंग कन्फ़र्म नहीं है।\nऔर दिसंबर में शादी वाली अफ़वाह? उसी रिपोर्ट के मुताबिक, दोनों पहले ही उसे मज़ाकिया अंदाज़ में खारिज कर चुके हैं।\nतो क्लिप अपनी जगह, और अटकलें अपनी जगह!\nFollow GENZ SHORT NEWS for more!",
+        "voice_id": "F2bjsMJJPYo3S15YpV24"
+      }
+    ],
+    "model_id": "eleven_v4",
+    "language_code": "hi",
+    "settings": {
+      "stability": 0.5,
+      "similarity": 0.9
+    }
+  },
+  "note": "Existing clone reused. Dialogue settings differ from v2; raw audition has no local tempo or pause processing.",
+  "request_id": "uRmhcVVWvZYTn526pM2y",
+  "content_type": "audio/mpeg",
+  "bytes": 719351
+}

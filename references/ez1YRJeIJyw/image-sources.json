@@ -1,0 +1,48 @@
+[
+  {
+    "id": "outlook-sunil-salman",
+    "file": "images/outlook-sunil-salman.webp",
+    "publisher": "Outlook India; caption credits Instagram",
+    "page_url": "https://www.outlookindia.com/art-entertainment/television/sunil-pal-hits-back-at-salman-khan-calls-bigg-boss-a-gutter-show",
+    "image_url": "https://cf-images.assettype.com/outlookindia/2026-09-24/3c0ec3cm/sunil-pal-salman-khan.jpg?w=800&auto=format%2Ccompress&fit=max&format=webp&dpr=1.0",
+    "published_at": "2026-09-24",
+    "checked_at": "2026-09-27",
+    "subject": "Sunil Pal and Salman Khan",
+    "intended_use": "Hook and concluding comparison of their positions",
+    "rights": "Publisher/social photograph; no open license established",
+    "width": 800,
+    "height": 450,
+    "sha256": "88af5d9bfd103a2cfc3e2deab527fc1a42c05afafeae7dd81e63557caa0af757"
+  },
+  {
+    "id": "bhl-sunil",
+    "file": "images/bhl-sunil.jpg",
+    "publisher": "Bollywood Helpline; photo credit BHL",
+    "page_url": "https://www.bollywoodhelpline.com/news/entertainment/tv/Sunil-Pal-Slams-Salman-Khan-Over-Bigg-Boss-Says-Shut-Down-This-Gutter-of-a-Show-First/78296",
+    "image_url": "https://www.bollywoodhelpline.com/upload/articles/sunil-pal1573861.jpg",
+    "published_at": "2026-09-24",
+    "checked_at": "2026-09-27",
+    "subject": "Composite of Sunil Pal speaking to media and Salman Khan; preserve BHL watermark",
+    "intended_use": "Pal's statements about audience and Bigg Boss",
+    "rights": "BHL photograph; no open license established",
+    "width": 900,
+    "height": 600,
+    "sha256": "010db8eb1db71f1236d3905f74b6f48784ac43f1e90b93ce50e8b88a0ecdf30c"
+  },
+  {
+    "id": "news18-salman",
+    "file": "images/news18-salman.jpg",
+    "publisher": "News18",
+    "page_url": "https://www.news18.com/movies/bollywood/sunil-pal-slams-salman-khans-bigg-boss-20-outburst-aaj-star-humare-sab-ki-wajah-se-hi-hain-ws-l-10350657.html",
+    "image_url": "https://images.news18.com/ibnlive/uploads/2026/09/salman-khan-19-2026-09-a97d36441eeef05c673ae8b1234f0eba-1200x675.jpg?impolicy=website&width=400&height=225",
+    "published_at": "2026-09-24",
+    "checked_at": "2026-09-27",
+    "subject": "Composite of Sunil Pal and Salman Khan",
+    "intended_use": "Salman's earlier statement against trolling",
+    "rights": "Publisher photograph; no open license established",
+    "limitation": "Use actual linked 400-pixel asset; upscaling does not add detail",
+    "width": 400,
+    "height": 225,
+    "sha256": "bed5e7c6a6ec123ab9128f590f5e1bcb38a56af2e7f0a3d4490b330d0a6712a2"
+  }
+]

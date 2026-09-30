@@ -1,0 +1,30 @@
+[
+  {
+    "id": "ie-mau-collage",
+    "file": "images/ie-mau-collage.jpg",
+    "publisher": "The Indian Express",
+    "page_url": "https://indianexpress.com/article/trending/trending-in-india/gaurav-taneja-flying-beast-mau-labrador-death-controversy-beastlife-10893997/",
+    "image_url": "https://images.indianexpress.com/2026/09/Gaurav-Taneja-Mau-controversy.jpg?w=1024",
+    "published": "2026-09-26",
+    "checked": "2026-09-27",
+    "context": "Article image caption identifies Taneja and controversy around Labrador Mau. Context image, not proof of neglect.",
+    "rights": "Publisher-hosted editorial image; no open license established.",
+    "width": 1024,
+    "height": 576,
+    "sha256": "639abcb2228ec9c98b4f8e2eb1a85eefad042ddb59448b8ad8854b969fbb69a2"
+  },
+  {
+    "id": "ht-mau-photo",
+    "file": "images/ht-mau-photo.png",
+    "publisher": "Hindustan Times",
+    "page_url": "https://www.hindustantimes.com/trending/flying-beast-gaurav-taneja-s-dog-mau-dies-ex-employee-accuses-him-of-neglect-he-was-suffering-a-lot-101790241507712.html",
+    "image_url": "https://www.hindustantimes.com/ht-img/img/2026/09/24/400x225/mau_1790242625359_AdCV_1790242634019_jdvP_70298f69-4683-4e31-832e-74852ec716d5_TzyW.png",
+    "published": "2026-09-24",
+    "checked": "2026-09-27",
+    "context": "Article image accompanying the report on Choudhary's allegations. Allegations are contested by subsequent response.",
+    "rights": "Publisher-hosted editorial image; no open license established.",
+    "width": 400,
+    "height": 225,
+    "sha256": "69789f3680efcabfa5f6037a76b6241a46c1fb39f787ebb3ba2b2f9cc8412edb"
+  }
+]

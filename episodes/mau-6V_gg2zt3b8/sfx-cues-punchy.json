@@ -1,0 +1,32 @@
+[
+  {
+    "file": "../../library/sfx/dsp/sweep-whoosh.wav",
+    "start_seconds": 13.432413793103448,
+    "gain_db": -10
+  },
+  {
+    "file": "../../library/sfx/dsp/sweep-whoosh.wav",
+    "start_seconds": 22.56431034482759,
+    "gain_db": -9
+  },
+  {
+    "file": "../../library/sfx/dsp/whoosh-impact.wav",
+    "start_seconds": 33.88689655172414,
+    "gain_db": -8
+  },
+  {
+    "file": "../../library/sfx/dsp/sweep-whoosh.wav",
+    "start_seconds": 51.43844827586207,
+    "gain_db": -11
+  },
+  {
+    "file": "../../library/sfx/dsp/whoosh-impact.wav",
+    "start_seconds": 55.82655172413793,
+    "gain_db": -9
+  },
+  {
+    "file": "../../library/sfx/dsp/sweep-whoosh.wav",
+    "start_seconds": 68.72551724137932,
+    "gain_db": -11
+  }
+]

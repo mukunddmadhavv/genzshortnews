@@ -1,0 +1,16 @@
+{
+  "model": "eleven_v3",
+  "voice": "Configured approved ELEVENLABS_VOICE_ID",
+  "language": "hi",
+  "tts_speed": 1.12,
+  "atempo": 1.218,
+  "directions": [
+    "excited opening",
+    "brief laugh at caption joke",
+    "warm fan interaction"
+  ],
+  "expression_evidence": "Creative recommendations; reference acoustic emotion unverified",
+  "outro_text": "Follow GENZ SHORT NEWS for more!",
+  "outro": "Same complete generation and processing as body",
+  "sfx": "Three unchanged user-whoosh cues, below speech"
+}

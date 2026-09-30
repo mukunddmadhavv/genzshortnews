@@ -1,0 +1,32 @@
+[
+  {
+    "id": "fpj-car",
+    "file": "images/fpj-car.jpg",
+    "publisher": "Free Press Journal",
+    "page_url": "https://www.freepressjournal.in/entertainment/medha-shankr-steps-out-of-rumoured-boyfriend-samay-rainas-13-crore-car-gets-surprised-upon-seeing-paps-in-mumbai-video",
+    "image_url": "https://media.assettype.com/freepressjournal/2026-09-23/wzy4vsbx/samay-raina-medha-shankr-car.jpg?width=1200",
+    "publication_date": "2026-09-23",
+    "checked_at": "2026-09-28",
+    "subject": "Publisher composite of Medha's reaction and Samay with a decorated car",
+    "intended_use": "Context accompanying explicitly attributed car report; composite is not a single scene",
+    "rights": "Publisher image credited via Instagram; open license not established",
+    "width": 1200,
+    "height": 675,
+    "sha256": "907881202a1bb5ce80615303ddba856dbca589d44a09a559d186f13899d476c9"
+  },
+  {
+    "id": "siasat-medha",
+    "file": "images/siasat-medha.jpg",
+    "publisher": "The Siasat Daily",
+    "page_url": "https://www.siasat.com/video-captures-medha-shankr-stepping-out-of-samay-rainas-car-3547202/",
+    "image_url": "https://www.siasat.com/wp-content/uploads/2026/09/Medha-780x470.jpg",
+    "publication_date": "2026-09-23",
+    "checked_at": "2026-09-28",
+    "subject": "Medha beside the black car",
+    "intended_use": "Context for unconfirmed relationship status",
+    "rights": "Publisher credits Instagram / Bollywood Chronicle; open license not established",
+    "width": 780,
+    "height": 470,
+    "sha256": "0eb4c7aec42ca1cc7fec72858c2515affc460cef85c92eec7f7b50fcad57b08d"
+  }
+]

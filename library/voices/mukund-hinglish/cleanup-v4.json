@@ -1,0 +1,71 @@
+{
+  "reason": "User selected v4 exclusively and requested remaining Mukund takes deleted.",
+  "date": "2026-09-28",
+  "removed": [
+    {
+      "path": "library/voices/mukund-hinglish/identity-review.json",
+      "bytes": 942
+    },
+    {
+      "path": "library/voices/mukund-hinglish/identity-v2-profile.json",
+      "bytes": 465
+    },
+    {
+      "path": "library/voices/mukund-hinglish/identity-v2-raw.alignment.json",
+      "bytes": 23376
+    },
+    {
+      "path": "library/voices/mukund-hinglish/identity-v2-raw.mp3",
+      "bytes": 330231
+    },
+    {
+      "path": "library/voices/mukund-hinglish/identity-v2.alignment.json",
+      "bytes": 23376
+    },
+    {
+      "path": "library/voices/mukund-hinglish/identity-v2.production.json",
+      "bytes": 897
+    },
+    {
+      "path": "library/voices/mukund-hinglish/identity-v2.wav",
+      "bytes": 2962252
+    },
+    {
+      "path": "library/voices/mukund-hinglish/preview-identity.txt",
+      "bytes": 691
+    },
+    {
+      "path": "episodes/medha-samay-zrSyjkvUaWU/narration-hinglish.mp3",
+      "bytes": 735234
+    },
+    {
+      "path": "episodes/medha-samay-zrSyjkvUaWU/narration-final.wav",
+      "bytes": 6606018
+    },
+    {
+      "path": "episodes/medha-samay-zrSyjkvUaWU/narration-mukund-confident-raw.mp3",
+      "bytes": 832618
+    },
+    {
+      "path": "episodes/medha-samay-zrSyjkvUaWU/narration-mukund-confident.wav",
+      "bytes": 7482174
+    },
+    {
+      "path": "episodes/medha-samay-zrSyjkvUaWU/narration-mukund-tight.wav",
+      "bytes": 7022988
+    },
+    {
+      "path": "episodes/medha-samay-zrSyjkvUaWU/narration-mukund-energetic.wav",
+      "bytes": 6563514
+    },
+    {
+      "path": "episodes/medha-samay-zrSyjkvUaWU/narration-mukund-energetic-depaused.wav",
+      "bytes": 6450990
+    },
+    {
+      "path": "episodes/medha-samay-zrSyjkvUaWU/narration-mukund-fast10.wav",
+      "bytes": 5865820
+    }
+  ],
+  "preserved": "Original recording, clone metadata, v4 assets, historical episode manifests and finished videos"
+}

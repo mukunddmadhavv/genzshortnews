@@ -1,0 +1,2046 @@
+{
+  "language_code": "hin",
+  "language_probability": 1.0,
+  "text": "ताजमहल घूमने गए और सामने मिल गए Mr. Beast। आगरा से उनकी ये clips सामने आई हैं, लेकिन एक caption ने पूरा scene ही बदल दिया। पहले ये देखो। Mr. Beast ताजमहल में नजर आए। fans आसपास इकट्ठा हुए और वो भी लोगों को greet करते दिखे। उनकी wife Thea भी इस visit में साथ थीं। India Today की report के मुताबिक उन्होंने वहां filming के लिए पहले permission ली थी और एक छोटे fan ने उन्हें अपने हाथ से बनाई sketchbook भी gift की। कितना प्यारा moment है ना? लेकिन अब ये reel देखो। इसके ऊपर लिखा है आगरा ताजमहल Mr. Bean। [हँसने की आवाज़] भाई मिलने आए Mr. Beast से और caption में entry हो गई Mr. Bean की। एक नाम की गड़बड़ और पूरा comedy crossover तैयार। वैसे तुम्हें अचानक Mr. Beast मिल जाएं तो सबसे पहले क्या पूछोगे? Follow GenZ Short News for more.",
+  "words": [
+    {
+      "text": "ताजमहल",
+      "start": 0.08,
+      "end": 0.52,
+      "type": "word",
+      "logprob": -0.124565739184618
+    },
+    {
+      "text": " ",
+      "start": 0.52,
+      "end": 0.54,
+      "type": "spacing",
+      "logprob": -0.00039402826223522425
+    },
+    {
+      "text": "घूमने",
+      "start": 0.56,
+      "end": 0.76,
+      "type": "word",
+      "logprob": -0.00039402826223522425
+    },
+    {
+      "text": " ",
+      "start": 0.76,
+      "end": 0.84,
+      "type": "spacing",
+      "logprob": -4.0531076592742465e-06
+    },
+    {
+      "text": "गए",
+      "start": 0.84,
+      "end": 0.98,
+      "type": "word",
+      "logprob": -4.0531076592742465e-06
+    },
+    {
+      "text": " ",
+      "start": 0.98,
+      "end": 1.24,
+      "type": "spacing",
+      "logprob": -3.2305197237292305e-05
+    },
+    {
+      "text": "और",
+      "start": 1.24,
+      "end": 1.34,
+      "type": "word",
+      "logprob": -3.2305197237292305e-05
+    },
+    {
+      "text": " ",
+      "start": 1.34,
+      "end": 1.38,
+      "type": "spacing",
+      "logprob": -7.986990567587782e-06
+    },
+    {
+      "text": "सामने",
+      "start": 1.38,
+      "end": 1.64,
+      "type": "word",
+      "logprob": -7.986990567587782e-06
+    },
+    {
+      "text": " ",
+      "start": 1.64,
+      "end": 1.68,
+      "type": "spacing",
+      "logprob": -7.045020902296528e-05
+    },
+    {
+      "text": "मिल",
+      "start": 1.68,
+      "end": 1.78,
+      "type": "word",
+      "logprob": -7.045020902296528e-05
+    },
+    {
+      "text": " ",
+      "start": 1.78,
+      "end": 1.82,
+      "type": "spacing",
+      "logprob": -8.583032467868179e-06
+    },
+    {
+      "text": "गए",
+      "start": 1.82,
+      "end": 1.94,
+      "type": "word",
+      "logprob": -8.583032467868179e-06
+    },
+    {
+      "text": " ",
+      "start": 1.94,
+      "end": 2.2,
+      "type": "spacing",
+      "logprob": -0.016093706712126732
+    },
+    {
+      "text": "Mr.",
+      "start": 2.2,
+      "end": 2.26,
+      "type": "word",
+      "logprob": -0.056054690231879555
+    },
+    {
+      "text": " ",
+      "start": 2.26,
+      "end": 2.48,
+      "type": "spacing",
+      "logprob": -0.008295484818518162
+    },
+    {
+      "text": "Beast।",
+      "start": 2.48,
+      "end": 3.36,
+      "type": "word",
+      "logprob": -0.014701254821072022
+    },
+    {
+      "text": " ",
+      "start": 3.36,
+      "end": 3.44,
+      "type": "spacing",
+      "logprob": -0.00423392141237855
+    },
+    {
+      "text": "आगरा",
+      "start": 3.44,
+      "end": 3.66,
+      "type": "word",
+      "logprob": -0.00423392141237855
+    },
+    {
+      "text": " ",
+      "start": 3.66,
+      "end": 3.74,
+      "type": "spacing",
+      "logprob": -1.311301275563892e-06
+    },
+    {
+      "text": "से",
+      "start": 3.74,
+      "end": 3.8,
+      "type": "word",
+      "logprob": -1.311301275563892e-06
+    },
+    {
+      "text": " ",
+      "start": 3.8,
+      "end": 3.84,
+      "type": "spacing",
+      "logprob": -0.0001658063702052459
+    },
+    {
+      "text": "उनकी",
+      "start": 3.84,
+      "end": 4.019,
+      "type": "word",
+      "logprob": -0.0001658063702052459
+    },
+    {
+      "text": " ",
+      "start": 4.019,
+      "end": 4.059,
+      "type": "spacing",
+      "logprob": -0.026231704279780388
+    },
+    {
+      "text": "ये",
+      "start": 4.059,
+      "end": 4.16,
+      "type": "word",
+      "logprob": -0.026231704279780388
+    },
+    {
+      "text": " ",
+      "start": 4.16,
+      "end": 4.18,
+      "type": "spacing",
+      "logprob": -0.0066434708423912525
+    },
+    {
+      "text": "clips",
+      "start": 4.18,
+      "end": 4.5,
+      "type": "word",
+      "logprob": -0.0066434708423912525
+    },
+    {
+      "text": " ",
+      "start": 4.5,
+      "end": 4.56,
+      "type": "spacing",
+      "logprob": -1.5616295058862306e-05
+    },
+    {
+      "text": "सामने",
+      "start": 4.56,
+      "end": 4.82,
+      "type": "word",
+      "logprob": -1.5616295058862306e-05
+    },
+    {
+      "text": " ",
+      "start": 4.82,
+      "end": 4.86,
+      "type": "spacing",
+      "logprob": -0.0012343652779236436
+    },
+    {
+      "text": "आई",
+      "start": 4.86,
+      "end": 5.02,
+      "type": "word",
+      "logprob": -0.0012343652779236436
+    },
+    {
+      "text": " ",
+      "start": 5.02,
+      "end": 5.04,
+      "type": "spacing",
+      "logprob": -0.03804302215576172
+    },
+    {
+      "text": "हैं,",
+      "start": 5.04,
+      "end": 5.14,
+      "type": "word",
+      "logprob": -0.057611361145973206
+    },
+    {
+      "text": " ",
+      "start": 5.14,
+      "end": 5.52,
+      "type": "spacing",
+      "logprob": -6.282132380874828e-05
+    },
+    {
+      "text": "लेकिन",
+      "start": 5.52,
+      "end": 5.7,
+      "type": "word",
+      "logprob": -6.282132380874828e-05
+    },
+    {
+      "text": " ",
+      "start": 5.7,
+      "end": 5.74,
+      "type": "spacing",
+      "logprob": -0.00029774048016406596
+    },
+    {
+      "text": "एक",
+      "start": 5.74,
+      "end": 5.82,
+      "type": "word",
+      "logprob": -0.00029774048016406596
+    },
+    {
+      "text": " ",
+      "start": 5.82,
+      "end": 5.86,
+      "type": "spacing",
+      "logprob": -9.762764238985255e-05
+    },
+    {
+      "text": "caption",
+      "start": 5.86,
+      "end": 6.16,
+      "type": "word",
+      "logprob": -9.762764238985255e-05
+    },
+    {
+      "text": " ",
+      "start": 6.16,
+      "end": 6.18,
+      "type": "spacing",
+      "logprob": -6.842378934379667e-05
+    },
+    {
+      "text": "ने",
+      "start": 6.18,
+      "end": 6.3,
+      "type": "word",
+      "logprob": -6.842378934379667e-05
+    },
+    {
+      "text": " ",
+      "start": 6.3,
+      "end": 6.32,
+      "type": "spacing",
+      "logprob": -5.924526340095326e-05
+    },
+    {
+      "text": "पूरा",
+      "start": 6.32,
+      "end": 6.5,
+      "type": "word",
+      "logprob": -5.924526340095326e-05
+    },
+    {
+      "text": " ",
+      "start": 6.5,
+      "end": 6.64,
+      "type": "spacing",
+      "logprob": -0.0021030232310295105
+    },
+    {
+      "text": "scene",
+      "start": 6.64,
+      "end": 6.82,
+      "type": "word",
+      "logprob": -0.0021030232310295105
+    },
+    {
+      "text": " ",
+      "start": 6.82,
+      "end": 6.86,
+      "type": "spacing",
+      "logprob": -9.881961887003854e-05
+    },
+    {
+      "text": "ही",
+      "start": 6.86,
+      "end": 6.92,
+      "type": "word",
+      "logprob": -9.881961887003854e-05
+    },
+    {
+      "text": " ",
+      "start": 6.92,
+      "end": 6.96,
+      "type": "spacing",
+      "logprob": -0.0008312584250234067
+    },
+    {
+      "text": "बदल",
+      "start": 6.96,
+      "end": 7.14,
+      "type": "word",
+      "logprob": -0.0008312584250234067
+    },
+    {
+      "text": " ",
+      "start": 7.14,
+      "end": 7.18,
+      "type": "spacing",
+      "logprob": -9.179073458653875e-06
+    },
+    {
+      "text": "दिया।",
+      "start": 7.18,
+      "end": 7.76,
+      "type": "word",
+      "logprob": -6.636699108639733e-05
+    },
+    {
+      "text": " ",
+      "start": 7.76,
+      "end": 7.8,
+      "type": "spacing",
+      "logprob": -3.4689302992774174e-05
+    },
+    {
+      "text": "पहले",
+      "start": 7.8,
+      "end": 8.0,
+      "type": "word",
+      "logprob": -3.4689302992774174e-05
+    },
+    {
+      "text": " ",
+      "start": 8.0,
+      "end": 8.06,
+      "type": "spacing",
+      "logprob": -0.011060239747166634
+    },
+    {
+      "text": "ये",
+      "start": 8.06,
+      "end": 8.14,
+      "type": "word",
+      "logprob": -0.011060239747166634
+    },
+    {
+      "text": " ",
+      "start": 8.14,
+      "end": 8.18,
+      "type": "spacing",
+      "logprob": -4.577531944960356e-05
+    },
+    {
+      "text": "देखो।",
+      "start": 8.18,
+      "end": 8.5,
+      "type": "word",
+      "logprob": -0.03412255560979247
+    },
+    {
+      "text": " ",
+      "start": 8.5,
+      "end": 9.12,
+      "type": "spacing",
+      "logprob": -7.164221460698172e-05
+    },
+    {
+      "text": "Mr.",
+      "start": 9.12,
+      "end": 9.18,
+      "type": "word",
+      "logprob": -0.00028534037119243294
+    },
+    {
+      "text": " ",
+      "start": 9.18,
+      "end": 9.36,
+      "type": "spacing",
+      "logprob": -0.0001250427303602919
+    },
+    {
+      "text": "Beast",
+      "start": 9.36,
+      "end": 9.62,
+      "type": "word",
+      "logprob": -0.0001250427303602919
+    },
+    {
+      "text": " ",
+      "start": 9.62,
+      "end": 9.76,
+      "type": "spacing",
+      "logprob": -0.15842150151729584
+    },
+    {
+      "text": "ताजमहल",
+      "start": 9.76,
+      "end": 10.14,
+      "type": "word",
+      "logprob": -0.15842150151729584
+    },
+    {
+      "text": " ",
+      "start": 10.14,
+      "end": 10.2,
+      "type": "spacing",
+      "logprob": -2.610649426060263e-05
+    },
+    {
+      "text": "में",
+      "start": 10.2,
+      "end": 10.26,
+      "type": "word",
+      "logprob": -2.610649426060263e-05
+    },
+    {
+      "text": " ",
+      "start": 10.26,
+      "end": 10.3,
+      "type": "spacing",
+      "logprob": -0.30117425322532654
+    },
+    {
+      "text": "नजर",
+      "start": 10.3,
+      "end": 10.48,
+      "type": "word",
+      "logprob": -0.30117425322532654
+    },
+    {
+      "text": " ",
+      "start": 10.48,
+      "end": 10.54,
+      "type": "spacing",
+      "logprob": -0.0010682597057893872
+    },
+    {
+      "text": "आए।",
+      "start": 10.54,
+      "end": 11.1,
+      "type": "word",
+      "logprob": -0.004810326499864459
+    },
+    {
+      "text": " ",
+      "start": 11.1,
+      "end": 11.14,
+      "type": "spacing",
+      "logprob": -0.029642680659890175
+    },
+    {
+      "text": "fans",
+      "start": 11.14,
+      "end": 11.44,
+      "type": "word",
+      "logprob": -0.029642680659890175
+    },
+    {
+      "text": " ",
+      "start": 11.44,
+      "end": 11.62,
+      "type": "spacing",
+      "logprob": -0.021576551720499992
+    },
+    {
+      "text": "आसपास",
+      "start": 11.62,
+      "end": 11.98,
+      "type": "word",
+      "logprob": -0.021576551720499992
+    },
+    {
+      "text": " ",
+      "start": 11.98,
+      "end": 12.02,
+      "type": "spacing",
+      "logprob": -0.002398948883637786
+    },
+    {
+      "text": "इकट्ठा",
+      "start": 12.02,
+      "end": 12.34,
+      "type": "word",
+      "logprob": -0.002398948883637786
+    },
+    {
+      "text": " ",
+      "start": 12.34,
+      "end": 12.36,
+      "type": "spacing",
+      "logprob": -5.125986263010418e-06
+    },
+    {
+      "text": "हुए",
+      "start": 12.36,
+      "end": 12.86,
+      "type": "word",
+      "logprob": -5.125986263010418e-06
+    },
+    {
+      "text": " ",
+      "start": 12.86,
+      "end": 12.92,
+      "type": "spacing",
+      "logprob": -7.10462118149735e-05
+    },
+    {
+      "text": "और",
+      "start": 12.92,
+      "end": 13.0,
+      "type": "word",
+      "logprob": -7.10462118149735e-05
+    },
+    {
+      "text": " ",
+      "start": 13.0,
+      "end": 13.04,
+      "type": "spacing",
+      "logprob": -0.0022150760050863028
+    },
+    {
+      "text": "वो",
+      "start": 13.04,
+      "end": 13.14,
+      "type": "word",
+      "logprob": -0.0022150760050863028
+    },
+    {
+      "text": " ",
+      "start": 13.14,
+      "end": 13.18,
+      "type": "spacing",
+      "logprob": -3.576272320060525e-06
+    },
+    {
+      "text": "भी",
+      "start": 13.18,
+      "end": 13.26,
+      "type": "word",
+      "logprob": -3.576272320060525e-06
+    },
+    {
+      "text": " ",
+      "start": 13.26,
+      "end": 13.32,
+      "type": "spacing",
+      "logprob": -0.00031251792097464204
+    },
+    {
+      "text": "लोगों",
+      "start": 13.32,
+      "end": 13.54,
+      "type": "word",
+      "logprob": -0.00031251792097464204
+    },
+    {
+      "text": " ",
+      "start": 13.54,
+      "end": 13.56,
+      "type": "spacing",
+      "logprob": -3.58813522325363e-05
+    },
+    {
+      "text": "को",
+      "start": 13.56,
+      "end": 13.68,
+      "type": "word",
+      "logprob": -3.58813522325363e-05
+    },
+    {
+      "text": " ",
+      "start": 13.68,
+      "end": 13.7,
+      "type": "spacing",
+      "logprob": -4.303362584323622e-05
+    },
+    {
+      "text": "greet",
+      "start": 13.7,
+      "end": 13.9,
+      "type": "word",
+      "logprob": -4.303362584323622e-05
+    },
+    {
+      "text": " ",
+      "start": 13.9,
+      "end": 13.94,
+      "type": "spacing",
+      "logprob": -0.00011312322021694854
+    },
+    {
+      "text": "करते",
+      "start": 13.94,
+      "end": 14.14,
+      "type": "word",
+      "logprob": -0.00011312322021694854
+    },
+    {
+      "text": " ",
+      "start": 14.14,
+      "end": 14.2,
+      "type": "spacing",
+      "logprob": -0.003767299233004451
+    },
+    {
+      "text": "दिखे।",
+      "start": 14.2,
+      "end": 15.0,
+      "type": "word",
+      "logprob": -0.0031003427808173
+    },
+    {
+      "text": " ",
+      "start": 15.0,
+      "end": 15.06,
+      "type": "spacing",
+      "logprob": -0.0005627478822134435
+    },
+    {
+      "text": "उनकी",
+      "start": 15.06,
+      "end": 15.26,
+      "type": "word",
+      "logprob": -0.0005627478822134435
+    },
+    {
+      "text": " ",
+      "start": 15.26,
+      "end": 15.28,
+      "type": "spacing",
+      "logprob": -0.0011381583753973246
+    },
+    {
+      "text": "wife",
+      "start": 15.28,
+      "end": 15.52,
+      "type": "word",
+      "logprob": -0.0011381583753973246
+    },
+    {
+      "text": " ",
+      "start": 15.52,
+      "end": 15.56,
+      "type": "spacing",
+      "logprob": -0.19990338385105133
+    },
+    {
+      "text": "Thea",
+      "start": 15.56,
+      "end": 15.76,
+      "type": "word",
+      "logprob": -0.2065512053668499
+    },
+    {
+      "text": " ",
+      "start": 15.76,
+      "end": 15.84,
+      "type": "spacing",
+      "logprob": -0.0008231588872149587
+    },
+    {
+      "text": "भी",
+      "start": 15.84,
+      "end": 16.18,
+      "type": "word",
+      "logprob": -0.0008231588872149587
+    },
+    {
+      "text": " ",
+      "start": 16.18,
+      "end": 16.239,
+      "type": "spacing",
+      "logprob": -5.018585216021165e-05
+    },
+    {
+      "text": "इस",
+      "start": 16.239,
+      "end": 16.36,
+      "type": "word",
+      "logprob": -5.018585216021165e-05
+    },
+    {
+      "text": " ",
+      "start": 16.36,
+      "end": 16.4,
+      "type": "spacing",
+      "logprob": -0.00032360086333937943
+    },
+    {
+      "text": "visit",
+      "start": 16.4,
+      "end": 16.62,
+      "type": "word",
+      "logprob": -0.00032360086333937943
+    },
+    {
+      "text": " ",
+      "start": 16.62,
+      "end": 16.66,
+      "type": "spacing",
+      "logprob": -0.006658272817730904
+    },
+    {
+      "text": "में",
+      "start": 16.66,
+      "end": 16.76,
+      "type": "word",
+      "logprob": -0.006658272817730904
+    },
+    {
+      "text": " ",
+      "start": 16.76,
+      "end": 16.8,
+      "type": "spacing",
+      "logprob": -5.090107151772827e-05
+    },
+    {
+      "text": "साथ",
+      "start": 16.82,
+      "end": 17.06,
+      "type": "word",
+      "logprob": -5.090107151772827e-05
+    },
+    {
+      "text": " ",
+      "start": 17.06,
+      "end": 17.1,
+      "type": "spacing",
+      "logprob": -0.023311134427785873
+    },
+    {
+      "text": "थीं।",
+      "start": 17.1,
+      "end": 17.84,
+      "type": "word",
+      "logprob": -0.017573605764482636
+    },
+    {
+      "text": " ",
+      "start": 17.84,
+      "end": 17.88,
+      "type": "spacing",
+      "logprob": -0.0008933129138313234
+    },
+    {
+      "text": "India",
+      "start": 17.88,
+      "end": 18.08,
+      "type": "word",
+      "logprob": -0.0008933129138313234
+    },
+    {
+      "text": " ",
+      "start": 18.08,
+      "end": 18.12,
+      "type": "spacing",
+      "logprob": -0.00043478095903992653
+    },
+    {
+      "text": "Today",
+      "start": 18.12,
+      "end": 18.28,
+      "type": "word",
+      "logprob": -0.00043478095903992653
+    },
+    {
+      "text": " ",
+      "start": 18.28,
+      "end": 18.32,
+      "type": "spacing",
+      "logprob": -0.00033456450910307467
+    },
+    {
+      "text": "की",
+      "start": 18.34,
+      "end": 18.4,
+      "type": "word",
+      "logprob": -0.00033456450910307467
+    },
+    {
+      "text": " ",
+      "start": 18.4,
+      "end": 18.42,
+      "type": "spacing",
+      "logprob": -0.0028330450877547264
+    },
+    {
+      "text": "report",
+      "start": 18.42,
+      "end": 18.68,
+      "type": "word",
+      "logprob": -0.0028330450877547264
+    },
+    {
+      "text": " ",
+      "start": 18.68,
+      "end": 18.7,
+      "type": "spacing",
+      "logprob": -9.894321920000948e-06
+    },
+    {
+      "text": "के",
+      "start": 18.7,
+      "end": 18.76,
+      "type": "word",
+      "logprob": -9.894321920000948e-06
+    },
+    {
+      "text": " ",
+      "start": 18.76,
+      "end": 18.8,
+      "type": "spacing",
+      "logprob": -0.0012463905150070786
+    },
+    {
+      "text": "मुताबिक",
+      "start": 18.8,
+      "end": 19.14,
+      "type": "word",
+      "logprob": -0.0012463905150070786
+    },
+    {
+      "text": " ",
+      "start": 19.14,
+      "end": 19.48,
+      "type": "spacing",
+      "logprob": -0.0010344398906454444
+    },
+    {
+      "text": "उन्होंने",
+      "start": 19.48,
+      "end": 19.72,
+      "type": "word",
+      "logprob": -0.0010344398906454444
+    },
+    {
+      "text": " ",
+      "start": 19.72,
+      "end": 19.74,
+      "type": "spacing",
+      "logprob": -0.016659313812851906
+    },
+    {
+      "text": "वहां",
+      "start": 19.74,
+      "end": 19.94,
+      "type": "word",
+      "logprob": -0.016659313812851906
+    },
+    {
+      "text": " ",
+      "start": 19.94,
+      "end": 19.98,
+      "type": "spacing",
+      "logprob": -0.0026792127173393965
+    },
+    {
+      "text": "filming",
+      "start": 19.98,
+      "end": 20.24,
+      "type": "word",
+      "logprob": -0.0026792127173393965
+    },
+    {
+      "text": " ",
+      "start": 20.24,
+      "end": 20.26,
+      "type": "spacing",
+      "logprob": -5.245195097813848e-06
+    },
+    {
+      "text": "के",
+      "start": 20.26,
+      "end": 20.32,
+      "type": "word",
+      "logprob": -5.245195097813848e-06
+    },
+    {
+      "text": " ",
+      "start": 20.32,
+      "end": 20.36,
+      "type": "spacing",
+      "logprob": -4.0411134250462055e-05
+    },
+    {
+      "text": "लिए",
+      "start": 20.36,
+      "end": 20.48,
+      "type": "word",
+      "logprob": -4.0411134250462055e-05
+    },
+    {
+      "text": " ",
+      "start": 20.48,
+      "end": 20.52,
+      "type": "spacing",
+      "logprob": -2.002696055569686e-05
+    },
+    {
+      "text": "पहले",
+      "start": 20.52,
+      "end": 20.76,
+      "type": "word",
+      "logprob": -2.002696055569686e-05
+    },
+    {
+      "text": " ",
+      "start": 20.76,
+      "end": 20.78,
+      "type": "spacing",
+      "logprob": -5.6265202147187665e-05
+    },
+    {
+      "text": "permission",
+      "start": 20.78,
+      "end": 21.1,
+      "type": "word",
+      "logprob": -5.6265202147187665e-05
+    },
+    {
+      "text": " ",
+      "start": 21.1,
+      "end": 21.14,
+      "type": "spacing",
+      "logprob": -0.00010787858627736568
+    },
+    {
+      "text": "ली",
+      "start": 21.14,
+      "end": 21.22,
+      "type": "word",
+      "logprob": -0.00010787858627736568
+    },
+    {
+      "text": " ",
+      "start": 21.22,
+      "end": 21.28,
+      "type": "spacing",
+      "logprob": -3.933898824470816e-06
+    },
+    {
+      "text": "थी",
+      "start": 21.28,
+      "end": 21.42,
+      "type": "word",
+      "logprob": -3.933898824470816e-06
+    },
+    {
+      "text": " ",
+      "start": 21.42,
+      "end": 21.92,
+      "type": "spacing",
+      "logprob": -0.00011705666838679463
+    },
+    {
+      "text": "और",
+      "start": 21.92,
+      "end": 21.98,
+      "type": "word",
+      "logprob": -0.00011705666838679463
+    },
+    {
+      "text": " ",
+      "start": 21.98,
+      "end": 22.0,
+      "type": "spacing",
+      "logprob": -0.00010692501382436603
+    },
+    {
+      "text": "एक",
+      "start": 22.0,
+      "end": 22.08,
+      "type": "word",
+      "logprob": -0.00010692501382436603
+    },
+    {
+      "text": " ",
+      "start": 22.08,
+      "end": 22.14,
+      "type": "spacing",
+      "logprob": -8.95221673999913e-05
+    },
+    {
+      "text": "छोटे",
+      "start": 22.14,
+      "end": 22.4,
+      "type": "word",
+      "logprob": -8.95221673999913e-05
+    },
+    {
+      "text": " ",
+      "start": 22.4,
+      "end": 22.42,
+      "type": "spacing",
+      "logprob": -0.0030163289047777653
+    },
+    {
+      "text": "fan",
+      "start": 22.42,
+      "end": 22.6,
+      "type": "word",
+      "logprob": -0.0030163289047777653
+    },
+    {
+      "text": " ",
+      "start": 22.6,
+      "end": 22.64,
+      "type": "spacing",
+      "logprob": -6.4490144723095e-05
+    },
+    {
+      "text": "ने",
+      "start": 22.64,
+      "end": 23.0,
+      "type": "word",
+      "logprob": -6.4490144723095e-05
+    },
+    {
+      "text": " ",
+      "start": 23.0,
+      "end": 23.06,
+      "type": "spacing",
+      "logprob": -1.0371154530730564e-05
+    },
+    {
+      "text": "उन्हें",
+      "start": 23.06,
+      "end": 23.2,
+      "type": "word",
+      "logprob": -1.0371154530730564e-05
+    },
+    {
+      "text": " ",
+      "start": 23.2,
+      "end": 23.24,
+      "type": "spacing",
+      "logprob": -9.119095193454996e-05
+    },
+    {
+      "text": "अपने",
+      "start": 23.24,
+      "end": 23.46,
+      "type": "word",
+      "logprob": -9.119095193454996e-05
+    },
+    {
+      "text": " ",
+      "start": 23.46,
+      "end": 23.52,
+      "type": "spacing",
+      "logprob": -0.000782183778937906
+    },
+    {
+      "text": "हाथ",
+      "start": 23.52,
+      "end": 23.74,
+      "type": "word",
+      "logprob": -0.000782183778937906
+    },
+    {
+      "text": " ",
+      "start": 23.74,
+      "end": 23.78,
+      "type": "spacing",
+      "logprob": -1.311301275563892e-06
+    },
+    {
+      "text": "से",
+      "start": 23.78,
+      "end": 23.86,
+      "type": "word",
+      "logprob": -1.311301275563892e-06
+    },
+    {
+      "text": " ",
+      "start": 23.86,
+      "end": 23.88,
+      "type": "spacing",
+      "logprob": -0.0016601602546870708
+    },
+    {
+      "text": "बनाई",
+      "start": 23.88,
+      "end": 24.12,
+      "type": "word",
+      "logprob": -0.0016601602546870708
+    },
+    {
+      "text": " ",
+      "start": 24.12,
+      "end": 24.4,
+      "type": "spacing",
+      "logprob": -0.017779264599084854
+    },
+    {
+      "text": "sketchbook",
+      "start": 24.4,
+      "end": 24.82,
+      "type": "word",
+      "logprob": -0.017779264599084854
+    },
+    {
+      "text": " ",
+      "start": 24.82,
+      "end": 24.86,
+      "type": "spacing",
+      "logprob": -3.802703940891661e-05
+    },
+    {
+      "text": "भी",
+      "start": 24.86,
+      "end": 24.92,
+      "type": "word",
+      "logprob": -3.802703940891661e-05
+    },
+    {
+      "text": " ",
+      "start": 24.92,
+      "end": 24.98,
+      "type": "spacing",
+      "logprob": -0.0003233625029679388
+    },
+    {
+      "text": "gift",
+      "start": 24.98,
+      "end": 25.18,
+      "type": "word",
+      "logprob": -0.0003233625029679388
+    },
+    {
+      "text": " ",
+      "start": 25.18,
+      "end": 25.22,
+      "type": "spacing",
+      "logprob": -3.4450891689630225e-05
+    },
+    {
+      "text": "की।",
+      "start": 25.22,
+      "end": 25.34,
+      "type": "word",
+      "logprob": -0.0005911507881440533
+    },
+    {
+      "text": " ",
+      "start": 25.34,
+      "end": 25.98,
+      "type": "spacing",
+      "logprob": -0.00048351517762057483
+    },
+    {
+      "text": "कितना",
+      "start": 26.0,
+      "end": 26.22,
+      "type": "word",
+      "logprob": -0.00048351517762057483
+    },
+    {
+      "text": " ",
+      "start": 26.22,
+      "end": 26.26,
+      "type": "spacing",
+      "logprob": -0.0004472924047149718
+    },
+    {
+      "text": "प्यारा",
+      "start": 26.26,
+      "end": 26.44,
+      "type": "word",
+      "logprob": -0.0004472924047149718
+    },
+    {
+      "text": " ",
+      "start": 26.44,
+      "end": 26.5,
+      "type": "spacing",
+      "logprob": -6.651657167822123e-05
+    },
+    {
+      "text": "moment",
+      "start": 26.5,
+      "end": 26.74,
+      "type": "word",
+      "logprob": -6.651657167822123e-05
+    },
+    {
+      "text": " ",
+      "start": 26.74,
+      "end": 26.76,
+      "type": "spacing",
+      "logprob": -1.2993727978027891e-05
+    },
+    {
+      "text": "है",
+      "start": 26.76,
+      "end": 26.82,
+      "type": "word",
+      "logprob": -1.2993727978027891e-05
+    },
+    {
+      "text": " ",
+      "start": 26.82,
+      "end": 26.86,
+      "type": "spacing",
+      "logprob": -0.0025001477915793657
+    },
+    {
+      "text": "ना?",
+      "start": 26.86,
+      "end": 26.94,
+      "type": "word",
+      "logprob": -0.17810767966633043
+    },
+    {
+      "text": " ",
+      "start": 26.94,
+      "end": 27.64,
+      "type": "spacing",
+      "logprob": -0.0002632986579556018
+    },
+    {
+      "text": "लेकिन",
+      "start": 27.64,
+      "end": 27.82,
+      "type": "word",
+      "logprob": -0.0002632986579556018
+    },
+    {
+      "text": " ",
+      "start": 27.82,
+      "end": 27.86,
+      "type": "spacing",
+      "logprob": -0.00030751267331652343
+    },
+    {
+      "text": "अब",
+      "start": 27.86,
+      "end": 27.92,
+      "type": "word",
+      "logprob": -0.00030751267331652343
+    },
+    {
+      "text": " ",
+      "start": 27.92,
+      "end": 27.98,
+      "type": "spacing",
+      "logprob": -0.008625276386737823
+    },
+    {
+      "text": "ये",
+      "start": 27.98,
+      "end": 28.06,
+      "type": "word",
+      "logprob": -0.008625276386737823
+    },
+    {
+      "text": " ",
+      "start": 28.06,
+      "end": 28.1,
+      "type": "spacing",
+      "logprob": -0.006218489725142717
+    },
+    {
+      "text": "reel",
+      "start": 28.1,
+      "end": 28.28,
+      "type": "word",
+      "logprob": -0.006218489725142717
+    },
+    {
+      "text": " ",
+      "start": 28.28,
+      "end": 28.32,
+      "type": "spacing",
+      "logprob": -3.2066785934148356e-05
+    },
+    {
+      "text": "देखो।",
+      "start": 28.32,
+      "end": 29.04,
+      "type": "word",
+      "logprob": -0.0037170018622418866
+    },
+    {
+      "text": " ",
+      "start": 29.04,
+      "end": 29.1,
+      "type": "spacing",
+      "logprob": -0.0004430027911439538
+    },
+    {
+      "text": "इसके",
+      "start": 29.1,
+      "end": 29.26,
+      "type": "word",
+      "logprob": -0.0004430027911439538
+    },
+    {
+      "text": " ",
+      "start": 29.26,
+      "end": 29.28,
+      "type": "spacing",
+      "logprob": -0.00038556772051379085
+    },
+    {
+      "text": "ऊपर",
+      "start": 29.28,
+      "end": 29.42,
+      "type": "word",
+      "logprob": -0.00038556772051379085
+    },
+    {
+      "text": " ",
+      "start": 29.42,
+      "end": 29.44,
+      "type": "spacing",
+      "logprob": -3.099436753473128e-06
+    },
+    {
+      "text": "लिखा",
+      "start": 29.44,
+      "end": 29.64,
+      "type": "word",
+      "logprob": -3.099436753473128e-06
+    },
+    {
+      "text": " ",
+      "start": 29.64,
+      "end": 29.68,
+      "type": "spacing",
+      "logprob": -6.437280717364047e-06
+    },
+    {
+      "text": "है",
+      "start": 29.68,
+      "end": 29.76,
+      "type": "word",
+      "logprob": -6.437280717364047e-06
+    },
+    {
+      "text": " ",
+      "start": 29.76,
+      "end": 30.38,
+      "type": "spacing",
+      "logprob": -0.07968053966760635
+    },
+    {
+      "text": "आगरा",
+      "start": 30.38,
+      "end": 30.68,
+      "type": "word",
+      "logprob": -0.07968053966760635
+    },
+    {
+      "text": " ",
+      "start": 30.68,
+      "end": 30.7,
+      "type": "spacing",
+      "logprob": -0.12971964478492737
+    },
+    {
+      "text": "ताजमहल",
+      "start": 30.7,
+      "end": 31.14,
+      "type": "word",
+      "logprob": -0.12971964478492737
+    },
+    {
+      "text": " ",
+      "start": 31.14,
+      "end": 31.44,
+      "type": "spacing",
+      "logprob": -0.0029731853865087032
+    },
+    {
+      "text": "Mr.",
+      "start": 31.44,
+      "end": 31.5,
+      "type": "word",
+      "logprob": -0.0022307411612321935
+    },
+    {
+      "text": " ",
+      "start": 31.5,
+      "end": 31.8,
+      "type": "spacing",
+      "logprob": -0.0018128404626622796
+    },
+    {
+      "text": "Bean।",
+      "start": 31.8,
+      "end": 32.18,
+      "type": "word",
+      "logprob": -0.0029292086139321325
+    },
+    {
+      "text": " ",
+      "start": 32.18,
+      "end": 32.54,
+      "type": "spacing",
+      "logprob": -0.28452858328819275
+    },
+    {
+      "text": "[हँसने की आवाज़]",
+      "start": 32.54,
+      "end": 33.24,
+      "type": "audio_event",
+      "logprob": -0.14712996833009778
+    },
+    {
+      "text": " ",
+      "start": 33.24,
+      "end": 33.32,
+      "type": "spacing",
+      "logprob": -0.00033384948619641364
+    },
+    {
+      "text": "भाई",
+      "start": 33.32,
+      "end": 33.52,
+      "type": "word",
+      "logprob": -0.00033384948619641364
+    },
+    {
+      "text": " ",
+      "start": 33.52,
+      "end": 34.02,
+      "type": "spacing",
+      "logprob": -0.07339423149824142
+    },
+    {
+      "text": "मिलने",
+      "start": 34.02,
+      "end": 34.22,
+      "type": "word",
+      "logprob": -0.07339423149824142
+    },
+    {
+      "text": " ",
+      "start": 34.22,
+      "end": 34.26,
+      "type": "spacing",
+      "logprob": -0.0005566716426983476
+    },
+    {
+      "text": "आए",
+      "start": 34.26,
+      "end": 34.38,
+      "type": "word",
+      "logprob": -0.0005566716426983476
+    },
+    {
+      "text": " ",
+      "start": 34.38,
+      "end": 34.4,
+      "type": "spacing",
+      "logprob": -0.00015853578224778175
+    },
+    {
+      "text": "Mr.",
+      "start": 34.4,
+      "end": 34.46,
+      "type": "word",
+      "logprob": -0.00010767733707931863
+    },
+    {
+      "text": " ",
+      "start": 34.46,
+      "end": 34.68,
+      "type": "spacing",
+      "logprob": -0.00010108436981681734
+    },
+    {
+      "text": "Beast",
+      "start": 34.68,
+      "end": 34.9,
+      "type": "word",
+      "logprob": -0.00010108436981681734
+    },
+    {
+      "text": " ",
+      "start": 34.9,
+      "end": 34.98,
+      "type": "spacing",
+      "logprob": -2.9802276912960224e-06
+    },
+    {
+      "text": "से",
+      "start": 34.98,
+      "end": 35.08,
+      "type": "word",
+      "logprob": -2.9802276912960224e-06
+    },
+    {
+      "text": " ",
+      "start": 35.08,
+      "end": 35.44,
+      "type": "spacing",
+      "logprob": -0.00013493580627255142
+    },
+    {
+      "text": "और",
+      "start": 35.44,
+      "end": 35.52,
+      "type": "word",
+      "logprob": -0.00013493580627255142
+    },
+    {
+      "text": " ",
+      "start": 35.52,
+      "end": 35.56,
+      "type": "spacing",
+      "logprob": -0.0002703301142901182
+    },
+    {
+      "text": "caption",
+      "start": 35.56,
+      "end": 35.84,
+      "type": "word",
+      "logprob": -0.0002703301142901182
+    },
+    {
+      "text": " ",
+      "start": 35.84,
+      "end": 35.88,
+      "type": "spacing",
+      "logprob": -3.802703940891661e-05
+    },
+    {
+      "text": "में",
+      "start": 35.88,
+      "end": 35.94,
+      "type": "word",
+      "logprob": -3.802703940891661e-05
+    },
+    {
+      "text": " ",
+      "start": 35.94,
+      "end": 35.96,
+      "type": "spacing",
+      "logprob": -0.00015317220822907984
+    },
+    {
+      "text": "entry",
+      "start": 35.96,
+      "end": 36.18,
+      "type": "word",
+      "logprob": -0.00015317220822907984
+    },
+    {
+      "text": " ",
+      "start": 36.18,
+      "end": 36.22,
+      "type": "spacing",
+      "logprob": -2.1457441107486375e-05
+    },
+    {
+      "text": "हो",
+      "start": 36.22,
+      "end": 36.28,
+      "type": "word",
+      "logprob": -2.1457441107486375e-05
+    },
+    {
+      "text": " ",
+      "start": 36.28,
+      "end": 36.32,
+      "type": "spacing",
+      "logprob": -1.585470999998506e-05
+    },
+    {
+      "text": "गई",
+      "start": 36.32,
+      "end": 36.44,
+      "type": "word",
+      "logprob": -1.585470999998506e-05
+    },
+    {
+      "text": " ",
+      "start": 36.44,
+      "end": 36.46,
+      "type": "spacing",
+      "logprob": -3.266281055402942e-05
+    },
+    {
+      "text": "Mr.",
+      "start": 36.46,
+      "end": 36.52,
+      "type": "word",
+      "logprob": -2.7894560844288208e-05
+    },
+    {
+      "text": " ",
+      "start": 36.52,
+      "end": 36.72,
+      "type": "spacing",
+      "logprob": -0.00032085992279462516
+    },
+    {
+      "text": "Bean",
+      "start": 36.72,
+      "end": 36.84,
+      "type": "word",
+      "logprob": -0.00032085992279462516
+    },
+    {
+      "text": " ",
+      "start": 36.84,
+      "end": 36.92,
+      "type": "spacing",
+      "logprob": -0.0002325502864550799
+    },
+    {
+      "text": "की।",
+      "start": 36.92,
+      "end": 37.08,
+      "type": "word",
+      "logprob": -0.00045296330548201996
+    },
+    {
+      "text": " ",
+      "start": 37.08,
+      "end": 37.78,
+      "type": "spacing",
+      "logprob": -2.8609820219571702e-05
+    },
+    {
+      "text": "एक",
+      "start": 37.78,
+      "end": 37.88,
+      "type": "word",
+      "logprob": -2.8609820219571702e-05
+    },
+    {
+      "text": " ",
+      "start": 37.88,
+      "end": 37.92,
+      "type": "spacing",
+      "logprob": -3.0278701160568744e-05
+    },
+    {
+      "text": "नाम",
+      "start": 37.92,
+      "end": 38.1,
+      "type": "word",
+      "logprob": -3.0278701160568744e-05
+    },
+    {
+      "text": " ",
+      "start": 38.1,
+      "end": 38.16,
+      "type": "spacing",
+      "logprob": -2.861018856492592e-06
+    },
+    {
+      "text": "की",
+      "start": 38.16,
+      "end": 38.24,
+      "type": "word",
+      "logprob": -2.861018856492592e-06
+    },
+    {
+      "text": " ",
+      "start": 38.24,
+      "end": 38.28,
+      "type": "spacing",
+      "logprob": -0.008759408257901669
+    },
+    {
+      "text": "गड़बड़",
+      "start": 38.28,
+      "end": 38.5,
+      "type": "word",
+      "logprob": -0.00595088866733325
+    },
+    {
+      "text": " ",
+      "start": 38.5,
+      "end": 38.8,
+      "type": "spacing",
+      "logprob": -8.22540732769994e-06
+    },
+    {
+      "text": "और",
+      "start": 38.8,
+      "end": 38.9,
+      "type": "word",
+      "logprob": -8.22540732769994e-06
+    },
+    {
+      "text": " ",
+      "start": 38.9,
+      "end": 38.94,
+      "type": "spacing",
+      "logprob": -2.3483953555114567e-05
+    },
+    {
+      "text": "पूरा",
+      "start": 38.94,
+      "end": 39.16,
+      "type": "word",
+      "logprob": -2.3483953555114567e-05
+    },
+    {
+      "text": " ",
+      "start": 39.16,
+      "end": 39.2,
+      "type": "spacing",
+      "logprob": -0.0075217606499791145
+    },
+    {
+      "text": "comedy",
+      "start": 39.2,
+      "end": 39.44,
+      "type": "word",
+      "logprob": -0.0075217606499791145
+    },
+    {
+      "text": " ",
+      "start": 39.44,
+      "end": 39.5,
+      "type": "spacing",
+      "logprob": -6.079655122448457e-06
+    },
+    {
+      "text": "crossover",
+      "start": 39.5,
+      "end": 39.86,
+      "type": "word",
+      "logprob": -6.079655122448457e-06
+    },
+    {
+      "text": " ",
+      "start": 39.86,
+      "end": 39.92,
+      "type": "spacing",
+      "logprob": -8.332382276421413e-05
+    },
+    {
+      "text": "तैयार।",
+      "start": 39.92,
+      "end": 40.74,
+      "type": "word",
+      "logprob": -0.00043488885542804684
+    },
+    {
+      "text": " ",
+      "start": 40.74,
+      "end": 40.78,
+      "type": "spacing",
+      "logprob": -9.179073458653875e-06
+    },
+    {
+      "text": "वैसे",
+      "start": 40.78,
+      "end": 40.96,
+      "type": "word",
+      "logprob": -9.179073458653875e-06
+    },
+    {
+      "text": " ",
+      "start": 40.96,
+      "end": 41.0,
+      "type": "spacing",
+      "logprob": -0.00087878224439919
+    },
+    {
+      "text": "तुम्हें",
+      "start": 41.0,
+      "end": 41.16,
+      "type": "word",
+      "logprob": -0.00087878224439919
+    },
+    {
+      "text": " ",
+      "start": 41.16,
+      "end": 41.2,
+      "type": "spacing",
+      "logprob": -7.009260298218578e-05
+    },
+    {
+      "text": "अचानक",
+      "start": 41.2,
+      "end": 41.5,
+      "type": "word",
+      "logprob": -7.009260298218578e-05
+    },
+    {
+      "text": " ",
+      "start": 41.5,
+      "end": 41.54,
+      "type": "spacing",
+      "logprob": -2.038458114839159e-05
+    },
+    {
+      "text": "Mr.",
+      "start": 41.54,
+      "end": 41.58,
+      "type": "word",
+      "logprob": -1.45831299960264e-05
+    },
+    {
+      "text": " ",
+      "start": 41.58,
+      "end": 41.82,
+      "type": "spacing",
+      "logprob": -7.545663538621739e-05
+    },
+    {
+      "text": "Beast",
+      "start": 41.82,
+      "end": 42.02,
+      "type": "word",
+      "logprob": -7.545663538621739e-05
+    },
+    {
+      "text": " ",
+      "start": 42.02,
+      "end": 42.06,
+      "type": "spacing",
+      "logprob": -1.680836794548668e-05
+    },
+    {
+      "text": "मिल",
+      "start": 42.06,
+      "end": 42.16,
+      "type": "word",
+      "logprob": -1.680836794548668e-05
+    },
+    {
+      "text": " ",
+      "start": 42.16,
+      "end": 42.2,
+      "type": "spacing",
+      "logprob": -0.4374891221523285
+    },
+    {
+      "text": "जाएं",
+      "start": 42.2,
+      "end": 42.36,
+      "type": "word",
+      "logprob": -0.4374891221523285
+    },
+    {
+      "text": " ",
+      "start": 42.36,
+      "end": 42.76,
+      "type": "spacing",
+      "logprob": -0.0001793938863556832
+    },
+    {
+      "text": "तो",
+      "start": 42.76,
+      "end": 42.84,
+      "type": "word",
+      "logprob": -0.0001793938863556832
+    },
+    {
+      "text": " ",
+      "start": 42.84,
+      "end": 42.88,
+      "type": "spacing",
+      "logprob": -9.536738616588991e-07
+    },
+    {
+      "text": "सबसे",
+      "start": 42.88,
+      "end": 43.1,
+      "type": "word",
+      "logprob": -9.536738616588991e-07
+    },
+    {
+      "text": " ",
+      "start": 43.1,
+      "end": 43.12,
+      "type": "spacing",
+      "logprob": -8.106198947643861e-06
+    },
+    {
+      "text": "पहले",
+      "start": 43.12,
+      "end": 43.32,
+      "type": "word",
+      "logprob": -8.106198947643861e-06
+    },
+    {
+      "text": " ",
+      "start": 43.32,
+      "end": 43.34,
+      "type": "spacing",
+      "logprob": -8.106198947643861e-06
+    },
+    {
+      "text": "क्या",
+      "start": 43.34,
+      "end": 43.46,
+      "type": "word",
+      "logprob": -8.106198947643861e-06
+    },
+    {
+      "text": " ",
+      "start": 43.46,
+      "end": 43.5,
+      "type": "spacing",
+      "logprob": -0.0016349294455721974
+    },
+    {
+      "text": "पूछोगे?",
+      "start": 43.5,
+      "end": 43.86,
+      "type": "word",
+      "logprob": -0.0009576640794486073
+    },
+    {
+      "text": " ",
+      "start": 43.86,
+      "end": 43.86,
+      "type": "spacing",
+      "logprob": -0.0033062815200537443
+    },
+    {
+      "text": "Follow",
+      "start": 44.7,
+      "end": 44.86,
+      "type": "word",
+      "logprob": -0.0033062815200537443
+    },
+    {
+      "text": " ",
+      "start": 44.86,
+      "end": 44.94,
+      "type": "spacing",
+      "logprob": -0.0022611068561673164
+    },
+    {
+      "text": "GenZ",
+      "start": 44.94,
+      "end": 45.14,
+      "type": "word",
+      "logprob": -0.0775940006133169
+    },
+    {
+      "text": " ",
+      "start": 45.14,
+      "end": 45.28,
+      "type": "spacing",
+      "logprob": -0.02653415873646736
+    },
+    {
+      "text": "Short",
+      "start": 45.28,
+      "end": 45.46,
+      "type": "word",
+      "logprob": -0.02653415873646736
+    },
+    {
+      "text": " ",
+      "start": 45.46,
+      "end": 45.5,
+      "type": "spacing",
+      "logprob": -0.00011038171214750037
+    },
+    {
+      "text": "News",
+      "start": 45.5,
+      "end": 45.7,
+      "type": "word",
+      "logprob": -0.00011038171214750037
+    },
+    {
+      "text": " ",
+      "start": 45.7,
+      "end": 45.74,
+      "type": "spacing",
+      "logprob": -0.0017725008074194193
+    },
+    {
+      "text": "for",
+      "start": 45.74,
+      "end": 45.8,
+      "type": "word",
+      "logprob": -0.0017725008074194193
+    },
+    {
+      "text": " ",
+      "start": 45.8,
+      "end": 45.86,
+      "type": "spacing",
+      "logprob": -0.0007241725688800216
+    },
+    {
+      "text": "more.",
+      "start": 45.86,
+      "end": 46.04,
+      "type": "word",
+      "logprob": -0.07202731845900416
+    }
+  ],
+  "transcription_id": "uPog3NTSXlllAQ2QhqsY",
+  "audio_duration_secs": 46.1814375
+}
