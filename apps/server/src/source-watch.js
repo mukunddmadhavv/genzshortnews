@@ -10,7 +10,7 @@ export const channelTopic = id => `https://www.youtube.com/feeds/videos.xml?chan
 // Google's advertised protocol endpoint. /subscribe is also its manual UI.
 export const HUB = 'https://pubsubhubbub.appspot.com/';
 export const WEBHOOK_PROBE = '<genz-webhook-probe/>';
-const POLL_MS = 120000;
+const POLL_MS = 300000;
 const parser = new XMLParser({ignoreAttributes:false,parseTagValue:false,processEntities:false});
 let timer, current, stopping = false;
 const pending = new Set();
@@ -43,7 +43,7 @@ export async function initializeSourceWatch() {
 export async function sourceWatchStatus(channelId=SOURCE_CHANNEL) {
  const {rows:[watch]}=await query(`SELECT channel_id,title,channel_url,enabled,started_at,last_poll_at,last_webhook_at,lease_expires_at,last_error,last_verified_at,last_probe_at,webhook_count,rejected_webhook_count,last_webhook_error,subscription_error FROM source_watches WHERE channel_id=$1`,[channelId]);
  if(!watch)throw Object.assign(new Error('Channel not found.'),{status:404});
- const {rows:recent}=await query(`SELECT v.video_id,v.session_id,v.published_at,s.status,s.opencode_session_id,
+ const {rows:recent}=await query(`SELECT v.video_id,v.session_id,v.published_at,v.capture_source,s.status,s.opencode_session_id,
  (SELECT youtube_id FROM publications p WHERE p.session_id=s.id AND p.status='published' ORDER BY created_at DESC LIMIT 1) AS youtube_id,
  (SELECT privacy FROM publications p WHERE p.session_id=s.id AND p.status='published' ORDER BY created_at DESC LIMIT 1) AS actual_privacy
  FROM source_videos v JOIN sessions s ON s.id=v.session_id WHERE v.channel_id=$1 ORDER BY v.published_at DESC LIMIT 30`,[channelId]);
@@ -59,7 +59,7 @@ export async function channelDashboard() {
  count(v.video_id) FILTER (WHERE EXISTS(SELECT 1 FROM publications p WHERE p.session_id=s.id AND p.status='published'))::int AS published
  FROM source_watches w LEFT JOIN source_videos v ON v.channel_id=w.channel_id LEFT JOIN sessions s ON s.id=v.session_id
  GROUP BY w.channel_id ORDER BY w.created_at,w.channel_id`);
- const {rows:recent}=await query(`SELECT v.channel_id,v.video_id,v.session_id,v.published_at,v.created_at,s.title,s.status,s.opencode_session_id,w.title AS channel_title,
+ const {rows:recent}=await query(`SELECT v.channel_id,v.video_id,v.session_id,v.published_at,v.created_at,v.capture_source,s.title,s.status,s.opencode_session_id,w.title AS channel_title,
  (SELECT youtube_id FROM publications p WHERE p.session_id=s.id AND p.status='published' ORDER BY created_at DESC LIMIT 1) AS youtube_id
  FROM source_videos v JOIN sessions s ON s.id=v.session_id JOIN source_watches w ON w.channel_id=v.channel_id ORDER BY v.created_at DESC LIMIT 100`);
  const totals=channels.reduce((total,c)=>{
@@ -115,7 +115,8 @@ export async function setSourceWatchEnabled(enabled,channelId=SOURCE_CHANNEL) {
  return sourceWatchStatus(channelId);
 }
 
-export async function ingestEntries(entries,channelId=SOURCE_CHANNEL) {
+export async function ingestEntries(entries,channelId=SOURCE_CHANNEL,captureSource='polling') {
+ if(!['polling','webhook'].includes(captureSource))throw new Error('Invalid capture source.');
  return transaction(async client=>{
   const {rows:[watch]}=await client.query('SELECT * FROM source_watches WHERE channel_id=$1 FOR UPDATE',[channelId]);
   if(!watch?.enabled || !watch.started_at)return [];
@@ -127,22 +128,22 @@ export async function ingestEntries(entries,channelId=SOURCE_CHANNEL) {
    const sessionId=randomUUID(),jobId=randomUUID();
    await client.query(`INSERT INTO sessions(id,title,input,source_type,auto_publish,privacy) VALUES($1,$2,$3,'youtube',true,'public')`,[sessionId,entry.title,entry.url]);
    await client.query(`INSERT INTO jobs(id,session_id,kind) VALUES($1,$2,'generate')`,[jobId,sessionId]);
-   await client.query(`INSERT INTO source_videos(channel_id,video_id,session_id,published_at) VALUES($1,$2,$3,$4)`,[channelId,entry.id,sessionId,entry.published]);
-   await client.query(`INSERT INTO events(session_id,job_id,kind,message) VALUES($1,$2,'queued',$3)`,[sessionId,jobId,`Automatically detected ${watch.title} upload: ${entry.url}. New OpenCode session → indian-news-shorts → public upload.`]);
+    await client.query(`INSERT INTO source_videos(channel_id,video_id,session_id,published_at,capture_source) VALUES($1,$2,$3,$4,$5)`,[channelId,entry.id,sessionId,entry.published,captureSource]);
+    await client.query(`INSERT INTO events(session_id,job_id,kind,message) VALUES($1,$2,'queued',$3)`,[sessionId,jobId,`Automatically detected ${watch.title} upload via ${captureSource}: ${entry.url}. New OpenCode session → indian-news-shorts → public upload.`]);
    created.push(sessionId);
   }
   return created;
  });
 }
 
-async function syncFeed(channelId) {
+async function syncFeed(channelId,captureSource) {
  const started=new Date();
  // Keep the subscription topic exact; only polling requests bypass shared URL caches.
  const url=new URL(channelTopic(channelId));url.searchParams.set('_',String(started.getTime()));
  const response=await fetch(url,{signal:AbortSignal.timeout(20000),headers:{'Cache-Control':'no-cache','Pragma':'no-cache'}});
  if(!response.ok)throw new Error(`YouTube feed HTTP ${response.status}`);
  // Only the channel's freshly fetched feed can enqueue work, never webhook-supplied URLs/titles.
- await ingestEntries(feedEntries(await response.text(),channelId),channelId);
+ await ingestEntries(feedEntries(await response.text(),channelId),channelId,captureSource);
  await query('UPDATE source_watches SET last_poll_at=$2,last_error=NULL WHERE channel_id=$1',[channelId,started]);
 }
 
@@ -165,7 +166,8 @@ async function tick() {
    const force=pending.delete(watch.channel_id);
    // Receipt persists before HTTP acknowledgement. Compare with fetch START time so
    // notifications arriving during a slow fetch remain pending, including on restart.
-   if(force || !watch.last_poll_at || watch.last_webhook_at>watch.last_poll_at || Date.now()-watch.last_poll_at.getTime()>=POLL_MS)await syncFeed(watch.channel_id);
+   const webhookPending=Boolean(watch.last_webhook_at && (!watch.last_poll_at || watch.last_webhook_at>watch.last_poll_at));
+   if(force || !watch.last_poll_at || webhookPending || Date.now()-watch.last_poll_at.getTime()>=POLL_MS)await syncFeed(watch.channel_id,webhookPending?'webhook':'polling');
   }catch(error){
    const message=String(error.message).replace(/https?:\/\/\S+/g,'[url]').slice(0,500);
    console.error('Source watcher:',watch.channel_id,message);

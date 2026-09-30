@@ -83,3 +83,10 @@ ALTER TABLE source_watches ADD COLUMN IF NOT EXISTS webhook_count integer NOT NU
 ALTER TABLE source_watches ADD COLUMN IF NOT EXISTS rejected_webhook_count integer NOT NULL DEFAULT 0;
 ALTER TABLE source_watches ADD COLUMN IF NOT EXISTS last_webhook_error text;
 ALTER TABLE source_watches ADD COLUMN IF NOT EXISTS subscription_error text;
+ALTER TABLE source_videos ADD COLUMN IF NOT EXISTS capture_source text
+ CHECK (capture_source IN ('webhook','polling'));
+-- Only infer older polling captures when no webhook had arrived by capture time.
+-- Other historical rows remain NULL (shown as Unknown), rather than guessing.
+UPDATE source_videos v SET capture_source='polling' FROM source_watches w
+WHERE v.channel_id=w.channel_id AND v.capture_source IS NULL
+ AND w.last_webhook_at IS NULL;

@@ -30,6 +30,7 @@ import "./style.css";
 import "./light-theme.css";
 import "./mobile.css";
 import { Channels } from "./channels.jsx";
+import { Sessions } from "./sessions.jsx";
 
 async function api(url, body, method) {
   const response = await fetch(`/api${url}`, {
@@ -69,7 +70,7 @@ function App() {
   const [auth, setAuth] = useState(null),
     [password, setPassword] = useState(""),
     [error, setError] = useState(""),
-    [page, updatePage] = useState(() => window.location.pathname === "/channel" ? "channel" : "sessions"),
+    [page, updatePage] = useState(() => ["/channel","/channels"].includes(window.location.pathname) ? "channel" : window.location.pathname === "/connections" ? "settings" : "sessions"),
     [sessions, setSessions] = useState([]),
     [detail, setDetail] = useState(null),
     [selected, setSelected] = useState(null),
@@ -80,10 +81,10 @@ function App() {
   const fail = (e) => setError(e.message);
   const setPage = (value) => {
     updatePage(value);
-    window.history.pushState({}, "", value === "channel" ? "/channel" : "/");
+    window.history.pushState({}, "", value === "channel" ? "/channel" : value === "settings" ? "/connections" : "/sessions");
   };
   useEffect(() => {
-    const pop = () => { updatePage(window.location.pathname === "/channel" ? "channel" : "sessions"); setSelected(null); };
+    const pop = () => { updatePage(["/channel","/channels"].includes(window.location.pathname) ? "channel" : window.location.pathname === "/connections" ? "settings" : "sessions"); setSelected(null); };
     window.addEventListener("popstate", pop);
     return () => window.removeEventListener("popstate", pop);
   }, []);
@@ -205,7 +206,6 @@ function App() {
           {[
             ["sessions", Layers, "Sessions"],
             ["channel", Radio, "Channels"],
-            ["library", FolderOpen, "Media library"],
             ["settings", Settings, "Connections"],
           ].map(([id, Icon, label]) => (
             <button
@@ -302,7 +302,10 @@ function App() {
                 <LoaderCircle className="spin" /> Loading session
               </div>
             )
-          ) : page === "sessions" ? (
+           ) : page === "sessions" || page === "library" ? (
+             <Sessions sessions={sessions} api={api} create={()=>setModal(true)} refresh={refresh}
+               renderSession={(session,reload,close)=><Session key={session.id} session={session} action={action} busy={busy} back={close} refresh={reload}/>} />
+           ) : page === "legacy-sessions" ? (
             <>
               <div className="channel-banner"><img src="/branding/banner.png" alt="GENZ SHORT NEWS — Big stories. Short takes." /></div>
               <div className="page-heading">

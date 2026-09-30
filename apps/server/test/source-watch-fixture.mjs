@@ -21,6 +21,10 @@ assert.equal(session.opencode_session_id,null,'First generation starts a fresh O
 assert.equal((await query('SELECT * FROM jobs')).rows.length,1);
 assert.equal((await sourceWatchStatus()).recent.length,1);
 assert.equal((await sourceWatchStatus()).hub_secret,undefined);
+assert.equal((await sourceWatchStatus()).pollSeconds,300);
+assert.equal((await sourceWatchStatus()).recent[0].capture_source,'polling');
+await ingestEntries([entry],SOURCE_CHANNEL,'webhook');
+assert.equal((await sourceWatchStatus()).recent[0].capture_source,'polling','Duplicate webhook keeps first capture source');
 await setSourceWatchEnabled(false);assert.deepEqual(await ingestEntries([{...entry,id:'paused12345'}]),[]);
 await setSourceWatchEnabled(true);assert.deepEqual(await ingestEntries([entry]),[],'Re-enable preserves deduplication');
 
@@ -31,10 +35,13 @@ const added=await addSourceChannel(other);
 assert.equal(added.created,true);assert.equal(added.channel.enabled,true);
 assert.equal((await addSourceChannel(other)).created,false,'Duplicate channels preserve their existing watcher');
 await query("UPDATE source_watches SET started_at=now()-interval '1 hour' WHERE channel_id=$1",[other]);
-await ingestEntries([{...entry,id:'second12345',url:'https://www.youtube.com/shorts/second12345'}],other);
+await ingestEntries([{...entry,id:'second12345',url:'https://www.youtube.com/shorts/second12345'}],other,'webhook');
 const overview=await channelDashboard();
 assert.equal(overview.channels.length,2);assert.equal(overview.totals.fetched,2);assert.equal(overview.totals.in_progress,2);
 assert.equal(overview.channels.find(c=>c.channel_id===other).fetched,1);
+assert.equal(overview.recent.find(v=>v.video_id==='second12345').capture_source,'webhook');
+await ingestEntries([{...entry,id:'second12345'}],other,'polling');
+assert.equal((await sourceWatchStatus(other)).recent[0].capture_source,'webhook','Polling cannot relabel a webhook capture');
 assert.ok(!JSON.stringify(overview).includes('hub_secret'));
 await setSourceWatchEnabled(false,other);
 assert.equal((await sourceWatchStatus()).enabled,true,'Pausing one channel does not pause another');

@@ -28,6 +28,15 @@ all settings. Existing ElevenLabs settings remain in `.env`.
 
 ## Workflow
 
+The unified **/sessions** page includes production sessions and existing episode
+renders as horizontal rows. Imported episodes are merged with their linked session
+instead of appearing twice. Search titles, sources, filenames or status; filter by
+status and sort by updated/created time, title or status. **Chat / edit** expands the
+full editor inside the row, including preview, revision selection, original-session
+linking, activity, files, brief, pause/resume, publishing copy, upload options and
+upload retry. **Import / edit** links existing library renders using the existing
+idempotent importer. The old library URL opens this same unified workspace.
+
 For automatic NeonManShorts discovery and public publishing, see
 [channel automation](source-watch.md). The **Channels** page at `/channel` shows
 fetched counts, source history, health and controls for adding or pausing channels.

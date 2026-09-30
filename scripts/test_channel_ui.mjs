@@ -16,11 +16,12 @@ try {
   const req=route.request(),url=new URL(req.url());let data={};
   if(url.pathname==='/api/auth')data={authenticated:true};
   if(url.pathname==='/api/sessions')data=[];
+  if(url.pathname==='/api/library')data=[];
   if(url.pathname==='/api/settings')data={channel:'@genzshotnews',tokenPresent:true};
   if(url.pathname==='/api/channels'){
    if(req.method()==='POST'){
     const value={...channel,channel_id:'UCabcdefghijklmnopqrstuv',title:'Second channel',fetched:0,fetched_today:0,published:0,in_progress:0};channels.push(value);data={created:true,channel:value};
-   }else data={channels,totals:{fetched:4,fetched_today:2,published:1,in_progress:3,active:channels.filter(c=>c.enabled).length},recent:[]};
+   }else data={channels,pollSeconds:300,totals:{fetched:4,fetched_today:2,published:1,in_progress:3,active:channels.filter(c=>c.enabled).length},recent:[{channel_id:channel.channel_id,video_id:'abcdefghijk',title:'Polling example',capture_source:'polling',status:'ready'},{channel_id:channel.channel_id,video_id:'lmnopqrstuv',title:'Webhook example',capture_source:'webhook',status:'ready'}]};
   }
   if(req.method()==='PATCH'){const c=channels.find(c=>url.pathname.endsWith(c.channel_id));c.enabled=req.postDataJSON().enabled;data=c;}
   await route.fulfill({json:data});
@@ -28,6 +29,10 @@ try {
  await page.goto('http://127.0.0.1:4179/channel');
  await page.getByRole('heading',{name:'Channels on your radar.'}).waitFor();
  assert.equal(await page.locator('.stats > div').first().locator('strong').textContent(),'4');
+ await page.getByRole('columnheader',{name:'Captured by'}).waitFor();
+ await page.getByText('Polling',{exact:true}).waitFor();
+ await page.getByText('Webhook',{exact:true}).waitFor();
+ await page.getByText(/backup polling runs every 5 minutes/).waitFor();
  await page.getByLabel('YouTube channel',{exact:true}).fill('@SecondChannel');
  await page.getByRole('button',{name:'Add channel',exact:true}).click();
  await page.getByRole('heading',{name:'Second channel',exact:true}).waitFor();
@@ -38,7 +43,7 @@ try {
  await page.getByRole('button',{name:'Pause Second channel',exact:true}).waitFor();
  await page.reload();await page.getByRole('heading',{name:'Channels on your radar.'}).waitFor();
  await page.getByRole('button',{name:'Sessions',exact:true}).click();
- assert.equal(new URL(page.url()).pathname,'/');
+ assert.equal(new URL(page.url()).pathname,'/sessions');
  await page.goBack();await page.getByRole('heading',{name:'Channels on your radar.'}).waitFor();
  await page.setViewportSize({width:390,height:844});
  assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth),true,'Mobile page must not overflow');

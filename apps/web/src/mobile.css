@@ -11,7 +11,7 @@
  .shell{display:block;min-height:100dvh}
  .sidebar{position:fixed;top:auto;bottom:0;left:0;right:0;width:100%;min-height:0;height:auto;padding:5px max(8px,env(safe-area-inset-right)) calc(5px + env(safe-area-inset-bottom)) max(8px,env(safe-area-inset-left));border:0;border-top:1px solid #dfe5ed;box-shadow:0 -3px 16px #18345408;z-index:30;background:#fff}
  .sidebar>.brand,.sidebar>.workspace,.sidebar>.nav-label,.sidebar>.pipeline-note,.sidebar>.sidebar-bottom{display:none}
- .sidebar nav{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px}
+ .sidebar nav{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px}
  .sidebar nav button,.sidebar nav button.active{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:8px 4px;min-height:56px;font-size:11px;line-height:1.2;border:0;border-radius:9px;white-space:nowrap}
  .sidebar nav button svg{height:21px;width:21px}
  .sidebar nav em{display:none}

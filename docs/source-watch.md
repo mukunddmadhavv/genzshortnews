@@ -26,7 +26,7 @@ preserves that timestamp and catches up on unseen entries still in YouTube's fee
 - WebSub subscription verifies through `GET /webhooks/youtube/<private token>`.
   Signed POST notifications wake a fresh fetch of the canonical channel feed.
   Notification bodies never become agent prompts or generation jobs.
-- The feed is also checked every **120 seconds**, including after service restart.
+- The feed is also checked every **300 seconds (5 minutes)**, including after service restart.
   Failed requests retry automatically. Subscription leases renew automatically.
 - Only canonical `/shorts/<video ID>` entries are admitted. Titles containing
   `#shorts` or short duration alone are not treated as evidence.
@@ -65,7 +65,7 @@ session pages if needed. Generation/provider failures remain visible in Activity
 resume that session rather than creating another. Interrupted uploads use the
 existing checkpoint/retry path. Jobs are not blindly regenerated or re-uploaded.
 
-The YouTube feed retains only recent entries (currently 15). The two-minute backup
+The YouTube feed retains only recent entries (currently 15). The five-minute backup
 handles short webhook outages; a prolonged outage covering more uploads than the
 feed retains requires manual recovery of the missed URLs.
 
@@ -96,3 +96,10 @@ specified by PubSubHubbub 0.4 §8. Feed fetch and subscription errors are separa
 Polling uses a cache-busting query and revalidation headers; the subscribed topic
 never includes that query. This reduces shared-cache staleness but cannot guarantee
 YouTube publishes its feed or sends its hub notification immediately.
+
+The Fetched Shorts table includes **Captured by**: Webhook or Polling. This records
+the trigger of the feed check that first queued the Short, not every later delivery.
+Webhook-triggered checks run immediately and survive restarts. Initial channel
+checks are Polling. Duplicates never overwrite the first capture source. Older
+rows with no evidence remain Unknown; channels with no webhook history can have
+their older captures identified as Polling.
